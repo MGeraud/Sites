@@ -1,4 +1,4 @@
-package business;
+package controller;
 
 import dao.DaoException;
 import dao.UserDao;
@@ -15,7 +15,6 @@ public class InscriptionForm {
     private final String CHAMP_PASSWORD             = "password";
     private final String CHAMP_CONFIRMATION         = "confirmation";
     private final String CHAMP_NICKNAME             = "nickname";
-    private final String CHAMP_LICENCE              = "licence";
     private final String CHAMP_ASSOCIATION          = "association";
 
     private static final String ENCRYPTION_TYPE     = "SHA-256";
@@ -135,9 +134,9 @@ public class InscriptionForm {
         String password = getFormValue(request , CHAMP_PASSWORD);
         String confirmation = getFormValue(request , CHAMP_CONFIRMATION);
         String nickname = getFormValue(request, CHAMP_NICKNAME);
-        String licence = getFormValue(request , CHAMP_LICENCE);
+        String association = getFormValue(request , CHAMP_ASSOCIATION);
         Climber climber = new Climber();
-        if (licence != null) {
+        if (association != null) {
             climber.setAssociation(true);
         } else climber.setAssociation(false);
 

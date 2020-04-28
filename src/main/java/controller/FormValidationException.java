@@ -1,4 +1,4 @@
-package business;
+package controller;
 
 public class FormValidationException extends Exception {
     public FormValidationException(String message ) {

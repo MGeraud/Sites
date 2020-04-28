@@ -18,15 +18,17 @@
 <form method="post" action="<c:url value="/login"/> ">
     <fieldset>
         <legend>Connectez vous pour profiter des topos</legend>
-        <label for="nickname">Pseudo</label>
-        <input type="text" id="nickname" name="nickname" value="" size="20" maxlength="20" minlength="4"/>
+        <label for="Email">Email</label>
+        <input type="email" id="email" name="email" value="<c:out value="${climber.email}" />" size="40" maxlength="60" minlength="4" required/>
+        <span class="error">${form.errors['email']}</span>
         <br />
 
         <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" value="" size="20" maxlength="20" minlength="4" />
+        <input type="password" id="password" name="password" value="" size="40" maxlength="30" minlength="4" required />
+        <span class="error">${form.errors['password']}</span>
         <br />
 
-        <input type="submit" value="Envoyer">
+        <input type="submit" value="Se connecter">
     </fieldset>
 </form>
 </body>
