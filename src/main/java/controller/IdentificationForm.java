@@ -80,23 +80,23 @@ public class IdentificationForm {
             setErrors(CHAMP_EMAIL,e.getMessage());
             setErrors(CHAMP_PASSWORD, e.getMessage());
         }
-        ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
+
+
+        ConfigurablePasswordEncryptor passwordEncryptor =new ConfigurablePasswordEncryptor();
         passwordEncryptor.setAlgorithm( ENCRYPTION_TYPE);
         passwordEncryptor.setPlainDigest(false);
-        String encryptedPassword = passwordEncryptor.encryptPassword(password);
+        boolean decryptedPassword = passwordEncryptor.checkPassword(password,userDao.searchRegistredClimber(email).getPassword());
 
-        climber.setEmail(email);
-        climber.setPassword(encryptedPassword);
+        if (decryptedPassword) {
+                climber = userDao.searchRegistredClimber(email);
+        } else climber =null;
 
-        Climber climberTemp = userDao.searchRegistredClimber(email);
 
-        if (climberTemp != null) {
-            if (climberTemp.getPassword().equals(encryptedPassword)) {
-                climber = climberTemp;
-            } else climber =null;
-        } else {
-            climber = null;
-        }
         return climber;
+
+
+
+
+
     }
 }
