@@ -6,10 +6,17 @@ import java.io.Serializable;
 @Entity
 @DiscriminatorValue("Voie")
 public class SinglePitch extends Route implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     private int spit;
+    private int routeLength;
+
+    public int getRouteLength() {
+        return routeLength;
+    }
+
+    public void setRouteLength(int routeLength) {
+        this.routeLength = routeLength;
+    }
 
     public int getSpit() {
         return spit;
@@ -19,13 +26,4 @@ public class SinglePitch extends Route implements Serializable {
         this.spit = spit;
     }
 
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

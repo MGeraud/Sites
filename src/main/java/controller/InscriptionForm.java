@@ -11,11 +11,11 @@ import java.util.Map;
 
 public class InscriptionForm {
 
-    private final String CHAMP_EMAIL                = "email";
-    private final String CHAMP_PASSWORD             = "password";
-    private final String CHAMP_CONFIRMATION         = "confirmation";
-    private final String CHAMP_NICKNAME             = "nickname";
-    private final String CHAMP_ASSOCIATION          = "association";
+    private static final String CHAMP_EMAIL                = "email";
+    private static final String CHAMP_PASSWORD             = "password";
+    private static final String CHAMP_CONFIRMATION         = "confirmation";
+    private static final String CHAMP_NICKNAME             = "nickname";
+    private static final String CHAMP_ASSOCIATION          = "association";
 
     private static final String ENCRYPTION_TYPE     = "SHA-256";
 

@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet( urlPatterns = "/create_route")
 public class CreateRoute extends HttpServlet {
 
-    private static final String VUE                     ="/WEB-INF/registred/create_site.jsp";
+    private static final String VUE                     ="/WEB-INF/registred/create_route.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
