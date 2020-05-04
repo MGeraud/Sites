@@ -12,10 +12,10 @@ public class Topo implements Serializable {
     private int year ;
     private String topoName;
     private boolean topoAvailable ;
+    @Lob
     private String topoDescription ;
     private String topoLieu ;
     @ManyToOne
-
     private Climber climber;
 
     public int getYear() {

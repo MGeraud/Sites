@@ -13,6 +13,7 @@ public abstract class Route implements Serializable {
     private Long id;
     protected String routeName;
     protected String grade;
+    @Lob
     protected String routeDescription;
     @ManyToOne
     protected Sector sector;

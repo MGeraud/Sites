@@ -1,8 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -10,8 +8,11 @@ import java.util.Set;
 public class Place implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long placeId;
     private String placeName;
     private boolean tag;
+    @Lob
     private String placeDescription;
     @OneToMany (mappedBy = "place")
     private Set<Com> comments;
@@ -57,4 +58,10 @@ public class Place implements Serializable {
     public void setSectors(Set<Sector> sectors) {
         this.sectors = sectors;
     }
+
+
+    public Long getPlaceId() {
+        return placeId;
+    }
+
 }

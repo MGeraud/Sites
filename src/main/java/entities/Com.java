@@ -9,6 +9,7 @@ public class Com implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Lob
     private String comment;
     @ManyToOne
     private Climber climber;
