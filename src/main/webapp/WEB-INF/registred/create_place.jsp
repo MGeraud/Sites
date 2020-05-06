@@ -9,8 +9,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-        <label for="SiteName">Nom du site : </label>
-        <input type="text" id="SiteName" name="SiteName" value="<c:out value="${place.placeName}" />" size="60" maxlength="60" minlength="4" required/>
+<form method="post" action="<c:url value="/create_route"/> " >
+        <fieldset>
+                <legend>Choisissez un site existant ou créez en un nouveau</legend>
+        <label for="placeName">Nom du site : </label>
+        <input type="text" id="placeName" name="placeName" value="<c:out value="${place.placeName}" />" size="60" maxlength="60" minlength="4" required/>
         <span class="error">${form.errors['placeName']}</span>
         <br />
 
@@ -18,4 +21,7 @@
         <textarea id="placeDescription" cols="100" maxlength="3000" name="placeDescription" rows="30" spellcheck="true" required></textarea>
         <span class="error">${form.errors['placeDescription']}</span>
         <br />
+        </fieldset>
+        <input type="submit" value="Valider">
+</form>
 

@@ -16,6 +16,7 @@ public class MapsToSessionAttribute implements Filter {
 
     private static final String ATT_SESSION_PLACES          ="places";
     private PlaceDao placeDao;
+    public void init(){this.placeDao = placeDao;}
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 

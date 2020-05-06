@@ -24,7 +24,9 @@ public class HibernateUtil {
                 settings.put(Environment.PASS, "AdamOndra");
                 settings.put(Environment.DIALECT , "org.hibernate.dialect.PostgreSQL95Dialect");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS , "thread");
-                settings.put(Environment.HBM2DDL_AUTO , "upgrade");
+                settings.put(Environment.HBM2DDL_AUTO , "update");
+
+                settings.put(Environment.SHOW_SQL , "true");
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Boulder.class);

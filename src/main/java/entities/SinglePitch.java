@@ -10,6 +10,7 @@ public class SinglePitch extends Route implements Serializable {
     private int spit;
     private int routeLength;
 
+
     public int getRouteLength() {
         return routeLength;
     }

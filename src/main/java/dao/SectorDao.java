@@ -1,21 +1,28 @@
 package dao;
 
-import entities.Boulder;
 import entities.Place;
-import entities.Route;
 import entities.Sector;
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class RouteDao {
-    public void createRoute (Place place, Sector sector , Route route) throws DaoException {
+import java.util.List;
+
+public class SectorDao {
+
+    public List<Sector> listAllSectors() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.createQuery("SELECT s FROM Sector s" , Sector.class).getResultList();
+        } catch (Exception e) {
+            throw new DaoException(e);
+        }
+    }
+
+    public void createSector (Sector sector) throws DaoException {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.persist(place);
             session.persist(sector);
-            session.persist(route);
             transaction.commit();
 
         } catch (Exception e) {

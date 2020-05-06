@@ -9,8 +9,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-        <label for="SectorName">Nom du site : </label>
-        <input type="text" id="SectorName" name="SectorName" value="<c:out value="${sector.sectorName}" />" size="60" maxlength="60" minlength="4" required/>
+        <label for="sectorName">Nom du site : </label>
+        <input type="text" id="sectorName" name="sectorName" value="<c:out value="${sector.sectorName}" />" size="60" maxlength="60" minlength="4" required/>
         <span class="error">${form.errors['sectorName']}</span>
         <br />
 

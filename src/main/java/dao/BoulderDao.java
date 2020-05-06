@@ -2,14 +2,14 @@ package dao;
 
 import entities.Boulder;
 import entities.Place;
-import entities.Route;
 import entities.Sector;
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class RouteDao {
-    public void createRoute (Place place, Sector sector , Route route) throws DaoException {
+public class BoulderDao {
+
+    public void createRoute (Place place, Sector sector , Boulder route) throws DaoException {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();

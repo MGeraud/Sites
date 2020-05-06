@@ -6,17 +6,19 @@ import java.io.Serializable;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorValue("type de voie inconnu")
-public abstract class Route implements Serializable {
+public class Route implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    protected Long id;
     protected String routeName;
     protected String grade;
     @Lob
     protected String routeDescription;
     @ManyToOne
     protected Sector sector;
+
 
     public String getRouteName() {
         return routeName;
