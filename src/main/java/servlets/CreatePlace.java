@@ -15,7 +15,7 @@ import java.io.IOException;
 public class CreatePlace extends HttpServlet {
 
     public static final String ATT_PLACE          = "place";
-    public static final String VUE                = "/WEB-INF/registred/create_route.jsp";
+    public static final String VUE                = "create_route";
     private PlaceDao placeDao;
     public void init(){placeDao = new PlaceDao();}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class CreatePlace extends HttpServlet {
 
         request.setAttribute(ATT_PLACE , place);
 
-        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
+        response.sendRedirect(VUE);
 
     }
 

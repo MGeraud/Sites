@@ -29,7 +29,7 @@
                     <option value="">Choisissez un site existant dans la liste</option>
 
                     <c:forEach items="${ sessionScope.places }" var="listPlace">
-                        <option value="${ listPlace.placeName }">${ listPlace.placeName }</option>
+                        <option value="${ listPlace.placeId }">${ listPlace.placeName }</option>
                     </c:forEach>
                 </select>
 

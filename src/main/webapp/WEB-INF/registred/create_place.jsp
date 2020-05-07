@@ -9,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<form method="post" action="<c:url value="/create_route"/> " >
+<form method="post" action="<c:url value="/create_place"/> " >
         <fieldset>
                 <legend>Choisissez un site existant ou créez en un nouveau</legend>
         <label for="placeName">Nom du site : </label>

@@ -11,8 +11,9 @@ public class CreateSectorForm {
 
     private static final String CHAMP_SECTOR_NAME            ="sectorName";
     private static final String CHAMP_SECTOR_DESCRIPTION     ="sectorDescription";
-
+    private static final String CHAMP_PLACE_ID               ="placeList";
     private SectorDao sectorDao;
+    private PlaceDao placeDao = new PlaceDao();
     public CreateSectorForm (SectorDao sectorDao){this.sectorDao = sectorDao;}
 
     /* récupération des valeurs du champ du formulaire */
@@ -27,13 +28,15 @@ public class CreateSectorForm {
 
     public Sector createSector (HttpServletRequest request) {
 
+        Long placeID = Long.parseLong(getFormValue(request , CHAMP_PLACE_ID));
+        Place place = placeDao.searchPlaceById(placeID);
         String sectorName = getFormValue(request,CHAMP_SECTOR_NAME);
         String sectorDescription = getFormValue(request,CHAMP_SECTOR_DESCRIPTION);
         Sector sector = new Sector();
 
         sector.setSectorName(sectorName);
         sector.setSectorDescription(sectorDescription);
-
+        sector.setPlace(place);
         sectorDao.createSector(sector);
 
         return sector;

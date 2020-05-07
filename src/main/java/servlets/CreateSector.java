@@ -1,7 +1,11 @@
 package servlets;
 
+import controller.CreatePlaceForm;
+import controller.CreateSectorForm;
 import dao.PlaceDao;
+import dao.SectorDao;
 import entities.Place;
+import entities.Sector;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,19 +18,23 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/create_sector")
 public class CreateSector extends HttpServlet {
-    public static final String VUE                = "/WEB-INF/registred/create_route.jsp";
-    private PlaceDao placeDao;
-    public void init(){placeDao = new PlaceDao();}
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Place> places = placeDao.listAllPlaces();
-        HttpSession session = request.getSession();
 
-        session.setAttribute("places" , places);
-        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
+    public static final String ATT_SECTOR          = "sector";
+    public static final String VUE                = "create_route";
+    private SectorDao sectorDao;
+    public void init(){sectorDao = new SectorDao();}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        CreateSectorForm createSectorForm = new CreateSectorForm(sectorDao);
+        Sector sector = createSectorForm.createSector(request);
+
+        request.setAttribute(ATT_SECTOR , sector);
+
+        response.sendRedirect(VUE);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
     }
 }
