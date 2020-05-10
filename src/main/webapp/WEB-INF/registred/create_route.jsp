@@ -58,31 +58,26 @@
 <c:set var="multiPitch" value="multiPitch"/>
 <form method="post" action="<c:url value="create_route"/> ">
     <fieldset>
-        <select name="placeList">
-            <option value="">Choisissez un site existant dans la liste</option>
-            <c:forEach items="${ sessionScope.places }" var="mapPlace">
-                <option value="${ mapPlace.placeName }">${ mapPlace.placeName }</option>
-            </c:forEach>
-        </select>
+
 
         <c:choose>
             <c:when test="${requestScope.routeType eq boulder}">
-                <fieldset>
+
                 <c:import url="create_route_common.jsp"/>
                 <c:import url="create_boulder.jsp"/>
-                </fieldset>
+
             </c:when>
             <c:when test="${requestScope.routeType eq singlePitch}">
-                <fieldset>
+
                     <c:import url="create_route_common.jsp"/>
                     <c:import url="create_singlePitch.jsp"/>
-                </fieldset>
+
             </c:when>
             <c:when test="${requestScope.routeType eq multiPitch}">
-                <fieldset>
+
                     <c:import url="create_route_common.jsp"/>
                     <c:import url="create_multiPitch.jsp"/>
-                </fieldset>
+
             </c:when>
             <c:otherwise>
                 <c:out value="Merci de choisir un type de voie"/>
