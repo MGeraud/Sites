@@ -39,6 +39,23 @@
         <input type="submit" value="Valider">
     </form>
 </div>
+<div>
+    <form method="post" action="create_route">
+        <fieldset>
+        <legend>Renseignez les différents champs selon le type de voie choisie</legend>
+        <select name="routeType" id="routeType">
+            <option value="">Choisissez un type de voie</option>
+            <option value="boulder">Bloc</option>
+            <option value="singlePitch">Voie</option>
+            <option value="multiPitch">Grande voie</option>
+        </select>
+            <input type="submit" value="Valider">
+        </fieldset>
+    </form>
+</div>
+<c:set var="boulder" value="boulder"/>
+<c:set var="singlePitch" value="singlePitch"/>
+<c:set var="multiPitch" value="multiPitch"/>
 <form method="post" action="<c:url value="create_route"/> ">
     <fieldset>
         <select name="placeList">
@@ -48,40 +65,33 @@
             </c:forEach>
         </select>
 
+        <c:choose>
+            <c:when test="${requestScope.routeType eq boulder}">
+                <fieldset>
+                <c:import url="create_route_common.jsp"/>
+                <c:import url="create_boulder.jsp"/>
+                </fieldset>
+            </c:when>
+            <c:when test="${requestScope.routeType eq singlePitch}">
+                <fieldset>
+                    <c:import url="create_route_common.jsp"/>
+                    <c:import url="create_singlePitch.jsp"/>
+                </fieldset>
+            </c:when>
+            <c:when test="${requestScope.routeType eq multiPitch}">
+                <fieldset>
+                    <c:import url="create_route_common.jsp"/>
+                    <c:import url="create_multiPitch.jsp"/>
+                </fieldset>
+            </c:when>
+            <c:otherwise>
+                <c:out value="Merci de choisir un type de voie"/>
+            </c:otherwise>
+        </c:choose>
     </fieldset>
-    <fieldset>
-        <legend>Renseignez les différents champs selon le type de voie choisie</legend>
-        <select name="routeType" id="routeType">
-            <option value="">Choisissez un type de voie</option>
-            <option value="boulder">Bloc</option>
-            <option value="singlePitch">Voie</option>
-            <option value="multiPitch">Grande voie</option>
-        </select>
-        <label for="routeName">Nom de la voie :</label>
-        <input type="text" name="routeName" id="routeName" maxlength="100" minlength="2">
-        <label for="grade">Cotation</label>
-        <input type="text" name="grade" id="grade" maxlength="6">
-        <label for="routeDescription">Description</label>
-        <input type="text" name="routeDescription" id="routeDescription" maxlength="300">
-    </fieldset>
-    <fieldset>
-            <span id="sitStart">
-                <label for="sitStart">Depart assis</label>
-                <input type="checkbox" name="sitStart">
-            </span>
-        <span id="spit">
-                <label for="spit">Nombre de points</label>
-                <input type="number" name="spit" maxlength="2" size="2">
-                <label for="routeLength">Longueur de la voie</label>
-                <input type="number" id="routeLength" name="routeLength" maxlength="3" size="3">m.
-            </span>
-        <span id="numberOfPitch">
-                <label for="numberOfPitch">Nombre de relais</label>
-                <input type="number" name="numberOfPitch" maxlength="2" size="2">
-            </span>
-        <br/>
-    </fieldset>
-    <input type="submit" value="Valider">
+
+
+
 </form>
 
 

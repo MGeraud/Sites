@@ -21,6 +21,7 @@ import java.util.List;
 public class CreateRoute extends HttpServlet {
 
     public static final String ATT_PLACE          = "place";
+    public static final String ATT_ROUTE_TYPE     = "routeType";
     private RouteDao routedao;
     private PlaceDao placeDao;
 
@@ -31,12 +32,14 @@ public class CreateRoute extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/registred/create_route.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String routeType = request.getParameter("routeType");
         CreateRouteForm createRouteForm = new CreateRouteForm(routedao);
         Route route = createRouteForm.createRoute(request);
         CreatePlaceForm createPlaceForm = new CreatePlaceForm(placeDao);
         Place place = createPlaceForm.createPlace(request);
 
         request.setAttribute(ATT_PLACE , place);
+        request.setAttribute(ATT_ROUTE_TYPE,routeType);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
     }
