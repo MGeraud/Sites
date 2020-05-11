@@ -35,10 +35,9 @@ public class CreateRoute extends HttpServlet {
         String routeType = request.getParameter("routeType");
         CreateRouteForm createRouteForm = new CreateRouteForm(routedao);
         Route route = createRouteForm.createRoute(request);
-        CreatePlaceForm createPlaceForm = new CreatePlaceForm(placeDao);
-        Place place = createPlaceForm.createPlace(request);
 
-        request.setAttribute(ATT_PLACE , place);
+
+
         request.setAttribute(ATT_ROUTE_TYPE,routeType);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
