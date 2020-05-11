@@ -40,55 +40,54 @@
     </form>
 </div>
 <div>
-    <form method="post" action="create_route">
+    <form name="route_choice">
         <fieldset>
         <legend>Renseignez les différents champs selon le type de voie choisie</legend>
-        <select name="routeType" id="routeType">
-            <option value="">Choisissez un type de voie</option>
+        <select name="routeType" id="routeType" onchange="chose_route_type()">
+            <option >Choisissez un type de voie</option>
             <option value="boulder">Bloc</option>
             <option value="singlePitch">Voie</option>
             <option value="multiPitch">Grande voie</option>
         </select>
-            <input type="submit" value="Valider">
+
         </fieldset>
     </form>
 </div>
-<c:set var="boulder" value="boulder"/>
-<c:set var="singlePitch" value="singlePitch"/>
-<c:set var="multiPitch" value="multiPitch"/>
-<form method="post" action="<c:url value="create_route"/> ">
-    <fieldset>
+<div id="boulder" style="display: none">
+    <c:import url="create_route_common.jsp"/>
+    <c:import url="create_boulder.jsp"/>
+</div>
+<div id="singlePitch" style="display: none">
+    <c:import url="create_route_common.jsp"/>
+    <c:import url="create_singlePitch.jsp"/>
+</div>
+<div id="multiPitch" style="display: none">
+    <c:import url="create_route_common.jsp"/>
+    <c:import url="create_multiPitch.jsp"/>
+</div>
+
+<script type="text/javascript">
+    function chose_route_type() {
+
+        document.getElementById("boulder").style.display="none";
+        document.getElementById("singlePitch").style.display="none";
+        document.getElementById("multiPitch").style.display="none";
+        var choosen_route = document.getElementById("routeType").value;
+        switch (choosen_route) {
+            case 'boulder':
+                document.getElementById("boulder").style.display="block";
+            break;
+            case 'singlePitch' :
+                document.getElementById("singlePitch").style.display="block";
+                break;
+            case 'multiPitch':
+                document.getElementById("multiPitch").style.display="block";
+                break;
+        }
+    }
 
 
-        <c:choose>
-            <c:when test="${requestScope.routeType eq boulder}">
-
-                <c:import url="create_route_common.jsp"/>
-                <c:import url="create_boulder.jsp"/>
-
-            </c:when>
-            <c:when test="${requestScope.routeType eq singlePitch}">
-
-                    <c:import url="create_route_common.jsp"/>
-                    <c:import url="create_singlePitch.jsp"/>
-
-            </c:when>
-            <c:when test="${requestScope.routeType eq multiPitch}">
-
-                    <c:import url="create_route_common.jsp"/>
-                    <c:import url="create_multiPitch.jsp"/>
-
-            </c:when>
-            <c:otherwise>
-                <c:out value="Merci de choisir un type de voie"/>
-            </c:otherwise>
-        </c:choose>
-    </fieldset>
-
-
-
-</form>
-
+</script>
 
 </body>
 </html>
