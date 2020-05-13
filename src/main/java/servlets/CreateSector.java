@@ -19,16 +19,16 @@ import java.util.List;
 @WebServlet(urlPatterns = "/create_sector")
 public class CreateSector extends HttpServlet {
 
-    public static final String ATT_SECTOR          = "sector";
+    public static final String ATT_SECTOR          = "sectors";
     public static final String VUE                = "create_route";
     private SectorDao sectorDao;
     public void init(){sectorDao = new SectorDao();}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CreateSectorForm createSectorForm = new CreateSectorForm(sectorDao);
-        Sector sector = createSectorForm.createSector(request);
+        Sector sectors = createSectorForm.createSector(request);
 
-        request.setAttribute(ATT_SECTOR , sector);
+        request.setAttribute(ATT_SECTOR , sectors);
 
         response.sendRedirect(VUE);
 

@@ -1,13 +1,9 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-</fieldset>
-<select name="placeList">
-<option value="">Choisissez un site existant dans la liste</option>
-<c:forEach items="${ sessionScope.places }" var="mapPlace">
-    <option value="${ mapPlace.placeName }">${ mapPlace.placeName }</option>
-</c:forEach>
-</select>
+<fieldset>
+
+
 <label for="routeName">Nom de la voie :</label>
 <input type="text" name="routeName" id="routeName" maxlength="100" minlength="2">
 <label for="grade">Cotation</label>
@@ -15,3 +11,4 @@
 <label for="routeDescription">Description</label>
 <input type="text" name="routeDescription" id="routeDescription" maxlength="300">
 </fieldset>
+

@@ -24,20 +24,42 @@
     <form method="post" action="<c:url value="create_sector"/> ">
         <fieldset>
             <legend>Créez un nouveau secteur</legend>
-
+                <label for="placeListe">Choisissez un site</label>
                 <select name="placeList" id="placeListe">
-                    <option value="">Choisissez un site existant dans la liste</option>
-
                     <c:forEach items="${ sessionScope.places }" var="listPlace">
                         <option value="${ listPlace.placeId }">${ listPlace.placeName }</option>
                     </c:forEach>
                 </select>
 
             <c:import url="create_sector.jsp"/>
-
+            <br />
+            <input type="submit" value="Valider">
         </fieldset>
-        <input type="submit" value="Valider">
     </form>
+</div>
+<div>
+    <form method="post" action="<c:url value="/create_route"/>" >
+        <fieldset>
+            <label for="liste1" >Choisissez un site</label>
+        <select name="liste1" id="liste1" onchange="this.form.submit()" >
+                        <c:forEach items="${ sessionScope.places }" var="listPlace">
+                <option value="${ listPlace.placeId }"
+                        <c:if test="${listPlace.placeId eq liste1_selected_value}">selected="selected"</c:if>
+                >${ listPlace.placeName }</option>
+            </c:forEach>
+        </select>
+
+            <c:if test="${not empty requestScope.sectors}">
+            <select name="liste2" id="liste2">
+                <c:forEach items="${requestScope.sectors}" var="listSector">
+                    <option value="${listSector.id}">${listSector.sectorName}</option>
+                </c:forEach>
+            </select>
+            </c:if>
+        </fieldset>
+    </form>
+
+
 </div>
 <div>
     <form name="route_choice">

@@ -18,10 +18,11 @@
         <br />
 
         <label for="placeDescription">Description du site : </label>
-        <textarea id="placeDescription" cols="100" maxlength="3000" name="placeDescription" rows="30" spellcheck="true" required></textarea>
+        <textarea id="placeDescription" cols="100" maxlength="3000" name="placeDescription" rows="10" spellcheck="true" required></textarea>
         <span class="error">${form.errors['placeDescription']}</span>
         <br />
+                <input type="submit" value="Valider">
+
         </fieldset>
-        <input type="submit" value="Valider">
 </form>
 
