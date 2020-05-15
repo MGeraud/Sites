@@ -1,28 +1,25 @@
 package dao;
 
-import entities.Boulder;
-import entities.Place;
-import entities.Sector;
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class BoulderDao implements Dao <Boulder , Long > {
-
+public class SinglePitchDao implements Dao {
     @Override
-    public Boulder findById(Long aLong) {
+    public Object findById(Serializable serializable) {
         return null;
     }
 
     @Override
-    public List<Boulder> findAll() {
+    public List findAll() {
         return null;
     }
 
     @Override
-    public void save(Boulder entity) {
+    public void save(Object entity) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
@@ -35,17 +32,15 @@ public class BoulderDao implements Dao <Boulder , Long > {
             }
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public void update(Object entity) {
 
     }
 
     @Override
-    public void update(Boulder entity) {
+    public void delete(Object entity) {
 
     }
-
-    @Override
-    public void delete(Boulder entity) {
-
-    }
-
 }

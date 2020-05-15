@@ -16,14 +16,5 @@
     <filter-name>Set Character Encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-<!--
-  <filter>
-    <filter-name>MapsToSessionAttribute Filter</filter-name>
-    <filter-class>filters.MapsToSessionAttribute</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>MapsToSessionAttribute Filter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
--->
+
 </web-app>
