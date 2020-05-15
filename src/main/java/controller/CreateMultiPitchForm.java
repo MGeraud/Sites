@@ -1,6 +1,7 @@
 package controller;
 
 import dao.Dao;
+import dao.MultiPitchDao;
 import dao.SectorDao;
 import entities.MultiPitch;
 import entities.Sector;
@@ -13,11 +14,11 @@ public class CreateMultiPitchForm {
     private static final String CHAMP_GRADE                 ="grade";
     private static final String CHAMP_ROUTE_DESCRIPTION     ="routeDescription";
     private static final String CHAMP_NUMBER_OF_PITCH       ="numberOfPitch" ;
-    private Dao dao;
+    private Dao dao ;
     private SectorDao sectorDao = new SectorDao();
 
-    public CreateMultiPitchForm(Dao dao) {
-        this.dao = dao;
+    public CreateMultiPitchForm() {
+        dao = new MultiPitchDao();
     }
 
     /* récupération des valeurs du champ du formulaire */

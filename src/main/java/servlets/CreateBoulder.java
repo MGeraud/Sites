@@ -25,8 +25,6 @@ public class CreateBoulder extends HttpServlet {
         CreateBoulderForm  createBoulderForm= new CreateBoulderForm(dao);
         createBoulderForm.createBoulder(request);
 
-
         response.sendRedirect(VUE);
-
     }
 }

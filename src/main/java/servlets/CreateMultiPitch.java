@@ -18,13 +18,11 @@ import java.io.IOException;
 public class CreateMultiPitch extends HttpServlet {
 
     public static final String VUE                = "create_route";
-    private Dao dao;
 
-    public void init(){dao = new MultiPitchDao();}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        CreateMultiPitchForm createMultiPitchForm= new CreateMultiPitchForm(dao);
+        CreateMultiPitchForm createMultiPitchForm= new CreateMultiPitchForm();
         createMultiPitchForm.createMultiPitch(request);
 
         response.sendRedirect(VUE);

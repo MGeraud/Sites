@@ -13,7 +13,7 @@ public class CreateBoulderForm {
     private static final String CHAMP_GRADE                 ="grade";
     private static final String CHAMP_ROUTE_DESCRIPTION     ="routeDescription";
     private static final String CHAMP_SIT_START             ="sitStart";
-    private Dao dao;
+    private Dao dao ;
     private SectorDao sectorDao = new SectorDao();
 
     public CreateBoulderForm(Dao dao) {
