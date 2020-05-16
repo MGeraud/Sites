@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-public class UserDao {
+public class UserDao{
 
     /* Creation et inscription utilisateur */
 

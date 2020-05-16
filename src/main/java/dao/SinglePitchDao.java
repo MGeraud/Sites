@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SinglePitchDao implements Dao {
     @Override
-    public Object findById(Serializable serializable) {
+    public Object findById() {
         return null;
     }
 

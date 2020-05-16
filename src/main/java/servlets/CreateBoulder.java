@@ -18,11 +18,10 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/create_boulder")
 public class CreateBoulder extends HttpServlet {
     public static final String VUE                = "create_route";
-    private BoulderDao dao;
-    public void init(){dao = new BoulderDao();}
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        CreateBoulderForm  createBoulderForm= new CreateBoulderForm(dao);
+        CreateBoulderForm  createBoulderForm= new CreateBoulderForm();
         createBoulderForm.createBoulder(request);
 
         response.sendRedirect(VUE);

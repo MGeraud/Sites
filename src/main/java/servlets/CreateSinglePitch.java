@@ -14,11 +14,9 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/create_singlePitch")
 public class CreateSinglePitch extends HttpServlet {
     public static final String VUE                = "create_route";
-    private Dao dao;
 
-    public void init(){dao = new SinglePitchDao();}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CreateSinglePitchForm createSinglePitchForm= new CreateSinglePitchForm(dao);
+        CreateSinglePitchForm createSinglePitchForm= new CreateSinglePitchForm();
         createSinglePitchForm.createMultiPitch(request);
         response.sendRedirect(VUE);
 

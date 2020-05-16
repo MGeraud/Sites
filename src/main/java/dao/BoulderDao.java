@@ -9,10 +9,10 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class BoulderDao implements Dao <Boulder , Long > {
+public class BoulderDao implements Dao <Boulder > {
 
     @Override
-    public Boulder findById(Long aLong) {
+    public Boulder findById() {
         return null;
     }
 

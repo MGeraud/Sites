@@ -4,9 +4,9 @@ import entities.Topo;
 
 import java.util.List;
 
-public class TopoDao implements Dao<Topo,Long> {
+public class TopoDao implements Dao<Topo> {
     @Override
-    public Topo findById(Long aLong) {
+    public Topo findById() {
         return null;
     }
 
