@@ -2,11 +2,12 @@ package dao;
 
 import java.util.List;
 
-public interface ClimberDao <T>{
+public abstract class ClimberDao <T >{
 
-    T findById();
-    List<T> findAll();
-    void save(T entity);
-    void update(T entity);
-    void delete(T entity);
+    public abstract T findById();
+    public abstract List<T> findAll();
+    public abstract List<T> findByClimber(String email);
+    public abstract void save(T entity);
+    public abstract void update(T entity);
+    public abstract void delete(T entity);
 }

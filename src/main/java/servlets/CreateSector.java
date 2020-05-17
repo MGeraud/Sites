@@ -33,8 +33,4 @@ public class CreateSector extends HttpServlet {
         response.sendRedirect(VUE);
 
     }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
-    }
 }

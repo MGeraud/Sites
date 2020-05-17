@@ -5,7 +5,6 @@ import dao.DaoFactory;
 import dao.SectorDao;
 import entities.Sector;
 import entities.SinglePitch;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**

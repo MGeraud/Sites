@@ -26,10 +26,5 @@ public class CreatePlace extends HttpServlet {
         request.setAttribute(ATT_PLACE , place);
 
         response.sendRedirect(VUE);
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
     }
 }

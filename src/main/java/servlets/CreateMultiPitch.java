@@ -19,7 +19,6 @@ public class CreateMultiPitch extends HttpServlet {
 
     public static final String VUE                = "create_route";
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CreateMultiPitchForm createMultiPitchForm= new CreateMultiPitchForm();
@@ -27,5 +26,4 @@ public class CreateMultiPitch extends HttpServlet {
 
         response.sendRedirect(VUE);
     }
-
 }

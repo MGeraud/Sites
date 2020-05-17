@@ -9,6 +9,10 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
+/**
+ * Configuration d'hibernate : connection à la base de données , entiés mappées
+ * Creation d'instance de session d'hibernate
+ */
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 

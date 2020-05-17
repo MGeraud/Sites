@@ -29,7 +29,10 @@ public class CreateRoute extends HttpServlet {
     }
     private static final String VUE                     ="/WEB-INF/registred/create_route.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        /**
+        * Récupération du site sélectionné pour ensuite récupérer la liste des secteurs de ce site
+         *et pouvoir les afficher en liste déroulante via les attributs de requete
+        */
         String liste1SelectedValue = request.getParameter("liste1");
         Long liste1Long = Long.parseLong(liste1SelectedValue);
         List<Sector> sectors = sectorDao.listSectorFromPlace(liste1Long);
@@ -40,10 +43,11 @@ public class CreateRoute extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /**
+         * récupération et mise en session de la liste des sites pour y accèder en liste déroulante
+         */
         List<Place> places = placeDao.listAllPlaces();
-
         HttpSession session = request.getSession();
-
         session.setAttribute("places" , places);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);

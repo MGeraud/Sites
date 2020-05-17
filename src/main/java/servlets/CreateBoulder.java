@@ -17,6 +17,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/create_boulder")
 public class CreateBoulder extends HttpServlet {
+
     public static final String VUE                = "create_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

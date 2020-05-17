@@ -14,7 +14,7 @@ public class Topo implements Serializable {
     private boolean topoAvailable ;
     @Lob
     private String topoDescription ;
-    private String topoLieu ;
+    private String topoPlace;
     @ManyToOne
     private Climber climber;
 
@@ -50,12 +50,12 @@ public class Topo implements Serializable {
         this.topoDescription = topoDescription;
     }
 
-    public String getTopoLieu() {
-        return topoLieu;
+    public String getTopoPlace() {
+        return topoPlace;
     }
 
-    public void setTopoLieu(String topoLieu) {
-        this.topoLieu = topoLieu;
+    public void setTopoPlace(String topoLieu) {
+        this.topoPlace = topoLieu;
     }
 
     public Climber getClimber() {
