@@ -1,22 +1,24 @@
 package dao;
 
-import entities.Climber;
-import entities.Place;
 import entities.Topo;
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.NoResultException;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class TopoDao extends ClimberDao<Topo>  {
     private static final String PARAMETER_email                      = "email";
+    private static final String PARAMETER_id                    = "id";
 
     @Override
-    public Topo findById() {
-        return null;
+    public Topo findById(Long id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.createQuery("SELECT t FROM Topo t WHERE t.id=:id "  , Topo.class).setParameter(PARAMETER_id,id).getSingleResult();
+        } catch (Exception e) {
+            throw new DaoException(e);
+        }
+
     }
 
     @Override
@@ -31,30 +33,15 @@ public class TopoDao extends ClimberDao<Topo>  {
         } catch (Exception e) {
             throw new DaoException(e);
         }
-       /* Transaction transaction = null;
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-
-             =  session.get(Climber.class , email);
-            transaction.commit();
-        } catch (NoResultException e) {
-            return null;
-        }catch (Exception e) {
-            if (transaction != null){
-                transaction.rollback();
-            }
-            throw new DaoException(e);
-        }
-        return climber; */
     }
 
     @Override
-    public void save(Topo entity) {
+    public void save(Topo topo) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.persist(entity);
+            session.persist(topo);
             transaction.commit();
 
         } catch (Exception e) {
@@ -66,8 +53,19 @@ public class TopoDao extends ClimberDao<Topo>  {
     }
 
     @Override
-    public void update(Topo entity) {
+    public void update(Topo topo) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            transaction = session.beginTransaction();
+            session.merge(topo);
+            transaction.commit();
 
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new DaoException(e);
+        }
     }
 
     @Override

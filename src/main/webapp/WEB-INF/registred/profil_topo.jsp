@@ -27,24 +27,28 @@
         <c:out value="Vous n'avez aucun topo enregistré pour le moment."/>
     </c:when>
     <c:otherwise>
-        <table>
-            <tr>
-                <th>Titre</th>
-                <th>Lieu</th>
-                <th>Edition</th>
-                <th>Disponibilité</th>
-                <th>Description</th>
-            </tr>
-            <c:forEach items="${requestScope.topos}" var="topos" varStatus="colorLoop" >
-                <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
-                    <td><c:out value="${topos.topoName}"/></td>
-                    <td><c:out value="${topos.topoPlace}"/> </td>
-                    <td><c:out value="${topos.year}"/> </td>
-                    <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
-                    <td><c:out value="${topos.topoDescription}"/> </td>
+        <form method="post"  action="<c:url value="updateTopoAvailability"/>" >
+            <table >
+                <tr>
+                    <th>Titre</th>
+                    <th>Lieu</th>
+                    <th>Edition</th>
+                    <th>Disponibilité</th>
+                    <th>Modifier disponibilité</th>
+                    <th>Description</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach items="${requestScope.topos}" var="topos" varStatus="colorLoop" >
+                    <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
+                        <td><c:out value="${topos.topoName}"/></td>
+                        <td><c:out value="${topos.topoPlace}"/> </td>
+                        <td><c:out value="${topos.year}"/> </td>
+                        <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
+                        <td><input name="topos" id="topos" type="hidden" value="<c:out value="${topos.id}"/>"><input type="button" name="changeAvailable" id="changeAvailable" value="Modifier" onclick="this.form.submit()" ></td>
+                        <td><c:out value="${topos.topoDescription}"/> </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </form>
     </c:otherwise>
 </c:choose>
 

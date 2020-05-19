@@ -1,8 +1,7 @@
 package dao;
 
 import entities.Boulder;
-import entities.Place;
-import entities.Sector;
+
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

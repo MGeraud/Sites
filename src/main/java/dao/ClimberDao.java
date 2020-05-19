@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class ClimberDao <T >{
 
-    public abstract T findById();
+    public abstract T findById(Long id);
     public abstract List<T> findAll();
     public abstract List<T> findByClimber(String email);
     public abstract void save(T entity);
