@@ -50,7 +50,10 @@ public class TopoDao extends ClimberDao<Topo>  {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
 
 
-            return session.createQuery("SELECT t FROM Topo t WHERE t.topoName=:topoName AND t.topoPlace=:topoPlace"  , Topo.class)
+            return session.createQuery("SELECT t FROM Topo t " +
+                    "WHERE (t.topoName=:topoName OR :topoName is null) " +
+                    "AND (t.topoPlace=:topoPlace OR :topoPlace is null)"
+                    , Topo.class)
                     .setParameter(PARAMETER_topoName,topoName)
                     .setParameter(PARAMETER_topoPlace,topoPlace)
                     .getResultList();

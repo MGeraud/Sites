@@ -36,7 +36,7 @@ public class UserDao{
 
     public Climber searchClimber (String email) throws DaoException {
         Transaction transaction = null;
-        Climber climber = null;
+        Climber climber;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
@@ -56,7 +56,7 @@ public class UserDao{
 
     public Climber searchRegistredClimber (String email ) throws DaoException {
         Transaction transaction = null;
-        Climber climber = null;
+        Climber climber;
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();

@@ -3,7 +3,7 @@
 
 <form method="post" action="<c:url value="create_multiPitch"/>">
     <c:if test="${not empty requestScope.sectors}">
-                <select name="liste2" id="liste2">
+                <select name="liste2" id="liste2" required>
                     <c:forEach items="${requestScope.sectors}" var="listSector">
                         <option value="${listSector.id}">${listSector.sectorName}</option>
                     </c:forEach>
