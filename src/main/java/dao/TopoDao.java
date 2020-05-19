@@ -1,15 +1,20 @@
 package dao;
 
+import entities.Place;
 import entities.Topo;
 import hibernate.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class TopoDao extends ClimberDao<Topo>  {
-    private static final String PARAMETER_email                      = "email";
-    private static final String PARAMETER_id                    = "id";
+    private static final String PARAMETER_email                         = "email";
+    private static final String PARAMETER_id                            = "id";
+    private static final String PARAMETER_topoName                      = "topoName";
+    private static final String PARAMETER_topoPlace                     = "topoPlace";
+
 
     @Override
     public Topo findById(Long id) {
@@ -23,7 +28,11 @@ public class TopoDao extends ClimberDao<Topo>  {
 
     @Override
     public List<Topo> findAll() {
-        return null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.createQuery("SELECT t FROM Topo t" , Topo.class).getResultList();
+        } catch (Exception e) {
+            throw new DaoException(e);
+        }
     }
 
     @Override
@@ -34,6 +43,20 @@ public class TopoDao extends ClimberDao<Topo>  {
             throw new DaoException(e);
         }
 
+    }
+
+    @Override
+    public List<Topo> findBy2Parameters(String topoName, String topoPlace) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+
+
+            return session.createQuery("SELECT t FROM Topo t WHERE t.topoName=:topoName AND t.topoPlace=:topoPlace"  , Topo.class)
+                    .setParameter(PARAMETER_topoName,topoName)
+                    .setParameter(PARAMETER_topoPlace,topoPlace)
+                    .getResultList();
+        } catch (Exception e) {
+            throw new DaoException(e);
+        }
     }
 
     @Override

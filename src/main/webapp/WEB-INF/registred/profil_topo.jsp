@@ -73,7 +73,7 @@
         <label for="topoDescription">Description</label>
         <textarea id="topoDescription" cols="100" maxlength="300" name="topoDescription"  spellcheck="true" ></textarea>
         <br/>
-        <input type="submit" value="S'inscrire">
+        <input type="submit" value="Enregistrer">
     </fieldset>
 </form>
 </div>
