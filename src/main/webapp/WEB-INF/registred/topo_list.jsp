@@ -36,26 +36,30 @@
     </form>
 </c:if>
 <c:if test="${not empty requestScope.selected_topos}">
-    <table >
-        <tr>
-            <th>Titre</th>
-            <th>Lieu</th>
-            <th>Edition</th>
-            <th>Disponibilité</th>
-            <th>Personne à contacter</th>
-            <th>Description</th>
-        </tr>
-        <c:forEach items="${requestScope.selected_topos}" var="selected_topos" varStatus="colorLoop" >
-            <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
-                <td><c:out value="${selected_topos.topoName}"/></td>
-                <td><c:out value="${selected_topos.topoPlace}"/> </td>
-                <td><c:out value="${selected_topos.year}"/> </td>
-                <td><c:out value="${selected_topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
-                <td><c:out value="${selected_topos.climber.email}"/></td>
-                <td><c:out value="${selected_topos.topoDescription}"/> </td>
+    <form method="post" action="<c:out value="book_topo"/>">
+        <table >
+            <tr>
+                <th>Titre</th>
+                <th>Lieu</th>
+                <th>Edition</th>
+                <th>Disponibilité</th>
+                <th>Personne à contacter</th>
+                <th>Description</th>
+                <th>Demande de réservation</th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${requestScope.selected_topos}" var="selected_topos" varStatus="colorLoop" >
+                <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
+                    <td><c:out value="${selected_topos.topoName}"/></td>
+                    <td><c:out value="${selected_topos.topoPlace}"/> </td>
+                    <td><c:out value="${selected_topos.year}"/> </td>
+                    <td><c:out value="${selected_topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
+                    <td><c:out value="${selected_topos.climber.email}"/></td>
+                    <td><c:out value="${selected_topos.topoDescription}"/> </td>
+                    <td><input name="selected_topos" id="selected_topos" type="hidden" value="<c:out value="${selected_topos.id}"/>"><input type="button" name="booking" id="booking" value="Réserver" onclick="this.form.submit()" ></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </form>
 </c:if>
 </body>
 </html>

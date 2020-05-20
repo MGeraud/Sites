@@ -27,7 +27,7 @@
         <c:out value="Vous n'avez aucun topo enregistré pour le moment."/>
     </c:when>
     <c:otherwise>
-        <form method="post"  action="<c:url value="updateTopoAvailability"/>" >
+
             <table >
                 <tr>
                     <th>Titre</th>
@@ -35,6 +35,7 @@
                     <th>Edition</th>
                     <th>Disponibilité</th>
                     <th>Modifier disponibilité</th>
+                    <!--<th>Réservation en attente</th> -->
                     <th>Description</th>
                 </tr>
                 <c:forEach items="${requestScope.topos}" var="topos" varStatus="colorLoop" >
@@ -43,12 +44,24 @@
                         <td><c:out value="${topos.topoPlace}"/> </td>
                         <td><c:out value="${topos.year}"/> </td>
                         <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
-                        <td><input name="topos" id="topos" type="hidden" value="<c:out value="${topos.id}"/>"><input type="button" name="changeAvailable" id="changeAvailable" value="Modifier" onclick="this.form.submit()" ></td>
+                        <td>
+                            <a href="<c:url value="/updateTopoAvailability"><c:param name="topos" value="${topos.id}"/></c:url>">
+                                <c:out value="Modifier"/>
+                            </a>
+                        </td>
+                        <!-- <td><c:choose>
+                            <c:when test="${topos.booking}">
+                                <input name="booked" id="booked" type="hidden" value="<c:out value="${topos.id}"/>">
+                                <input type="button" name="acceptBooking" id="acceptBooking" value="Accepter la réservation" onclick="this.form.submit()" >
+                            </c:when>
+                            <c:otherwise></c:otherwise>
+                        </c:choose> -->
+                        </td>
                         <td><c:out value="${topos.topoDescription}"/> </td>
                     </tr>
                 </c:forEach>
             </table>
-        </form>
+
     </c:otherwise>
 </c:choose>
 
@@ -82,6 +95,7 @@
     function display_add_form() {
 
         document.getElementById("addTopo").style.display="block";
+        document.getElementById("Add").style.display="none";
 
     }
 

@@ -69,6 +69,7 @@ public class TopoDao extends ClimberDao<Topo>  {
             transaction = session.beginTransaction();
             session.persist(topo);
             transaction.commit();
+            session.close();
 
         } catch (Exception e) {
             if (transaction != null) {

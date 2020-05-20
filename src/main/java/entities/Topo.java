@@ -12,6 +12,7 @@ public class Topo implements Serializable {
     private int year ;
     private String topoName;
     private boolean topoAvailable ;
+    private boolean booking = false;
     @Lob
     private String topoDescription ;
     private String topoPlace;
@@ -72,5 +73,13 @@ public class Topo implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isBooking() {
+        return booking;
+    }
+
+    public void setBooking(boolean booking) {
+        this.booking = booking;
     }
 }
