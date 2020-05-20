@@ -19,7 +19,7 @@ public class UpdateTopoAvailability extends HttpServlet {
     private static final String VUE                     ="profil_topo";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
+
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UpdateTopoAvailabilityForm updateTopoAvailability = new UpdateTopoAvailabilityForm();
