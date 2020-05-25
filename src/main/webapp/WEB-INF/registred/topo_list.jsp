@@ -55,7 +55,13 @@
                     <td><c:out value="${selected_topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
                     <td><c:out value="${selected_topos.climber.email}"/></td>
                     <td><c:out value="${selected_topos.topoDescription}"/> </td>
-                    <td><input name="selected_topos" id="selected_topos" type="hidden" value="<c:out value="${selected_topos.id}"/>"><input type="button" name="booking" id="booking" value="Réserver" onclick="this.form.submit()" ></td>
+                    <td>
+                        <a href="<c:url value="/book_topo"><c:param name="book_topo" value="${selected_topos.id}"/></c:url>">
+                            <input type="button" value="Réserver"/>
+                        </a>
+                    </td>
+
+
                 </tr>
             </c:forEach>
         </table>

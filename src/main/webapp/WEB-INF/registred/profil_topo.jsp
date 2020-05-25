@@ -33,6 +33,7 @@
                 <a href="<c:url value="/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
                     <c:out value="Accepter la réservation"/>
                 </a>
+                <br />
             </c:if>
         </c:forEach>
 
@@ -57,14 +58,6 @@
                             <a href="<c:url value="/updateTopoAvailability"><c:param name="topos" value="${topos.id}"/></c:url>">
                                 <c:out value="Modifier"/>
                             </a>
-                        </td>
-                        <!-- <td><c:choose>
-                            <c:when test="${topos.booking}">
-                                <input name="booked" id="booked" type="hidden" value="<c:out value="${topos.id}"/>">
-                                <input type="button" name="acceptBooking" id="acceptBooking" value="Accepter la réservation" onclick="this.form.submit()" >
-                            </c:when>
-                            <c:otherwise></c:otherwise>
-                        </c:choose> -->
                         </td>
                         <td><c:out value="${topos.topoDescription}"/> </td>
                     </tr>
