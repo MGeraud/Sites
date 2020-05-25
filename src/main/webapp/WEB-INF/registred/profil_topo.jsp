@@ -27,6 +27,15 @@
         <c:out value="Vous n'avez aucun topo enregistré pour le moment."/>
     </c:when>
     <c:otherwise>
+        <c:forEach items="${requestScope.topos}" var="bookedTopo" varStatus="colorLoop" >
+            <c:if test="${bookedTopo.booking}">
+                <c:out value="Une demande de réservation pour le topo ${bookedTopo.topoName} a été faite, le demandeur va vous contacter par email. "/>
+                <a href="<c:url value="/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
+                    <c:out value="Accepter la réservation"/>
+                </a>
+            </c:if>
+        </c:forEach>
+
 
             <table >
                 <tr>

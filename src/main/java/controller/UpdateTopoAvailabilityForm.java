@@ -11,6 +11,8 @@ public class UpdateTopoAvailabilityForm {
 
     private static final String CHAMP_SELECTED_TOPO     ="selected_topos";
     private static final String CHAMP_TOPOS             = "topos";
+    private static final String CHAMP_BOOKED_TOPO     ="bookedTopo";
+
     private final ClimberDao<Topo> climberDao = DaoFactory.getTopoDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
@@ -42,4 +44,12 @@ public class UpdateTopoAvailabilityForm {
         climberDao.update(topo);
     }
 
+    public void acceptBooking(HttpServletRequest request) {
+
+        Long  topoId = Long.parseLong(getFormValue(request,CHAMP_BOOKED_TOPO));
+        Topo topo = climberDao.findById(topoId);
+        topo.setBooking(false);
+        topo.setTopoAvailable(false);
+        climberDao.update(topo);
+    }
 }
