@@ -11,6 +11,7 @@ public class Com implements Serializable {
     private Long id;
     @Lob
     private String comment;
+    private String modifiedBy;
     @ManyToOne
     private Climber climber;
     @ManyToOne
@@ -22,6 +23,14 @@ public class Com implements Serializable {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 
     public Climber getClimber() {
