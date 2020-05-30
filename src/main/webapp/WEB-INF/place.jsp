@@ -19,10 +19,22 @@
 </div>
 <div>
     <h4>Secteur</h4>
-    <c:forEach items="${visitedPlace.sectors}" var="visitedSectors">
+    <c:forEach items="${sessionScope.visitedSectors}" var="visitedSectors">
         <c:out value="${visitedSectors.sectorName}"/>
         <br />
         <c:out value="${visitedSectors.sectorDescription}"/>
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Type de voie</th>
+                <th>Cotation</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        <c:forEach items="${sessionScope.visitedRoutes}" var="visitedRoutes" varStatus="colorLoop">
+
+        </c:forEach>
+        </table>
     </c:forEach>
 </div>
 </body>
