@@ -31,7 +31,7 @@
             <c:if test="${bookedTopo.booking}">
                 <c:out value="Une demande de réservation pour le topo ${bookedTopo.topoName} a été faite, le demandeur va vous contacter par email. "/>
                 <a href="<c:url value="/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
-                    <c:out value="Accepter la réservation"/>
+                    <input type="button" value="Accepter la réservation"/>
                 </a>
                 <br />
             </c:if>
@@ -56,7 +56,7 @@
                         <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
                         <td>
                             <a href="<c:url value="/updateTopoAvailability"><c:param name="topos" value="${topos.id}"/></c:url>">
-                                <c:out value="Modifier"/>
+                                <input type="button" value="Modifier"/>
                             </a>
                         </td>
                         <td><c:out value="${topos.topoDescription}"/> </td>
