@@ -42,7 +42,6 @@ public class TopoDao extends ClimberDao<Topo>  {
         } catch (Exception e) {
             throw new DaoException(e);
         }
-
     }
 
     @Override

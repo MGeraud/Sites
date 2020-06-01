@@ -4,9 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorValue("type de voie inconnu")
-public class Route implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Route implements Serializable {
 
 
     @Id
