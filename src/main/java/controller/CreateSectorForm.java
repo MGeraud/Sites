@@ -7,8 +7,13 @@ import entities.Sector;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Traitement du formulaire de création d'un nouveau site
+ * Appel a PlaceDao pour mettre en base de données le nouveau site
+ */
 public class CreateSectorForm {
 
+    /* noms des champs définis dans la jsp */
     private static final String CHAMP_SECTOR_NAME            ="sectorName";
     private static final String CHAMP_SECTOR_DESCRIPTION     ="sectorDescription";
     private static final String CHAMP_PLACE_ID               ="placeList";
@@ -16,7 +21,7 @@ public class CreateSectorForm {
     private PlaceDao placeDao = new PlaceDao();
     public CreateSectorForm (SectorDao sectorDao){this.sectorDao = sectorDao;}
 
-    /* récupération des valeurs du champ du formulaire */
+    /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {
         String value = request.getParameter(lineName);
         if (value == null || value.trim().length() == 0 ) {
@@ -26,6 +31,10 @@ public class CreateSectorForm {
         }
     }
 
+    /**
+     * récupération des valeurs des champs pour les attribuer à l'entité Sector avant de la sauvegarder en bdd
+     * Utilisation de placeDao pour rechercher le site auquel sera lié le secteur via l'Id du site récupérée dans la liste déroulante
+     */
     public Sector createSector (HttpServletRequest request) {
 
         Long placeID = Long.parseLong(getFormValue(request , CHAMP_PLACE_ID));

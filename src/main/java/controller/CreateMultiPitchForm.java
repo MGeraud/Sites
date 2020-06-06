@@ -53,6 +53,7 @@ public class CreateMultiPitchForm {
         multiPitch.setRouteName(routeName);
         multiPitch.setGrade(grade);
         multiPitch.setSector(sector);
+        multiPitch.setRouteType("Grande Voie");
 
         dao.save(multiPitch);
     }

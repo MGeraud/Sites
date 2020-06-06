@@ -9,8 +9,12 @@ public class DaoFactory {
         return new BoulderDao();
     }
 
-    public static Dao getSinglePitchDao() {
+    public static Dao getSinglePitchDao(){
         return new SinglePitchDao();
+    }
+
+    public static Dao getRouteDao(){
+        return new RouteDao();
     }
 
     public static ClimberDao getUserDao(){

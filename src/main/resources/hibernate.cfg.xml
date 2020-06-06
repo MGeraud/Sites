@@ -3,18 +3,18 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <!-- JDBC Database connection settings -->
+        <!-- informations de connection à la database -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.url">jdbc:postgresql://localhost:5432/amis_escalade</property>
         <property name="connection.username">admin_escalade</property>
         <property name="connection.password">AdamOndra</property>
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
-        <!-- Select our SQL dialect -->
+        <!-- Selection du dialect  -->
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
-        <!-- Echo the SQL to stdout -->
+        <!-- Visulalisation des logs de requete sql -->
         <property name="show_sql">true</property>
-        <!-- Set the current session context -->
+        <!-- Selection du contexte de session -->
         <property name="current_session_context_class">thread</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
@@ -24,6 +24,7 @@
         <property name="hibernate.dbcp.maxIdle">10</property>
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+        <!-- entites mappées -->
         <mapping class="entities.Boulder" />
         <mapping class="entities.Climber" />
         <mapping class="entities.Com" />

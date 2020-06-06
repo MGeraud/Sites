@@ -57,6 +57,7 @@ public class CreateSinglePitchForm {
         singlePitch.setRouteName(routeName);
         singlePitch.setGrade(grade);
         singlePitch.setSector(sector);
+        singlePitch.setRouteType("Voie Sportive");
 
         dao.save(singlePitch);
     }

@@ -52,7 +52,7 @@ public class InscriptionForm {
         }
     }
 
-    /*
+    /**
     Methodes de validation du remplissage des differents champs du formulaire avec creation de messages specifique selon les erreurs
      */
 

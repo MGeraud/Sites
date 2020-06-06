@@ -2,14 +2,16 @@ package controller;
 
 import dao.ClimberDao;
 import dao.DaoFactory;
-import entities.Boulder;
 import entities.Climber;
-import entities.Sector;
 import entities.Topo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Traitement du formulaire de création d'un nouveau topo
+ * Appel a climberDao pour mettre en base de données le nouveau topo
+ */
 public class CreateTopoForm {
 
     public static final String ATT_REGISTRED_SESSION            ="sessionUtilisateur";
@@ -36,6 +38,7 @@ public class CreateTopoForm {
 
     /**
      * récupération des valeurs des champs pour les attribuer à l'entité topo avant de la sauvegarder en bdd
+     * récupération du grimpeur enregistré en session pour lui lier le topo
      */
     public void createTopo(HttpServletRequest request) {
 

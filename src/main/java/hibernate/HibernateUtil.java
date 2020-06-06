@@ -7,8 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
- * Configuration d'hibernate : connection à la base de données , entiés mappées
- * Creation d'instance de session d'hibernate
+ * Creation de Factory de Session hibernate
  */
 public class HibernateUtil {
     private static StandardServiceRegistry registry;
@@ -34,9 +33,5 @@ public class HibernateUtil {
         }
         return sessionFactory;
     }
-    public static void shutdown() {
-        if (registry != null) {
-            StandardServiceRegistryBuilder.destroy(registry);
-        }
-    }
+
 }

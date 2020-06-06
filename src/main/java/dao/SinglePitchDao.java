@@ -43,4 +43,9 @@ public class SinglePitchDao implements Dao {
     public void delete(Object entity) {
 
     }
+
+    @Override
+    public List findByMultiParameters(String string, String string2, String string3, String string4) {
+        return null;
+    }
 }

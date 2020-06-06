@@ -47,4 +47,9 @@ public class BoulderDao implements Dao <Boulder > {
 
     }
 
+    @Override
+    public List<Boulder> findByMultiParameters(String string, String string2, String string3, String string4) {
+        return null;
+    }
+
 }

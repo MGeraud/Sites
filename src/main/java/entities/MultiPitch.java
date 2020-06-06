@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@DiscriminatorValue("Grande voie")
 public class MultiPitch extends Route implements Serializable {
 
 

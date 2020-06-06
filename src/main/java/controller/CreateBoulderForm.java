@@ -37,7 +37,7 @@ public class CreateBoulderForm {
     }
 
     /**
-     * récupération des valeurs des champs pour les attribuer à l'entité boulder aveant de la sauvegarder en bdd
+     * récupération des valeurs des champs pour les attribuer à l'entité boulder avant de la sauvegarder en bdd
      */
     public void createBoulder(HttpServletRequest request) {
 
@@ -54,7 +54,7 @@ public class CreateBoulderForm {
         boulder.setRouteName(routeName);
         boulder.setGrade(grade);
         boulder.setSector(sector);
-
+        boulder.setRouteType("Bloc");
         dao.save(boulder);
     }
 }

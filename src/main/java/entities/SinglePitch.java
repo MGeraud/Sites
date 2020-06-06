@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@DiscriminatorValue("Voie")
 public class SinglePitch extends Route implements Serializable {
 
     private int spit;

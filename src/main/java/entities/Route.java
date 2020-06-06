@@ -13,6 +13,7 @@ public abstract class Route implements Serializable {
     protected Long id;
     protected String routeName;
     protected String grade;
+    protected String routeType;
     @Lob
     protected String routeDescription;
     @ManyToOne
@@ -57,5 +58,13 @@ public abstract class Route implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getRouteType() {
+        return routeType;
+    }
+
+    public void setRouteType(String routeType) {
+        this.routeType = routeType;
     }
 }

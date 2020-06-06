@@ -61,7 +61,7 @@
             <select name="routeType" id="routeType" onchange="chose_route_type()">
                 <option >Choisissez un type de voie</option>
                 <option value="boulder">Bloc</option>
-                <option value="singlePitch">Voie</option>
+                <option value="singlePitch">Voie sportive</option>
                 <option value="multiPitch">Grande voie</option>
             </select>
             <div id="boulder" style="display: none">
