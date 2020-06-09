@@ -2,6 +2,7 @@ package controller;
 
 import dao.PlaceDao;
 import entities.Place;
+import entities.Region;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,6 +14,7 @@ public class CreatePlaceForm {
 
     /* noms des champs définis dans la jsp */
     private static final String CHAMP_PLACE_NAME            ="placeName";
+    private static final String CHAMP_PLACE_REGION            ="placeRegion";
     private static final String CHAMP_PLACE_DESCRIPTION     ="placeDescription";
 
     private PlaceDao placeDao;
@@ -34,10 +36,12 @@ public class CreatePlaceForm {
     public Place createPlace (HttpServletRequest request) {
 
         String placeName = getFormValue(request,CHAMP_PLACE_NAME);
+        String placeRegion = getFormValue(request,CHAMP_PLACE_REGION);
         String placeDescription = getFormValue(request,CHAMP_PLACE_DESCRIPTION);
         Place place = new Place();
 
         place.setPlaceName(placeName);
+        place.setRegion(Region.valueOf(placeRegion));
         place.setPlaceDescription(placeDescription);
 
         placeDao.createPlace(place);

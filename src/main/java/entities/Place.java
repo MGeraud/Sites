@@ -12,6 +12,8 @@ public class Place implements Serializable {
     private Long placeId;
     private String placeName;
     private boolean tag;
+    @Enumerated(EnumType.STRING)
+    private  Region region;
     @Lob
     private String placeDescription;
     @OneToMany (mappedBy = "place")
@@ -59,9 +61,15 @@ public class Place implements Serializable {
         this.sectors = sectors;
     }
 
-
     public Long getPlaceId() {
         return placeId;
     }
 
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
 }
