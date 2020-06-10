@@ -4,6 +4,7 @@ package servlets;
 import dao.PlaceDao;
 import dao.SectorDao;
 import entities.Place;
+import entities.Region;
 import entities.Sector;
 
 import javax.servlet.ServletException;
@@ -49,6 +50,8 @@ public class CreateRoute extends HttpServlet {
         List<Place> places = placeDao.listAllPlaces();
         HttpSession session = request.getSession();
         session.setAttribute("places" , places);
+
+        session.setAttribute("regions" , Region.getMapRegions());
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
     }

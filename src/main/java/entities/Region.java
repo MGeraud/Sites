@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Region {
     Auvergne("Auvergne-Rhône-Alpes") ,
     Bourgogne("Bourgogne-Franche-Comté"),
@@ -17,7 +20,7 @@ public enum Region {
     DOM("DOM-TOM") ,
     Etranger ("Etranger");
 
-    private String region ;
+    private final String region ;
 
     Region(String region){
         this.region = region;
@@ -25,5 +28,17 @@ public enum Region {
 
     public String getRegion() {
         return region;
+    }
+
+    private static final Map<String , String> mapRegions = new HashMap<>();
+
+    static {
+        for (Region r : values()) {
+            mapRegions.put(r.region , r.name());
+        }
+    }
+
+    public static Map<String, String> getMapRegions() {
+        return mapRegions;
     }
 }

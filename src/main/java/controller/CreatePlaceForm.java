@@ -14,7 +14,7 @@ public class CreatePlaceForm {
 
     /* noms des champs définis dans la jsp */
     private static final String CHAMP_PLACE_NAME            ="placeName";
-    private static final String CHAMP_PLACE_REGION            ="placeRegion";
+    private static final String CHAMP_PLACE_REGION            ="regions";
     private static final String CHAMP_PLACE_DESCRIPTION     ="placeDescription";
 
     private PlaceDao placeDao;

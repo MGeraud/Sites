@@ -9,14 +9,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<form method="post" action="<c:url value="/create_place"/> ">
-    <fieldset>
-        <legend>Choisissez un site existant ou créez en un nouveau</legend>
-
-        <label for="regions">Choisissez une région</label>
-        <select name="regions" id="regions">
-            <c:out value="" ></c:out> // mettre la liste de toutes les régions ou faire une boucle sur l'enum
-        </select>
 
         <label for="placeName">Nom du site : </label>
         <input type="text" id="placeName" name="placeName" value="<c:out value="${place.placeName}" />" size="60"
@@ -29,8 +21,8 @@
                   required></textarea>
         <span class="error">${form.errors['placeDescription']}</span>
         <br/>
-        <input type="submit" value="Valider">
 
-    </fieldset>
-</form>
+
+
+
 

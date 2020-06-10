@@ -1,10 +1,8 @@
 package controller;
 
-import dao.ClimberDao;
 import dao.Dao;
 import dao.DaoFactory;
 import entities.FoundRoute;
-import entities.Topo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -14,9 +12,9 @@ import java.util.List;
  */
 public class FindRouteForm {
     /* noms des champs définis dans la jsp */
-    private final static String CHAMP_BY_PLACE          ="byPlace";
-    private final static String CHAMP_BY_ROUTE_TYPE     ="byRouteType";
-    private final static String CHAMP_BY_RATE           ="byRate";
+    private final static String CHAMP_BY_REGION          ="byRegion";
+    private final static String CHAMP_BY_ROUTE_TYPE      ="byRouteType";
+    private final static String CHAMP_BY_GRADE           ="byGrade";
     private final static String CHAMP_COUNTAIN_TEXT     ="coutainText";
 
     /*instanciation des différents Dao via la factory */
@@ -38,12 +36,23 @@ public class FindRouteForm {
      */
     public List<FoundRoute> getFoundRoute (HttpServletRequest request) {
 
-        String byPlace = getFormValue(request,CHAMP_BY_PLACE);
+        String byRegion = getFormValue(request,CHAMP_BY_REGION);
         String byRouteType = getFormValue(request, CHAMP_BY_ROUTE_TYPE);
-        String byRate = getFormValue(request,CHAMP_BY_RATE);
+        if (byRouteType.equals("AllRouteType")){ byRouteType = null; }
+        String byGrade = getFormValue(request, CHAMP_BY_GRADE);
+        if (byGrade == null ) {
+            byGrade = "%";
+        } else {
+            byGrade = "%" + byGrade + "%" ;
+        }
         String countainText = getFormValue(request,CHAMP_COUNTAIN_TEXT);
+        if (countainText == null) {
+            countainText = "%" ;
+        } else {
+            countainText = "%" + countainText + "%";
+        }
 
-        List<FoundRoute> foundRoutes = dao.findByMultiParameters( byPlace , byRouteType , byRate , countainText );
+        List<FoundRoute> foundRoutes = dao.findByMultiParameters( byRegion , byRouteType , byGrade , countainText );
 
         return foundRoutes;
     }

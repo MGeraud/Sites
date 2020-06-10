@@ -15,12 +15,11 @@
     <form method="post" name="find_route_form" action="<c:url value="/findRouteForm"/> ">
         <fieldset>
             <legend><c:out value="Cherchez votre futur spot à partir d'un ou plusieurs critères "/> </legend>
-            <!-- liste déroulante choix de site parmis les sites connus -->
-            <label for="byPlace">Choix du site</label>
-            <select name="byPlace" id="byPlace">
-                <option value="<c:out value="AllSites"/>">Tous les sites</option>
-                <c:forEach items="${ sessionScope.places }" var="listPlace">
-                    <option value="${ listPlace.placeId }">${ listPlace.placeName }</option>
+            <!-- liste déroulante choix des régions -->
+            <label for="byRegion">Choix de la région</label>
+            <select name="byRegion" id="byRegion" required>
+                <c:forEach items="${ sessionScope.regions }" var="regions">
+                    <option  value="${regions.value}">${regions.key}</option>
                 </c:forEach>
             </select>
             <!-- liste déroulante choix par type de voie -->
@@ -32,13 +31,13 @@
                 <option value="<c:out value="Grande Voie"/>">Grande Voie</option>
             </select>
             <!-- champ de saisie pour recherche par cotation précise ou par crénau basé sur le chiffre -->
-            <label for="byRate">Cotation (cotation précise ou uniquement le chiffre)</label>
-            <input type="text" name="byRate" id="byRate" maxlength="12"/>
+            <label for="byGrade">Cotation (cotation précise ou uniquement le chiffre)</label>
+            <input type="text" name="byGrade" id="byGrade" maxlength="12"/>
             <!-- champ de saisie texte pour une recherche par mot clé , exemple partie du nom de la voie -->
             <label for="coutainText">Recherche par mot clé</label>
             <input type="text" name="coutainText" id="coutainText" maxlength="50">
+            <input type="submit" value="Rechercher">
         </fieldset>
-        <input type="submit" value="Rechercher">
     </form>
 </body>
 </html>

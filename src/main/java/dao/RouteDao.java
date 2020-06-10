@@ -1,6 +1,8 @@
 package dao;
 
-import entities.Topo;
+import entities.FoundRoute;
+import entities.Region;
+import entities.Route;
 import hibernate.HibernateUtil;
 import org.hibernate.Session;
 
@@ -8,27 +10,36 @@ import java.util.List;
 
 public class RouteDao implements Dao{
 
+    private final String PARAMETER_REGION           ="byregion";
+    private final String PARAMETER_ROUTE_TYPE       ="byRouteType";
+
+
     @Override
-    public List findByMultiParameters(String string, String string2, String string3, String string4) {
-       /*try (Session session = HibernateUtil.getSessionFactory().openSession()){
+    public List findByMultiParameters(String byregion, String byRouteType, String byGrade, String countainText) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
 
-           return session.createNativeQuery("SELECT place.placeid,place.placename,route.dtype,route.routename,route.grade " +
-                            "FROM place " +
-                            "JOIN route " +
-                            "WHERE (placeid = ?1 OR ?1 is null) " +
-                            "AND (route.dtype = ?2 OR ?2 is null)" +
-                            "AND (route.grade = )"
+            return session.createQuery("SELECT new entities.FoundRoute(route.sector.place.placeId , route.sector.place.placeName , route.routeType , route.routeName , route.grade) " +
+                            "FROM Route route "   +
+                            " WHERE route.sector.place.region= :byregion "   +
+                            " AND (route.routeType= :byRouteType OR :byRouteType is null ) "  +
+                            " AND (route.grade LIKE  ?3 ) "  +
+                            " AND (( route.routeName  LIKE ?4 ) "  +
+                            " OR ( route.sector.sectorName LIKE ?4 ) " +
+                            " OR ( route.sector.place.placeName LIKE ?4 ) " +
+                            " OR ( route.routeDescription LIKE ?4 )) "
 
-                    , Topo.class)
-                    .setParameter(PARAMETER_topoName,topoName)
-                    .setParameter(PARAMETER_topoPlace,topoPlace)
+                    , FoundRoute.class)
+                    .setParameter( PARAMETER_REGION , Region.valueOf(byregion))
+                         .setParameter(PARAMETER_ROUTE_TYPE, byRouteType)
+                         .setParameter(3, byGrade )
+                         .setParameter(4, countainText)
                     .getResultList();
         } catch (Exception e) {
             throw new DaoException(e);
-        } */
-        return null;
+        }
     }
+
 
     @Override
     public Object findById() {

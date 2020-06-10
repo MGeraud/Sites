@@ -16,7 +16,21 @@
 </head>
 <body>
     <div id="newPlace">
-        <c:import url="create_place.jsp"/>
+        <form method="post" action="<c:url value="create_place"/> ">
+            <fieldset>
+                <legend>Créez un nouveau site</legend>
+                <label for="regions">Choisissez une région</label>
+                <select name="regions" id="regions">
+                    <c:forEach items="${sessionScope.regions}" var="regions">
+                        <option  value="${regions.value}">${regions.key}</option>
+                    </c:forEach>
+                </select>
+                <br/>
+            <c:import url="create_place.jsp"/>
+            <br/>
+            <input type="submit" value="Valider">
+            </fieldset>
+        </form>
     </div>
     <div id="newSector">
         <form method="post" action="<c:url value="create_sector"/> ">

@@ -10,6 +10,14 @@
 <html>
 <head>
     <title>Topo List</title>
+    <style type="text/css">
+        tr.pair{
+            background-color: #d7d6d6;
+        }
+        tr.impair{
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 
