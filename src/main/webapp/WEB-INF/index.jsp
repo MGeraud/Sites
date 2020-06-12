@@ -47,7 +47,9 @@
                     <td><c:out value="${foundRoutes.foundRouteName}"/></td>
                     <td><c:out value="${foundRoutes.foundRouteGrade}"/></td>
                     <td>
+                        <a href="<c:url value="/placeDescription"><c:param name="placeID" value="${foundRoutes.foundPlaceId}"/></c:url>">
                         <input type="button" value="Voir les Détails du site">
+                        </a>
                     </td>
                 </tr>
             </c:forEach>

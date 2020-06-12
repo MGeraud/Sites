@@ -14,6 +14,7 @@
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <!-- Visulalisation des logs de requete sql -->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <!-- Selection du contexte de session -->
         <property name="current_session_context_class">thread</property>
         <!-- Drop and re-create the database schema on startup -->

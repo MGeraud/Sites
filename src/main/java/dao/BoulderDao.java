@@ -52,4 +52,9 @@ public class BoulderDao implements Dao <Boulder > {
         return null;
     }
 
+    @Override
+    public List<Boulder> findById(Long id) {
+        return null;
+    }
+
 }

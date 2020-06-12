@@ -11,4 +11,5 @@ public interface Dao<T> {
     void update(T entity);
     void delete(T entity);
     List<T> findByMultiParameters(String string , String string2 , String string3 , String string4 );
+    List<T> findById(Long id);
 }
