@@ -3,6 +3,7 @@ package dao;
 import Utils.HibernateUtil;
 import entities.Com;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -21,7 +22,19 @@ public class ComDao implements Dao<Com>{
     }
 
     @Override
-    public void save(Com entity) {
+    public void save(Com com) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            transaction = session.beginTransaction();
+            session.persist(com);
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new DaoException(e);
+        }
 
     }
 

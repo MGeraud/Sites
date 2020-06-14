@@ -91,12 +91,6 @@ public class IdentificationForm {
                 climber = userDao.searchRegistredClimber(email);
         } else climber =null;
 
-
         return climber;
-
-
-
-
-
     }
 }

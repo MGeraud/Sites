@@ -24,7 +24,7 @@
     <table>
         <tr>
             <th>
-                <h2><c:out value="${sessionScope.place.placeName}" /></h2>
+                <h1><c:out value="${sessionScope.place.placeName}" /></h1>
             </th>
         </tr>
         <tr>
@@ -34,15 +34,21 @@
         </tr>
     </table>
 <br />
-
+<c:if test="${sessionScope.place.tag}" >
+    <h1><c:out value="YOUHOU C'EST TAGGUÉ !!!!"/></h1>
+</c:if>
+    <a href="<c:url value="/updatePlaceTag"><c:param name="updatePlaceTag" value="${sessionScope.place.placeId}"/></c:url>">
+        <input type="button" value="Modifier Tag"/>
+    </a>
 </div>
 <div>
-    <h4>Secteurs</h4>
+    <h2>Secteurs</h2>
+    <br/>
     <c:forEach items="${sessionScope.sectors}" var="visitedSectors">
-        <c:out value="${visitedSectors.sectorName}"/>
-        <br />
+        <h3><c:out value="${visitedSectors.sectorName}"/></h3>
 
         <c:out value="${visitedSectors.sectorDescription}"/>
+        <br/>
         <table>
             <tr>
                 <th>Nom</th>
@@ -58,8 +64,17 @@
                 <td><c:out value="${visitedRoutes.grade}"/> </td>
                 <td><c:out value="${visitedRoutes.routeDescription}"/> </td>
             </c:forEach>
-        </table> 
+        </table>
+        <br/>
     </c:forEach>
+</div>
+<div>
+    <form method="post" action="<c:url value="placeDescription"/> ">
+        <label for="addComment">Entrez votre commentaire </label>
+        <br/>
+        <textarea id="addComment" maxlength="280" rows="5" name="addComment" ></textarea>
+        <input type="submit" value="Enregistrer"  >
+    </form>
 </div>
 </body>
 </html>

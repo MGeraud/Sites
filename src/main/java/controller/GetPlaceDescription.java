@@ -3,16 +3,14 @@ package controller;
 import dao.Dao;
 import dao.DaoFactory;
 import dao.SectorDao;
+import entities.Climber;
 import entities.Com;
 import entities.Place;
-import entities.Route;
 import entities.Sector;
-import org.hibernate.Hibernate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Set;
 
 /** Chargement en mémoire du site dont on veut la description avec ses secteurs, voies et commentaires
  * A partir de son Id récupérée dans la jsp index
@@ -22,10 +20,14 @@ public class GetPlaceDescription {
     /* nom de champ à récupérer dans la jsp */
     private static final String CHAMP_PLACE_ID      = "placeID";
 
-    /* nom des attributs de sessions à enregistrer */
+    /* nom des attributs de sessions à enregistrer ou récupérer */
     private static final String ATTRIBUT_PLACE                  ="place";
     private static final String ATTRIBUT_SECTORS                ="sectors";
     private static final String ATTRIBUT_COMS                   ="coms";
+    public static final String ATT_REGISTRED_SESSION    ="sessionUtilisateur";
+    public static final String ATTRIBUT_ADD_COMMENT    ="addComment";
+
+
 
     private SectorDao dao = DaoFactory.getSectorDao();
     private Dao<Place> placeDao = DaoFactory.getPlaceDao();
@@ -59,5 +61,46 @@ public class GetPlaceDescription {
         session.setAttribute(ATTRIBUT_COMS , coms);
     }
 
+    /**
+     * Changement de déclaration du tag "site officiel"
+     */
+    public void updatePlaceTag (HttpServletRequest request) {
 
+        /*
+        récupération du site affiché et en fonction de la valeur de son tag, on l'inverse
+         */
+        HttpSession session = request.getSession();
+        Place place = (Place) session.getAttribute(ATTRIBUT_PLACE);
+        if (place.isTag()){
+            place.setTag(false);
+        } else {
+            place.setTag(true);
+        }
+        placeDao.update(place);
+    }
+
+    /**
+     * Ajout de commentaires liées au site affiché et au grimpeur connecté
+     */
+    public void addComment (HttpServletRequest request) {
+
+
+        /*
+        récupération du site, du commentaire et du grimpeur
+         */
+        HttpSession session = request.getSession();
+        Place place = (Place) session.getAttribute(ATTRIBUT_PLACE);
+        Climber climber = (Climber) session.getAttribute(ATT_REGISTRED_SESSION);
+        String addedCom = getFormValue(request,ATTRIBUT_ADD_COMMENT);
+
+        /*
+        creation du commentaire à persister
+         */
+        Com com = new Com();
+        com.setClimber(climber);
+        com.setComment(addedCom);
+        com.setPlace(place);
+        comDao.save(com);
+
+    }
 }

@@ -15,7 +15,12 @@ import java.io.IOException;
 public class PlaceDescription extends HttpServlet {
 
     public static final String VUE          ="/WEB-INF/place.jsp";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
+        getPlaceDescription.addComment(request);
+
+        this.getServletContext().getRequestDispatcher(VUE).forward(request,response);
 
     }
 

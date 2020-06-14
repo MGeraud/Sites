@@ -60,7 +60,18 @@ public class PlaceDao implements Dao <Place>{
 
     @Override
     public void update(Place place) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            transaction = session.beginTransaction();
+            session.update(place);
+            transaction.commit();
 
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new DaoException(e);
+        }
     }
 
     @Override
