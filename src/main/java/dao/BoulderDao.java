@@ -2,7 +2,7 @@ package dao;
 
 import entities.Boulder;
 
-import hibernate.HibernateUtil;
+import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -10,8 +10,9 @@ import java.util.List;
 
 public class BoulderDao implements Dao <Boulder > {
 
+
     @Override
-    public Boulder findById() {
+    public Boulder findById(Long id) {
         return null;
     }
 
@@ -53,7 +54,7 @@ public class BoulderDao implements Dao <Boulder > {
     }
 
     @Override
-    public List<Boulder> findById(Long id) {
+    public List<Boulder> findByPlaceId(Long id) {
         return null;
     }
 

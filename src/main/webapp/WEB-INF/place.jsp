@@ -10,18 +10,38 @@
 <html>
 <head>
     <title>Place presentation</title>
+    <style type="text/css">
+        tr.pair{
+            background-color: #d7d6d6;
+        }
+        tr.impair{
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-<h2><c:out value="${visitedPlace.placeName}" /></h2>
-<br />
 <div>
-    <c:out value="${visitedPlace.placeDescription}"/>
+    <table>
+        <tr>
+            <th>
+                <h2><c:out value="${sessionScope.place.placeName}" /></h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <c:out value="${sessionScope.place.placeDescription}"/>
+            </td>
+        </tr>
+    </table>
+<br />
+
 </div>
 <div>
-    <h4>Secteur</h4>
-    <c:forEach items="${sessionScope.visitedSectors}" var="visitedSectors">
+    <h4>Secteurs</h4>
+    <c:forEach items="${sessionScope.sectors}" var="visitedSectors">
         <c:out value="${visitedSectors.sectorName}"/>
         <br />
+
         <c:out value="${visitedSectors.sectorDescription}"/>
         <table>
             <tr>
@@ -31,10 +51,14 @@
                 <th>Description</th>
                 <th></th>
             </tr>
-        <c:forEach items="${sessionScope.visitedRoutes}" var="visitedRoutes" varStatus="colorLoop">
-
-        </c:forEach>
-        </table>
+        <c:forEach items="${visitedSectors.routes}" var="visitedRoutes" varStatus="colorLoop">
+            <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
+                <td><c:out value="${visitedRoutes.routeName}"/> </td>
+                <td><c:out value="${visitedRoutes.routeType}"/> </td>
+                <td><c:out value="${visitedRoutes.grade}"/> </td>
+                <td><c:out value="${visitedRoutes.routeDescription}"/> </td>
+            </c:forEach>
+        </table> 
     </c:forEach>
 </div>
 </body>

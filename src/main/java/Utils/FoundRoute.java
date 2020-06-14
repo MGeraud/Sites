@@ -1,4 +1,4 @@
-package entities;
+package Utils;
 
 public class FoundRoute {
 
@@ -20,39 +20,19 @@ public class FoundRoute {
         return foundPlaceId;
     }
 
-    public void setFoundPlaceId(Long foundPlaceId) {
-        this.foundPlaceId = foundPlaceId;
-    }
-
     public String getFoundPlaceName() {
         return foundPlaceName;
-    }
-
-    public void setFoundPlaceName(String foundPlaceName) {
-        this.foundPlaceName = foundPlaceName;
     }
 
     public String getFoundRouteType() {
         return foundRouteType;
     }
 
-    public void setFoundRouteType(String foundRouteType) {
-        this.foundRouteType = foundRouteType;
-    }
-
     public String getFoundRouteName() {
         return foundRouteName;
     }
 
-    public void setFoundRouteName(String foundRouteName) {
-        this.foundRouteName = foundRouteName;
-    }
-
     public String getFoundRouteGrade() {
         return foundRouteGrade;
-    }
-
-    public void setFoundRouteGrade(String foundRouteGrade) {
-        this.foundRouteGrade = foundRouteGrade;
     }
 }

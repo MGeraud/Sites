@@ -17,6 +17,10 @@ public class DaoFactory {
         return new RouteDao();
     }
 
+    public static Dao getPlaceDao(){
+        return new PlaceDao();
+    }
+
     public static ClimberDao getUserDao(){
         return null;
     }
@@ -24,4 +28,8 @@ public class DaoFactory {
     public static ClimberDao getTopoDao(){
         return new TopoDao();
     }
+
+    public static ComDao getComDao() { return new ComDao();}
+
+    public static SectorDao getSectorDao() { return new SectorDao();}
 }

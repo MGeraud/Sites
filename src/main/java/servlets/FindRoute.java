@@ -1,7 +1,7 @@
 package servlets;
 
 import controller.FindRouteForm;
-import entities.FoundRoute;
+import Utils.FoundRoute;
 import entities.Region;
 
 import javax.servlet.ServletException;

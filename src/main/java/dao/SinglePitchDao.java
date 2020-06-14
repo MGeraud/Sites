@@ -1,15 +1,14 @@
 package dao;
 
-import hibernate.HibernateUtil;
+import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class SinglePitchDao implements Dao {
     @Override
-    public Object findById() {
+    public Object findById(Long id) {
         return null;
     }
 
@@ -50,7 +49,7 @@ public class SinglePitchDao implements Dao {
     }
 
     @Override
-    public List findById(Long id) {
+    public List findByPlaceId(Long id) {
         return null;
     }
 }

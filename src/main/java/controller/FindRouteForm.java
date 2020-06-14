@@ -2,7 +2,7 @@ package controller;
 
 import dao.Dao;
 import dao.DaoFactory;
-import entities.FoundRoute;
+import Utils.FoundRoute;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

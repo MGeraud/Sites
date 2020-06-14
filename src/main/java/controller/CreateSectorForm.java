@@ -38,7 +38,7 @@ public class CreateSectorForm {
     public Sector createSector (HttpServletRequest request) {
 
         Long placeID = Long.parseLong(getFormValue(request , CHAMP_PLACE_ID));
-        Place place = placeDao.searchPlaceById(placeID);
+        Place place = placeDao.findById(placeID);
         String sectorName = getFormValue(request,CHAMP_SECTOR_NAME);
         String sectorDescription = getFormValue(request,CHAMP_SECTOR_DESCRIPTION);
         Sector sector = new Sector();

@@ -47,7 +47,7 @@ public class CreateRoute extends HttpServlet {
         /**
          * récupération et mise en session de la liste des sites pour y accèder en liste déroulante
          */
-        List<Place> places = placeDao.listAllPlaces();
+        List<Place> places = placeDao.findAll();
         HttpSession session = request.getSession();
         session.setAttribute("places" , places);
 

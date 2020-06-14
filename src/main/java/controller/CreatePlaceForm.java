@@ -44,7 +44,7 @@ public class CreatePlaceForm {
         place.setRegion(Region.valueOf(placeRegion));
         place.setPlaceDescription(placeDescription);
 
-        placeDao.createPlace(place);
+        placeDao.save(place);
 
         return place;
     }

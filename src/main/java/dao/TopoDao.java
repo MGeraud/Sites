@@ -1,9 +1,7 @@
 package dao;
 
-import entities.Place;
 import entities.Topo;
-import hibernate.HibernateUtil;
-import org.hibernate.Criteria;
+import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

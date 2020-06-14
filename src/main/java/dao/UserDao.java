@@ -1,12 +1,11 @@
 package dao;
 
 import entities.Climber;
-import hibernate.HibernateUtil;
+import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 
 public class UserDao{
 
