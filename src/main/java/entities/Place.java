@@ -17,7 +17,6 @@ public class Place implements Serializable {
     @Enumerated(EnumType.STRING)
     private  Region region;
     @Lob
-    @Column(name = "place_description")
     private String placeDescription;
     @OneToMany (mappedBy = "place")
     private Set<Com> comments;

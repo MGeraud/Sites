@@ -16,7 +16,6 @@ public class Topo implements Serializable {
     private boolean topoAvailable ;
     private boolean booking = false;
     @Lob
-    @Column(name = "topo_description")
     private String topoDescription ;
     @Column(name = "topo_place")
     private String topoPlace;

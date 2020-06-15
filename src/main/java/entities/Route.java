@@ -17,7 +17,6 @@ public abstract class Route implements Serializable {
     @Column(name = "route_type")
     protected String routeType;
     @Lob
-    @Column(name = "route_description")
     protected String routeDescription;
     @ManyToOne
     protected Sector sector;

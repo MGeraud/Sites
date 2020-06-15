@@ -50,21 +50,6 @@
         </form>
     </div>
     <div>
-        <form method="post" action="<c:url value="/create_route"/>" >
-            <fieldset>
-                <label for="liste1" >Choisissez un site</label>
-                <select name="liste1" id="liste1" onchange="this.form.submit()" >
-                    <c:forEach items="${ sessionScope.places }" var="listPlace">
-                        <option value="${ listPlace.placeId }"
-                                <c:if test="${listPlace.placeId eq liste1_selected_value}">selected="selected"</c:if>
-                        >${ listPlace.placeName }</option>
-                    </c:forEach>
-                </select>
-
-
-            </fieldset>
-        </form>
-
 
 </div>
     <div>
@@ -72,6 +57,18 @@
         <fieldset>
 
             <legend>Renseignez les différents champs selon le type de voie choisie</legend>
+            <form method="post" action="<c:url value="/create_route"/>" >
+
+                    <label for="liste1" >Choisissez un site</label>
+                    <select name="liste1" id="liste1" onchange="this.form.submit()" >
+                        <option value="choix">Choisissez un site</option>
+                        <c:forEach items="${ sessionScope.places }" var="listPlace">
+                            <option value="${ listPlace.placeId }">${ listPlace.placeName }</option>
+                        </c:forEach>
+                    </select>
+            </form>
+
+
             <select name="routeType" id="routeType" onchange="chose_route_type()">
                 <option >Choisissez un type de voie</option>
                 <option value="boulder">Bloc</option>

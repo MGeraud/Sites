@@ -19,14 +19,16 @@ public class GetPlaceDescription {
 
     /* nom de champ à récupérer dans la jsp */
     private static final String CHAMP_PLACE_ID      = "placeID";
+    private static final String CHAMP_COM_ID        = "comId";
+
 
     /* nom des attributs de sessions à enregistrer ou récupérer */
     private static final String ATTRIBUT_PLACE                  ="place";
     private static final String ATTRIBUT_SECTORS                ="sectors";
     private static final String ATTRIBUT_COMS                   ="coms";
-    public static final String ATT_REGISTRED_SESSION    ="sessionUtilisateur";
-    public static final String ATTRIBUT_ADD_COMMENT    ="addComment";
-
+    public static final String ATT_REGISTRED_SESSION            ="sessionUtilisateur";
+    public static final String ATTRIBUT_ADD_COMMENT             ="addComment";
+    public static final String ATTRIBUT_MODIFIED_COMMENT        ="modifiedComment";
 
 
     private SectorDao dao = DaoFactory.getSectorDao();
@@ -84,7 +86,6 @@ public class GetPlaceDescription {
      */
     public void addComment (HttpServletRequest request) {
 
-
         /*
         récupération du site, du commentaire et du grimpeur
          */
@@ -101,6 +102,34 @@ public class GetPlaceDescription {
         com.setComment(addedCom);
         com.setPlace(place);
         comDao.save(com);
+    }
 
+    public void deleteComment (HttpServletRequest request) {
+
+        /* récupération de l'id du commentaire à effacer */
+        Long comId = Long.parseLong(getFormValue(request , CHAMP_COM_ID));
+
+        Com comToDelete = new Com();
+        comToDelete.setId(comId);
+
+        comDao.delete(comToDelete);
+    }
+
+    public void updateComment (HttpServletRequest request) {
+
+        /* récupération du pseudo du membre de l'association modifiant le commentaire */
+        HttpSession session = request.getSession();
+        Climber climber = (Climber) session.getAttribute(ATT_REGISTRED_SESSION);
+        String modifiedBy = climber.getNickname();
+
+        /* récupération de l'id du commentaire à modifier */
+        Long comId = Long.parseLong(getFormValue(request , CHAMP_COM_ID));
+        String modifiedComment = getFormValue(request,ATTRIBUT_MODIFIED_COMMENT);
+
+        Com modifiedCom = comDao.findById(comId);
+        modifiedCom.setComment(modifiedComment);
+        modifiedCom.setModifiedBy(modifiedBy);
+
+        comDao.update(modifiedCom);
     }
 }
