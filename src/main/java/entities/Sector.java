@@ -10,8 +10,10 @@ public class Sector implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "sector_name")
     private String sectorName;
     @Lob
+    @Column(name = "sector_description")
     private String sectorDescription;
     @OneToMany(mappedBy = "sector")
     private Set<Route> routes;

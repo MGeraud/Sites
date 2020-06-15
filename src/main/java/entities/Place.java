@@ -9,12 +9,15 @@ public class Place implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "place_id")
     private Long placeId;
+    @Column(name = "place_name")
     private String placeName;
     private boolean tag;
     @Enumerated(EnumType.STRING)
     private  Region region;
     @Lob
+    @Column(name = "place_description")
     private String placeDescription;
     @OneToMany (mappedBy = "place")
     private Set<Com> comments;

@@ -11,6 +11,7 @@ public class Com implements Serializable {
     private Long id;
     @Lob
     private String comment;
+    @Column(name = "modified_by")
     private String modifiedBy;
     @ManyToOne
     private Climber climber;

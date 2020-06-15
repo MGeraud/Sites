@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class SinglePitch extends Route implements Serializable {
 
     private int spit;
+    @Column(name = "route_length")
     private int routeLength;
 
 

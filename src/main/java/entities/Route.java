@@ -11,10 +11,13 @@ public abstract class Route implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
+    @Column(name = "route_name")
     protected String routeName;
     protected String grade;
+    @Column(name = "route_type")
     protected String routeType;
     @Lob
+    @Column(name = "route_description")
     protected String routeDescription;
     @ManyToOne
     protected Sector sector;

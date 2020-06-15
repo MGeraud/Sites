@@ -10,11 +10,15 @@ public class Topo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int year ;
+    @Column(name = "topo_name")
     private String topoName;
+    @Column(name = "topo_available")
     private boolean topoAvailable ;
     private boolean booking = false;
     @Lob
+    @Column(name = "topo_description")
     private String topoDescription ;
+    @Column(name = "topo_place")
     private String topoPlace;
     @ManyToOne
     private Climber climber;

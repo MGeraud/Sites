@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class MultiPitch extends Route implements Serializable {
 
 
-
+    @Column(name = "number_of_pitch")
     private int numberOfPitch;
 
     public int getNumberOfPitch() {
