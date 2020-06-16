@@ -22,11 +22,11 @@ public class BoulderDao implements Dao <Boulder > {
     }
 
     @Override
-    public void save(Boulder entity) {
+    public void save(Boulder boulder) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.persist(entity);
+            session.persist(boulder);
             transaction.commit();
 
         } catch (Exception e) {

@@ -126,6 +126,7 @@ public class GetPlaceDescription {
         Long comId = Long.parseLong(getFormValue(request , CHAMP_COM_ID));
         String modifiedComment = getFormValue(request,ATTRIBUT_MODIFIED_COMMENT);
 
+        /* récupération du commentaire dans la bdd pour le modifier */
         Com modifiedCom = comDao.findById(comId);
         modifiedCom.setComment(modifiedComment);
         modifiedCom.setModifiedBy(modifiedBy);

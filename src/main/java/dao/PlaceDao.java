@@ -1,5 +1,6 @@
 package dao;
 
+import entities.Com;
 import entities.Place;
 import Utils.HibernateUtil;
 import org.hibernate.Session;
@@ -10,27 +11,14 @@ import java.util.List;
 
 public class PlaceDao implements Dao <Place>{
 
-    private static final String searchById_jpql      = "SELECT p from Place p WHERE p.placeId=:placeId";
-    private static final String PARAMETER_placeId                      = "placeId";
+
     @Override
     public Place findById(Long placeId) throws DaoException{
-        Transaction transaction = null;
-        Place place = null;
-
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-
-            place = (Place) session.createQuery(searchById_jpql).setParameter(PARAMETER_placeId, placeId).uniqueResult();
-            transaction.commit();
-        } catch (NoResultException e) {
-            return null;
-        }catch (Exception e) {
-            if (transaction != null){
-                transaction.rollback();
-            }
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.find(Place.class , placeId);
+        } catch (Exception e) {
             throw new DaoException(e);
         }
-        return place;
     }
 
     @Override

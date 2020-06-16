@@ -16,11 +16,7 @@ public class ComDao implements Dao<Com>{
     @Override
     public Com findById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
-            return session.createQuery("SELECT com FROM Com com " +
-                    " WHERE com.id= :id" ,
-                    Com.class)
-                    .setParameter(PARAMETER_id , id)
-                    .getSingleResult();
+            return session.find(Com.class , id);
         } catch (Exception e) {
             throw new DaoException(e);
         }

@@ -1,15 +1,16 @@
 package dao;
 
 import Utils.HibernateUtil;
+import entities.MultiPitch;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class MultiPitchDao implements Dao{
+public class MultiPitchDao implements Dao <MultiPitch> {
 
     @Override
-    public Object findById(Long id) {
+    public MultiPitch findById(Long id) {
         return null;
     }
 
@@ -19,11 +20,11 @@ public class MultiPitchDao implements Dao{
     }
 
     @Override
-    public void save(Object entity) {
+    public void save(MultiPitch multiPitch) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.persist(entity);
+            session.persist(multiPitch);
             transaction.commit();
 
         } catch (Exception e) {
@@ -35,12 +36,12 @@ public class MultiPitchDao implements Dao{
     }
 
     @Override
-    public void update(Object entity) {
+    public void update(MultiPitch multiPitch) {
 
     }
 
     @Override
-    public void delete(Object entity) {
+    public void delete(MultiPitch multiPitch) {
 
     }
 
