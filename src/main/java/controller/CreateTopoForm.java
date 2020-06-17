@@ -1,6 +1,7 @@
 package controller;
 
 import dao.ClimberDao;
+import dao.Dao;
 import dao.DaoFactory;
 import entities.Climber;
 import entities.Topo;
@@ -24,7 +25,7 @@ public class CreateTopoForm {
     private static final String CHAMP_TOPO_AVAILABLE            ="topoAvailable";
 
     /*instanciation des différents Dao via la factory */
-    private ClimberDao<Topo> dao = DaoFactory.getTopoDao();
+    private Dao<Topo> dao = DaoFactory.getTopoDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {

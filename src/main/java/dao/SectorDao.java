@@ -5,36 +5,38 @@ import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.NoResultException;
 import java.util.List;
 
-public class SectorDao {
+public class SectorDao implements Dao<Sector>{
 
-    private static final String searchById_jpql      = "SELECT s from Sector s WHERE s.id=:sectorId";
-    private static final String PARAMETER_sectorId                      = "sectorId";
     private static final String PARAMETER_PLACE_ID                      ="placeId";
 
-    public List listSectorFromPlace (Long placeId) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String longPlaceId = "longPlaceId";
-            return session.createQuery("SELECT s FROM Sector s WHERE s.place.placeId =: longPlaceId").setParameter(longPlaceId,placeId).getResultList();
-        }
-    }
-
-    public List<Sector> listSectorsFromPlaceWithRoutes(Long placeId) {
+    @Override
+    public Sector findById(Long sectorId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
-            return session.createQuery("SELECT DISTINCT s FROM Sector s" +
-                    " JOIN FETCH s.routes " +
-                            " WHERE s.place.placeId= :placeId"
-                    , Sector.class)
-                    .setParameter(PARAMETER_PLACE_ID , placeId)
-                    .getResultList();
+            return session.find(Sector.class , sectorId);
         } catch (Exception e) {
             throw new DaoException(e);
         }
     }
 
-    public void createSector (Sector sector) throws DaoException {
+    @Override
+    public Sector findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Sector> findByString(String string) {
+        return null;
+    }
+
+    @Override
+    public List<Sector> findAll() {
+        return null;
+    }
+
+    @Override
+    public void save(Sector sector) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
@@ -49,23 +51,43 @@ public class SectorDao {
         }
     }
 
-    public Sector searchSectorById(Long sectorId) throws DaoException{
-        Transaction transaction = null;
-        Sector sector = null;
+    @Override
+    public void update(Sector entity) {
 
+    }
+
+    @Override
+    public void delete(Sector entity) {
+
+    }
+
+    @Override
+    public List<Sector> findByMultiParameters(String string, String string2, String string3, String string4) {
+        return null;
+    }
+
+    @Override
+    public List<Sector> findByPlaceId(Long placeId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
+            return session.createQuery("SELECT s FROM Sector s WHERE s.place.placeId = :placeId ").setParameter(PARAMETER_PLACE_ID,placeId).getResultList();
+        }    }
 
-            sector = (Sector) session.createQuery(searchById_jpql).setParameter(PARAMETER_sectorId, sectorId).uniqueResult();
-            transaction.commit();
-        } catch (NoResultException e) {
-            return null;
-        }catch (Exception e) {
-            if (transaction != null){
-                transaction.rollback();
-            }
+    @Override
+    public List<Sector> listSectorsFromPlaceWithRoutes(Long placeId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            return session.createQuery("SELECT DISTINCT s FROM Sector s" +
+                            " JOIN FETCH s.routes " +
+                            " WHERE s.place.placeId= :placeId"
+                    , Sector.class)
+                    .setParameter(PARAMETER_PLACE_ID , placeId)
+                    .getResultList();
+        } catch (Exception e) {
             throw new DaoException(e);
-        }
-        return sector;
+        }    }
+
+
+    @Override
+    public List<Sector> findBy2Parameters(String string, String string2) {
+        return null;
     }
 }

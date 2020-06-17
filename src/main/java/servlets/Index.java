@@ -14,10 +14,6 @@ import java.io.IOException;
 public class Index extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/index.jsp";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();

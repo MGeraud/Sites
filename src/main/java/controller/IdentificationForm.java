@@ -1,6 +1,7 @@
 package controller;
 
-import dao.UserDao;
+import dao.Dao;
+import dao.DaoFactory;
 import entities.Climber;
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 
@@ -11,16 +12,13 @@ import java.util.Map;
 public class IdentificationForm {
 
 
-    private final String CHAMP_EMAIL                = "email";
-    private final String CHAMP_PASSWORD             = "password";
+    private static final String CHAMP_EMAIL                = "email";
+    private static final String CHAMP_PASSWORD             = "password";
     private static final String ENCRYPTION_TYPE     = "SHA-256";
 
     private String result;
     private Map<String,String> errors               = new HashMap<String, String>();
-    private UserDao  userDao;
-    public IdentificationForm(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    private final Dao<Climber> climberDao = DaoFactory.getClimberDao();
 
     public Map<String, String> getErrors() {
         return errors;
@@ -85,10 +83,10 @@ public class IdentificationForm {
         ConfigurablePasswordEncryptor passwordEncryptor =new ConfigurablePasswordEncryptor();
         passwordEncryptor.setAlgorithm( ENCRYPTION_TYPE);
         passwordEncryptor.setPlainDigest(false);
-        boolean decryptedPassword = passwordEncryptor.checkPassword(password,userDao.searchRegistredClimber(email).getPassword());
+        boolean decryptedPassword = passwordEncryptor.checkPassword(password, climberDao.findByStringId(email).getPassword());
 
         if (decryptedPassword) {
-                climber = userDao.searchRegistredClimber(email);
+                climber = climberDao.findByStringId(email);
         } else climber =null;
 
         return climber;

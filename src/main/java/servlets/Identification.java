@@ -1,7 +1,6 @@
 package servlets;
 
 import controller.IdentificationForm;
-import dao.UserDao;
 import entities.Climber;
 
 import javax.servlet.ServletException;
@@ -20,13 +19,9 @@ public class Identification extends HttpServlet {
     public static final String VUE                      = "/WEB-INF/login.jsp";
     public static final String VUE2                     = "/WEB-INF/connected.jsp";
 
-    private UserDao identificationDao;
 
-    public void init() {
-        identificationDao = new UserDao();
-    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        IdentificationForm form = new IdentificationForm(identificationDao);
+        IdentificationForm form = new IdentificationForm();
         Climber climber = form.createRegistredClimber(request);
 
         HttpSession session = request.getSession();

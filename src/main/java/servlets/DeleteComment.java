@@ -15,7 +15,7 @@ import java.io.IOException;
 public class DeleteComment extends HttpServlet {
     private static final String VUE             = "placeDescription?placeID=";
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         HttpSession session = request.getSession();
         Place place = (Place) session.getAttribute("place");

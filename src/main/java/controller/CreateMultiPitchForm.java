@@ -22,8 +22,8 @@ public class CreateMultiPitchForm {
     private static final String CHAMP_NUMBER_OF_PITCH       ="numberOfPitch" ;
 
     /*instanciation des différents Dao via la factory */
-    private Dao<MultiPitch> dao = DaoFactory.getMultipitchDao();
-    private SectorDao sectorDao = new SectorDao();
+    private final Dao<MultiPitch> dao = DaoFactory.getMultipitchDao();
+    private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
 
     /** récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {
@@ -41,7 +41,7 @@ public class CreateMultiPitchForm {
     public void createMultiPitch(HttpServletRequest request) {
 
         Long sectorID = Long.parseLong(getFormValue(request , CHAMP_SECTOR_ID));
-        Sector sector = sectorDao.searchSectorById(sectorID);
+        Sector sector = sectorDao.findById(sectorID);
         String routeName =getFormValue(request,CHAMP_ROUTE_NAME);
         String grade = getFormValue(request,CHAMP_GRADE);
         String routeDescription = getFormValue(request,CHAMP_ROUTE_DESCRIPTION);

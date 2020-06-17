@@ -1,12 +1,10 @@
 package dao;
 
-import entities.Com;
 import entities.Place;
 import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.NoResultException;
 import java.util.List;
 
 public class PlaceDao implements Dao <Place>{
@@ -19,6 +17,16 @@ public class PlaceDao implements Dao <Place>{
         } catch (Exception e) {
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public Place findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Place> findByString(String string) {
+        return null;
     }
 
     @Override
@@ -74,6 +82,16 @@ public class PlaceDao implements Dao <Place>{
 
     @Override
     public List findByPlaceId(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Place> listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List<Place> findBy2Parameters(String string, String string2) {
         return null;
     }
 

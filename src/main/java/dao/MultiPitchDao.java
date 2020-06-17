@@ -15,6 +15,16 @@ public class MultiPitchDao implements Dao <MultiPitch> {
     }
 
     @Override
+    public MultiPitch findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<MultiPitch> findByString(String string) {
+        return null;
+    }
+
+    @Override
     public List findAll() {
         return null;
     }
@@ -52,6 +62,16 @@ public class MultiPitchDao implements Dao <MultiPitch> {
 
     @Override
     public List findByPlaceId(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<MultiPitch> listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List<MultiPitch> findBy2Parameters(String string, String string2) {
         return null;
     }
 }

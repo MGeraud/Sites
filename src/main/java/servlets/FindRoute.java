@@ -21,7 +21,7 @@ public class FindRoute extends HttpServlet {
     public static final String VUE               = "/WEB-INF/findRouteForm.jsp";
     public static final String VUE_INDEX         = "index";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         FindRouteForm findRouteForm = new FindRouteForm();
         List<FoundRoute> foundRoutes = findRouteForm.getFoundRoute(request);

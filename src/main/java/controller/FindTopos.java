@@ -1,6 +1,7 @@
 package controller;
 
 import dao.ClimberDao;
+import dao.Dao;
 import dao.DaoFactory;
 import entities.Topo;
 
@@ -18,7 +19,7 @@ public class FindTopos {
     private final static String CHAMP_TOPO_PLACE        ="topo_place";
 
     /*instanciation des différents Dao via la factory */
-    private ClimberDao<Topo> dao = DaoFactory.getTopoDao();
+    private Dao<Topo> dao = DaoFactory.getTopoDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {

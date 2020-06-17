@@ -16,11 +16,9 @@ public class CreatePlace extends HttpServlet {
 
     public static final String ATT_PLACE          = "place";
     public static final String VUE                = "create_route";
-    private PlaceDao placeDao;
-    public void init(){placeDao = new PlaceDao();}
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        CreatePlaceForm createPlaceForm = new CreatePlaceForm(placeDao);
+        CreatePlaceForm createPlaceForm = new CreatePlaceForm();
         Place place = createPlaceForm.createPlace(request);
 
         request.setAttribute(ATT_PLACE , place);

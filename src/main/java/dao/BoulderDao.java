@@ -17,6 +17,16 @@ public class BoulderDao implements Dao <Boulder > {
     }
 
     @Override
+    public Boulder findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Boulder> findByString(String string) {
+        return null;
+    }
+
+    @Override
     public List<Boulder> findAll() {
         return null;
     }
@@ -55,6 +65,16 @@ public class BoulderDao implements Dao <Boulder > {
 
     @Override
     public List<Boulder> findByPlaceId(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Boulder> listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List<Boulder> findBy2Parameters(String string, String string2) {
         return null;
     }
 

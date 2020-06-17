@@ -1,10 +1,9 @@
 package controller;
 
-import dao.ClimberDao;
+import dao.Dao;
 import dao.DaoFactory;
 import entities.Topo;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
 public class UpdateTopoAvailabilityForm {
@@ -13,7 +12,7 @@ public class UpdateTopoAvailabilityForm {
     private static final String CHAMP_TOPOS = "topos";
     private static final String CHAMP_BOOKED_TOPO = "bookedTopo";
 
-    private final ClimberDao<Topo> climberDao = DaoFactory.getTopoDao();
+    private final Dao<Topo> climberDao = DaoFactory.getTopoDao();
 
     /**
      * méthode récupération des valeurs du champ du formulaire

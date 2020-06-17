@@ -2,7 +2,6 @@ package controller;
 
 import dao.Dao;
 import dao.DaoFactory;
-import dao.SectorDao;
 import entities.Boulder;
 import entities.Sector;
 
@@ -23,8 +22,8 @@ public class CreateBoulderForm {
     private static final String CHAMP_SIT_START             ="sitStart";
 
     /*instanciation des différents Dao via la factory */
-    private Dao<Boulder> dao = DaoFactory.getBoulderDao();
-    private SectorDao sectorDao = new SectorDao();
+    private final Dao<Boulder> dao = DaoFactory.getBoulderDao();
+    private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {
@@ -42,7 +41,7 @@ public class CreateBoulderForm {
     public void createBoulder(HttpServletRequest request) {
 
         Long sectorID = Long.parseLong(getFormValue(request , CHAMP_SECTOR_ID));
-        Sector sector = sectorDao.searchSectorById(sectorID);
+        Sector sector = sectorDao.findById(sectorID);
         String routeName =getFormValue(request,CHAMP_ROUTE_NAME);
         String grade = getFormValue(request,CHAMP_GRADE);
         String routeDescription = getFormValue(request,CHAMP_ROUTE_DESCRIPTION);

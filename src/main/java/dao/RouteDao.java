@@ -1,15 +1,10 @@
 package dao;
 
 import Utils.FoundRoute;
-import entities.Place;
-import entities.Region;
-import entities.Route;
 import Utils.HibernateUtil;
-import entities.Sector;
+import entities.Region;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import javax.persistence.NoResultException;
 import java.util.List;
 
 public class RouteDao implements Dao {
@@ -57,9 +52,29 @@ public class RouteDao implements Dao {
         }
     }
 
+    @Override
+    public List listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List findBy2Parameters(String string, String string2) {
+        return null;
+    }
+
 
     @Override
     public Object findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public Object findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Object> findByString(String string) {
         return null;
     }
 

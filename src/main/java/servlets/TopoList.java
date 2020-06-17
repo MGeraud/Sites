@@ -2,6 +2,7 @@ package servlets;
 
 import controller.FindTopos;
 import dao.ClimberDao;
+import dao.Dao;
 import dao.DaoFactory;
 import entities.Place;
 import entities.Topo;
@@ -19,7 +20,7 @@ import java.util.List;
 public class TopoList extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/registred/topo_list.jsp";
     private static final String ATT_SELECTED_TOPOS      ="selected_topos";
-    private ClimberDao<Topo> dao = DaoFactory.getTopoDao();
+    private final Dao<Topo> dao = DaoFactory.getTopoDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

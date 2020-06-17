@@ -1,7 +1,7 @@
 package controller;
 
-import dao.PlaceDao;
-import dao.SectorDao;
+import dao.Dao;
+import dao.DaoFactory;
 import entities.Place;
 import entities.Sector;
 
@@ -17,9 +17,8 @@ public class CreateSectorForm {
     private static final String CHAMP_SECTOR_NAME            ="sectorName";
     private static final String CHAMP_SECTOR_DESCRIPTION     ="sectorDescription";
     private static final String CHAMP_PLACE_ID               ="placeList";
-    private SectorDao sectorDao;
-    private PlaceDao placeDao = new PlaceDao();
-    public CreateSectorForm (SectorDao sectorDao){this.sectorDao = sectorDao;}
+    private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
+    private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {
@@ -46,7 +45,7 @@ public class CreateSectorForm {
         sector.setSectorName(sectorName);
         sector.setSectorDescription(sectorDescription);
         sector.setPlace(place);
-        sectorDao.createSector(sector);
+        sectorDao.save(sector);
 
         return sector;
     }

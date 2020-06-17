@@ -13,7 +13,7 @@ import java.io.IOException;
 public class BookingAccepted extends HttpServlet {
     public static final String VUE                = "profil_topo";
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         UpdateTopoAvailabilityForm updateTopoAvailability = new UpdateTopoAvailabilityForm();
         updateTopoAvailability.acceptBooking(request);
 

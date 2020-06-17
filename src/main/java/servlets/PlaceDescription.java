@@ -1,9 +1,7 @@
 package servlets;
 
-import antlr.collections.List;
 import controller.GetPlaceDescription;
 import entities.Place;
-import entities.Route;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +17,7 @@ public class PlaceDescription extends HttpServlet {
     public static final String VUE                  ="/WEB-INF/place.jsp";
     public static final String VUE_WITH_PARAMETERS  ="placeDescription?placeID=";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         HttpSession session = request.getSession();
         Place place = (Place) session.getAttribute("place");

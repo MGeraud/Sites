@@ -1,8 +1,8 @@
 package servlets;
 
 
-import dao.PlaceDao;
-import dao.SectorDao;
+import dao.Dao;
+import dao.DaoFactory;
 import entities.Place;
 import entities.Region;
 import entities.Sector;
@@ -21,13 +21,10 @@ public class CreateRoute extends HttpServlet {
 
     public static final String ATT_SECTOR_FROM_PLACE    ="sectors";
     public static final String ATT_LISTE1_SELECTED_VALUE    = "liste1_selected_value";
-    private PlaceDao placeDao;
-    private SectorDao sectorDao;
 
-    public void init() {
-        sectorDao = new SectorDao();
-        placeDao = new PlaceDao();
-    }
+    private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
+    private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
+
     private static final String VUE                     ="/WEB-INF/registred/create_route.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /**
@@ -36,7 +33,7 @@ public class CreateRoute extends HttpServlet {
         */
         String liste1SelectedValue = request.getParameter("liste1");
         Long liste1Long = Long.parseLong(liste1SelectedValue);
-        List<Sector> sectors = sectorDao.listSectorFromPlace(liste1Long);
+        List<Sector> sectors = sectorDao.findByPlaceId(liste1Long);
         request.setAttribute(ATT_SECTOR_FROM_PLACE , sectors );
         request.setAttribute(ATT_LISTE1_SELECTED_VALUE, liste1Long);
 

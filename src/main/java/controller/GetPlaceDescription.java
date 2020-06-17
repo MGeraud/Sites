@@ -2,7 +2,6 @@ package controller;
 
 import dao.Dao;
 import dao.DaoFactory;
-import dao.SectorDao;
 import entities.Climber;
 import entities.Com;
 import entities.Place;
@@ -31,9 +30,9 @@ public class GetPlaceDescription {
     public static final String ATTRIBUT_MODIFIED_COMMENT        ="modifiedComment";
 
 
-    private SectorDao dao = DaoFactory.getSectorDao();
-    private Dao<Place> placeDao = DaoFactory.getPlaceDao();
-    private Dao<Com> comDao = DaoFactory.getComDao();
+    private final Dao<Sector> dao = DaoFactory.getSectorDao();
+    private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
+    private final Dao<Com> comDao = DaoFactory.getComDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {
@@ -73,11 +72,7 @@ public class GetPlaceDescription {
          */
         HttpSession session = request.getSession();
         Place place = (Place) session.getAttribute(ATTRIBUT_PLACE);
-        if (place.isTag()){
-            place.setTag(false);
-        } else {
-            place.setTag(true);
-        }
+        place.setTag(!place.isTag());
         placeDao.update(place);
     }
 

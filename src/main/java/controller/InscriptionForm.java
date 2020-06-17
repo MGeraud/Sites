@@ -1,7 +1,8 @@
 package controller;
 
+import dao.Dao;
 import dao.DaoException;
-import dao.UserDao;
+import dao.DaoFactory;
 import entities.Climber;
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 
@@ -21,11 +22,8 @@ public class InscriptionForm {
 
     private String result;
     private Map<String,String> errors               = new HashMap<String, String>();
-    private UserDao  userDao;
+    private Dao<Climber> climberDao = DaoFactory.getClimberDao();
 
-    public InscriptionForm (UserDao userDao) {
-        this.userDao = userDao;
-    }
 
     public Map<String, String> getErrors() {
         return errors;
@@ -60,7 +58,7 @@ public class InscriptionForm {
         if (email != null) {
             if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
                 throw new FormValidationException("Merci de saisir une adresse mail valide");
-            }else if (userDao.searchClimber(email) != null) {
+            }else if (climberDao.findByStringId(email) != null) {
                 throw new FormValidationException("Cette adresse mail est déjà utilisée");
             }
         } else {
@@ -146,7 +144,7 @@ public class InscriptionForm {
             setNickName(nickname , climber);
 
             if (errors.isEmpty()) {
-                userDao.createClimber(climber);
+                climberDao.save(climber);
             } else {
                 result = "Echec de l'inscription";
             }

@@ -1,6 +1,7 @@
 package controller;
 
-import dao.PlaceDao;
+import dao.Dao;
+import dao.DaoFactory;
 import entities.Place;
 import entities.Region;
 
@@ -17,8 +18,7 @@ public class CreatePlaceForm {
     private static final String CHAMP_PLACE_REGION            ="regions";
     private static final String CHAMP_PLACE_DESCRIPTION     ="placeDescription";
 
-    private PlaceDao placeDao;
-    public CreatePlaceForm (PlaceDao placeDao){this.placeDao = placeDao;}
+    private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {

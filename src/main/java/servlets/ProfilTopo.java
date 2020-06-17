@@ -1,9 +1,8 @@
 package servlets;
 
-import dao.ClimberDao;
+import dao.Dao;
 import dao.DaoFactory;
 import entities.Climber;
-import entities.Place;
 import entities.Topo;
 
 import javax.servlet.ServletException;
@@ -21,10 +20,7 @@ public class ProfilTopo extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/registred/profil_topo.jsp";
     public static final String ATT_REGISTRED_SESSION    ="sessionUtilisateur";
 
-    private final ClimberDao<Topo> climberDao = DaoFactory.getTopoDao();
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+    private final Dao<Topo> topoDao = DaoFactory.getTopoDao();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /**
@@ -33,7 +29,7 @@ public class ProfilTopo extends HttpServlet {
         HttpSession session = request.getSession();
         Climber climber = (Climber) session.getAttribute(ATT_REGISTRED_SESSION);
         String email = climber.getEmail();
-        List<Topo> topos = climberDao.findByClimber(email);
+        List<Topo> topos = topoDao.findByString(email);
         request.setAttribute("topos" , topos);
 
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);

@@ -21,15 +21,15 @@ public class DaoFactory {
         return new PlaceDao();
     }
 
-    public static ClimberDao getUserDao(){
-        return null;
+    public static Dao getClimberDao(){
+        return new ClimberDao();
     }
 
-    public static ClimberDao getTopoDao(){
+    public static Dao getTopoDao(){
         return new TopoDao();
     }
 
-    public static ComDao getComDao() { return new ComDao();}
+    public static Dao getComDao() { return new ComDao();}
 
-    public static SectorDao getSectorDao() { return new SectorDao();}
+    public static Dao getSectorDao() { return new SectorDao();}
 }

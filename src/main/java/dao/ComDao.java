@@ -2,11 +2,9 @@ package dao;
 
 import Utils.HibernateUtil;
 import entities.Com;
-import entities.Place;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.NoResultException;
 import java.util.List;
 
 public class ComDao implements Dao<Com>{
@@ -20,6 +18,16 @@ public class ComDao implements Dao<Com>{
         } catch (Exception e) {
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public Com findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Com> findByString(String string) {
+        return null;
     }
 
     @Override
@@ -93,5 +101,15 @@ public class ComDao implements Dao<Com>{
         } catch (Exception e) {
             throw new DaoException(e);
         }
+    }
+
+    @Override
+    public List<Com> listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List<Com> findBy2Parameters(String string, String string2) {
+        return null;
     }
 }

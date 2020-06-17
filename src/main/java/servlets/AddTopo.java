@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AddTopo extends HttpServlet {
     public static final String VUE                = "profil_topo";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         CreateTopoForm createTopoForm= new CreateTopoForm();
         createTopoForm.createTopo(request);

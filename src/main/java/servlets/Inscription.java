@@ -1,7 +1,6 @@
 package servlets;
 
 import controller.InscriptionForm;
-import dao.UserDao;
 import entities.Climber;
 
 import javax.servlet.ServletException;
@@ -17,13 +16,8 @@ public class Inscription extends HttpServlet {
     public static final String ATT_FORM          = "form";
     public static final String VUE          = "/WEB-INF/inscription.jsp";
 
-    private UserDao inscriptionDao;
-
-    public void init() {
-        inscriptionDao = new UserDao();
-    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        InscriptionForm form = new InscriptionForm(inscriptionDao);
+        InscriptionForm form = new InscriptionForm();
 
         Climber climber = form.createClimber(request);
 

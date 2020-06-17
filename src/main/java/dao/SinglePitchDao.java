@@ -14,6 +14,16 @@ public class SinglePitchDao implements Dao<SinglePitch> {
     }
 
     @Override
+    public SinglePitch findByStringId(String id) {
+        return null;
+    }
+
+    @Override
+    public List<SinglePitch> findByString(String string) {
+        return null;
+    }
+
+    @Override
     public List findAll() {
         return null;
     }
@@ -51,6 +61,16 @@ public class SinglePitchDao implements Dao<SinglePitch> {
 
     @Override
     public List findByPlaceId(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<SinglePitch> listSectorsFromPlaceWithRoutes(Long placeId) {
+        return null;
+    }
+
+    @Override
+    public List<SinglePitch> findBy2Parameters(String string, String string2) {
         return null;
     }
 }

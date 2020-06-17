@@ -101,10 +101,8 @@
                         </tr>
                             </c:if>
                         <tr>
-                            <td>
-                                <a href="<c:url value="/updateComment"><c:param name="comId" value="${comments.id}"/></c:url>">
+                            <td> <%-- mettre en place script pour afficher formulaire modif --%>
                                     <input type="button" value="Modifier"/>
-                                </a>
                             </td>
                             <td>
                                 <a href="<c:url value="/deleteComment"><c:param name="comId" value="${comments.id}"/></c:url>">
