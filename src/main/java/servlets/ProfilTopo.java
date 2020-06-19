@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/profil_topo")
+@WebServlet(urlPatterns = "/registred/profil_topo")
 public class ProfilTopo extends HttpServlet {
 
     private static final String VUE                     ="/WEB-INF/registred/profil_topo.jsp";

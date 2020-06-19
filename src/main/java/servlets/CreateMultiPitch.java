@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/create_multiPitch")
+@WebServlet(urlPatterns = "/registred/create_multiPitch")
 public class CreateMultiPitch extends HttpServlet {
 
     public static final String VUE                = "create_route";

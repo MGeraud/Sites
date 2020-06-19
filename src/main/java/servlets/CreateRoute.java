@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet( urlPatterns = "/create_route")
+@WebServlet( urlPatterns = "/registred/create_route")
 public class CreateRoute extends HttpServlet {
 
     public static final String ATT_SECTOR_FROM_PLACE    ="sectors";

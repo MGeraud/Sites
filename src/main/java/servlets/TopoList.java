@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/topo_list")
+@WebServlet(urlPatterns = "/registred/topo_list")
 public class TopoList extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/registred/topo_list.jsp";
     private static final String ATT_SELECTED_TOPOS      ="selected_topos";

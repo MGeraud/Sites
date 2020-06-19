@@ -30,7 +30,7 @@
         <c:forEach items="${requestScope.topos}" var="bookedTopo" varStatus="colorLoop" >
             <c:if test="${bookedTopo.booking}">
                 <c:out value="Une demande de réservation pour le topo ${bookedTopo.topoName} a été faite, le demandeur va vous contacter par email. "/>
-                <a href="<c:url value="/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
+                <a href="<c:url value="/registred/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
                     <input type="button" value="Accepter la réservation"/>
                 </a>
                 <br />
@@ -55,7 +55,7 @@
                         <td><c:out value="${topos.year}"/> </td>
                         <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
                         <td>
-                            <a href="<c:url value="/updateTopoAvailability"><c:param name="topos" value="${topos.id}"/></c:url>">
+                            <a href="<c:url value="/registred/updateTopoAvailability"><c:param name="topos" value="${topos.id}"/></c:url>">
                                 <input type="button" value="Modifier"/>
                             </a>
                         </td>
@@ -69,7 +69,7 @@
 
 
 <div id="addTopo" style="display: none">
-<form method="post" action="<c:url value="/addTopo"/> " name="addTopo"  >
+<form method="post" action="<c:url value="/registred/addTopo"/> " name="addTopo"  >
     <fieldset>
         <legend>Merci de fournir les informations concernant le topo à ajouter</legend>
         <label for="topoName">Titre du topo</label>

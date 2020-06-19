@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/updateTopoAvailability")
+@WebServlet(urlPatterns = "/registred/updateTopoAvailability")
 public class UpdateTopoAvailability extends HttpServlet {
 
     private static final String VUE                     ="profil_topo";

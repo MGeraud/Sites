@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "RegistredAccessFilter" , urlPatterns = "/topo_list")
+@WebFilter(filterName = "RegistredAccessFilter" , urlPatterns = "/registred/*")
 public class RegistredAccessFilter implements Filter {
 
 

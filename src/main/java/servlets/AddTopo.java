@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/addTopo")
+@WebServlet(urlPatterns = "/registred/addTopo")
 public class AddTopo extends HttpServlet {
     public static final String VUE                = "profil_topo";
 

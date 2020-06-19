@@ -9,7 +9,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
+<form method="post" action="<c:url value="/registred/create_place"/> ">
+        <fieldset>
+                <legend>Créez un nouveau site</legend>
+                <label for="regions">Choisissez une région</label>
+                <select name="regions" id="regions">
+                        <c:forEach items="${sessionScope.regions}" var="regions">
+                                <option  value="${regions.value}">${regions.key}</option>
+                        </c:forEach>
+                </select>
+                <br/>
         <label for="placeName">Nom du site : </label>
         <input type="text" id="placeName" name="placeName" value="<c:out value="${place.placeName}" />" size="60"
                maxlength="60" minlength="4" required/>
@@ -21,7 +30,10 @@
                   required></textarea>
         <span class="error">${form.errors['placeDescription']}</span>
         <br/>
-
+                <br/>
+                <input type="submit" value="Valider">
+        </fieldset>
+</form>
 
 
 

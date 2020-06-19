@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/bookingAccepted")
+@WebServlet(urlPatterns = "/registred/bookingAccepted")
 public class BookingAccepted extends HttpServlet {
     public static final String VUE                = "profil_topo";
 

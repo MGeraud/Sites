@@ -16,24 +16,12 @@
 </head>
 <body>
     <div id="newPlace">
-        <form method="post" action="<c:url value="create_place"/> ">
-            <fieldset>
-                <legend>Créez un nouveau site</legend>
-                <label for="regions">Choisissez une région</label>
-                <select name="regions" id="regions">
-                    <c:forEach items="${sessionScope.regions}" var="regions">
-                        <option  value="${regions.value}">${regions.key}</option>
-                    </c:forEach>
-                </select>
-                <br/>
+
             <c:import url="create_place.jsp"/>
-            <br/>
-            <input type="submit" value="Valider">
-            </fieldset>
-        </form>
+
     </div>
     <div id="newSector">
-        <form method="post" action="<c:url value="create_sector"/> ">
+        <form method="post" action="<c:url value="/registred/create_sector"/> ">
             <fieldset>
                 <legend>Créez un nouveau secteur</legend>
                 <label for="placeListe">Choisissez un site</label>
@@ -57,7 +45,7 @@
         <fieldset>
 
             <legend>Renseignez les différents champs selon le type de voie choisie</legend>
-            <form method="post" action="<c:url value="/create_route"/>" >
+            <form method="post" action="<c:url value="/registred/create_route"/>" >
 
                     <label for="liste1" >Choisissez un site</label>
                     <select name="liste1" id="liste1" onchange="this.form.submit()" >

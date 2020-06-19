@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/create_singlePitch")
+@WebServlet(urlPatterns = "/registred/create_singlePitch")
 public class CreateSinglePitch extends HttpServlet {
     public static final String VUE                = "create_route";
 

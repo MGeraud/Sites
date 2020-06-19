@@ -64,7 +64,7 @@
                     <td><c:out value="${selected_topos.climber.email}"/></td>
                     <td><c:out value="${selected_topos.topoDescription}"/> </td>
                     <td>
-                        <a href="<c:url value="/book_topo"><c:param name="book_topo" value="${selected_topos.id}"/></c:url>">
+                        <a href="<c:url value="/registred/book_topo"><c:param name="book_topo" value="${selected_topos.id}"/></c:url>">
                             <input type="button" value="Réserver"/>
                         </a>
                     </td>
