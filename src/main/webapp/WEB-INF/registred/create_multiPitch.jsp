@@ -12,6 +12,6 @@
     <c:import url="create_route_common.jsp"/>
 
     <label for="numberOfPitch">Nombre de relais</label>
-    <input type="number" name="numberOfPitch" id="numberOfPitch" maxlength="2" size="2">
+    <input type="number" name="numberOfPitch" id="numberOfPitch" maxlength="2" size="2" value="2">
     <input type="submit" value="Valider">
 </form>

@@ -66,6 +66,9 @@
 
     </c:otherwise>
 </c:choose>
+<br/>
+<span class="error">${sessionScope.create_topo_form.errors['topoName']}</span>
+<br/>
 
 
 <div id="addTopo" style="display: none">
@@ -73,7 +76,8 @@
     <fieldset>
         <legend>Merci de fournir les informations concernant le topo à ajouter</legend>
         <label for="topoName">Titre du topo</label>
-        <input type="text" id="topoName" name="topoName"  size="40"  required/>
+        <input type="text" id="topoName" name="topoName"  size="40"  />
+
 
         <label for="topoPlace">Lieu</label>
         <input type="text" id="topoPlace" name="topoPlace"  size="40"  />

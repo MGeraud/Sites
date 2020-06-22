@@ -12,8 +12,8 @@
     <c:import url="create_route_common.jsp"/>
 
     <label for="spit">Nombre de points</label>
-    <input type="number" name="spit" id="spit" maxlength="2" size="2">
+    <input type="number" name="spit" id="spit" maxlength="2" size="2" value="2">
     <label for="routeLength">Longueur de la voie</label>
-    <input type="number" id="routeLength" name="routeLength" maxlength="3" size="3">m.
+    <input type="number" id="routeLength" name="routeLength" maxlength="3" size="3" value="2">m.
     <input type="submit" value="Valider">
 </form>

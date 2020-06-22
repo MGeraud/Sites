@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -10,6 +11,7 @@ public class Topo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int year ;
+    @NotNull(message = "Echec de l'ajout : les topos doivent au minimum avoir un titre. Veuillez recommencer.")
     @Column(name = "topo_name")
     private String topoName;
     @Column(name = "topo_available")

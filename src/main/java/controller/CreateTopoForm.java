@@ -1,6 +1,5 @@
 package controller;
 
-import dao.ClimberDao;
 import dao.Dao;
 import dao.DaoFactory;
 import entities.Climber;
@@ -8,6 +7,13 @@ import entities.Topo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Traitement du formulaire de création d'un nouveau topo
@@ -24,8 +30,14 @@ public class CreateTopoForm {
     private static final String CHAMP_TOPO_YEAR                 ="topoYear";
     private static final String CHAMP_TOPO_AVAILABLE            ="topoAvailable";
 
+    private Map <String , String > errors = new HashMap<>();
+
+    public Map<String, String> getErrors() {
+        return errors;
+    }
+
     /*instanciation des différents Dao via la factory */
-    private Dao<Topo> dao = DaoFactory.getTopoDao();
+    private final Dao<Topo> dao = DaoFactory.getTopoDao();
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue(HttpServletRequest request, String lineName) {
@@ -43,6 +55,9 @@ public class CreateTopoForm {
      */
     public void createTopo(HttpServletRequest request) {
 
+        /*
+        Récupération des différentes valeurs entrées et de l'utilisateur connecté
+         */
         HttpSession session = request.getSession();
         Climber climber = (Climber) session.getAttribute(ATT_REGISTRED_SESSION);
         String topoName =getFormValue(request,CHAMP_TOPO_NAME);
@@ -50,6 +65,10 @@ public class CreateTopoForm {
         String topoDescription = getFormValue(request,CHAMP_TOPO_DESCRIPTION);
         int year = Integer.parseInt(getFormValue(request,CHAMP_TOPO_YEAR));
         boolean available = getFormValue(request, CHAMP_TOPO_AVAILABLE) != null ;
+
+        /*
+        Attribution des différentes valeur entrées au bean
+         */
         Topo topo = new Topo();
         topo.setTopoAvailable(available);
         topo.setTopoName(topoName);
@@ -58,6 +77,23 @@ public class CreateTopoForm {
         topo.setTopoDescription(topoDescription);
         topo.setClimber(climber);
 
-        dao.save(topo);
+        /*Utilisation du Validator pour vérifier les contraintes des différents champs
+        Récupération des contraintes non respectées dans un set
+         */
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator();
+        Set<ConstraintViolation<Topo>> constraintViolations = validator.validate(topo);
+
+        /*
+        Si contraintes non respecté on ajoute à la map d'erreurs avec le nom de l'attribut comme clé
+        et le message d'erreur comme valeur, sinon enregistrement en base de données
+         */
+        if (constraintViolations.size() > 0) {
+            for (ConstraintViolation<Topo> constraintViolation : constraintViolations) {
+                errors.put(constraintViolation.getPropertyPath().toString() , constraintViolation.getMessage());
+            }
+        } else {
+            dao.save(topo);
+        }
     }
 }
