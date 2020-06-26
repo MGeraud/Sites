@@ -14,8 +14,9 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/placeDescription")
 public class PlaceDescription extends HttpServlet {
 
-    public static final String VUE                  ="/WEB-INF/place.jsp";
-    public static final String VUE_WITH_PARAMETERS  ="placeDescription?placeID=";
+    public static final String VUE                          ="/WEB-INF/place.jsp";
+    public static final String VUE_WITH_PARAMETERS          ="placeDescription?placeID=";
+    public static final String ATT_GET_PLACE_DESCRIPTION    = "create_place_form";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -24,6 +25,7 @@ public class PlaceDescription extends HttpServlet {
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.addComment(request);
 
+        session.setAttribute(ATT_GET_PLACE_DESCRIPTION , getPlaceDescription);
         response.sendRedirect(VUE_WITH_PARAMETERS + place.getPlaceId());
     }
 

@@ -6,6 +6,8 @@ import entities.Place;
 import entities.Region;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Traitement du formulaire de création d'un nouveau site
@@ -19,6 +21,11 @@ public class CreatePlaceForm {
     private static final String CHAMP_PLACE_DESCRIPTION     ="placeDescription";
 
     private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
+
+    private Map<String , String > errors = new HashMap<>();
+    public Map<String, String> getErrors() {
+        return errors;
+    }
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {

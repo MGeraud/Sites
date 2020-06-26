@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -10,6 +11,7 @@ public class Com implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Lob
+    @NotNull(message = "Un commentaire ne peut pas être vide")
     private String comment;
     @Column(name = "modified_by")
     private String modifiedBy;

@@ -11,12 +11,11 @@
 
 <label for="sectorName">Nom du secteur : </label>
 <input type="text" id="sectorName" name="sectorName" value="<c:out value="${sector.sectorName}" />" size="10" maxlength="60" minlength="4" required/>
-<span class="error">${form.errors['sectorName']}</span>
+<span class="error">${sessionScope.create_sector_form.errors['sectorName']}</span>
 <br />
 
 <label for="sectorDescription">Description du secteur : </label>
 <textarea id="sectorDescription" cols="100" maxlength="3000" name="sectorDescription" rows="10" spellcheck="true" required></textarea>
-<span class="error">${form.errors['sectorDescription']}</span>
 <br />
 
 

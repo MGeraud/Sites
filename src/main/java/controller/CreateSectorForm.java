@@ -6,6 +6,8 @@ import entities.Place;
 import entities.Sector;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Traitement du formulaire de création d'un nouveau site
@@ -17,8 +19,14 @@ public class CreateSectorForm {
     private static final String CHAMP_SECTOR_NAME            ="sectorName";
     private static final String CHAMP_SECTOR_DESCRIPTION     ="sectorDescription";
     private static final String CHAMP_PLACE_ID               ="placeList";
+
     private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
     private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
+
+    private Map<String , String > errors = new HashMap<>();
+    public Map<String, String> getErrors() {
+        return errors;
+    }
 
     /**  méthode récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {

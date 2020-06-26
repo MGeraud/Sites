@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class Place implements Serializable {
     @Column(name = "place_id")
     private Long placeId;
     @Column(name = "place_name")
+    @NotNull(message = "Merci d'indiquer le nom du site que vous souhaitez créer")
     private String placeName;
     private boolean tag;
     @Enumerated(EnumType.STRING)

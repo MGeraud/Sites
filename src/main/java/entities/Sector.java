@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ public class Sector implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "sector_name")
+    @NotNull(message = "Merci d'indiquer le nom ou numéro du secteur que vous souhaitez créer")
     private String sectorName;
     @Lob
     private String sectorDescription;

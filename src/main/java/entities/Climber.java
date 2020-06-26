@@ -1,6 +1,8 @@
 package entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -9,8 +11,10 @@ import java.util.Set;
 public class Climber implements Serializable {
 
     @Id
+    @Email
     private String email;
     private String password;
+    @NotNull(message = "Merci d'entrer un pseudonyme")
     private String nickname;
     private boolean association;
 

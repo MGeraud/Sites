@@ -22,13 +22,12 @@
         <label for="placeName">Nom du site : </label>
         <input type="text" id="placeName" name="placeName" value="<c:out value="${place.placeName}" />" size="60"
                maxlength="60" minlength="4" required/>
-        <span class="error">${form.errors['placeName']}</span>
+        <span class="error">${sessionScope.create_place_form.errors['placeName']}</span>
         <br/>
 
         <label for="placeDescription">Description du site : </label>
         <textarea id="placeDescription" cols="100" maxlength="3000" name="placeDescription" rows="10" spellcheck="true"
                   required></textarea>
-        <span class="error">${form.errors['placeDescription']}</span>
         <br/>
                 <br/>
                 <input type="submit" value="Valider">
