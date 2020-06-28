@@ -16,10 +16,10 @@ import java.util.List;
 @WebServlet(urlPatterns = "/findRouteForm")
 public class FindRoute extends HttpServlet {
 
-    public static final String ATT_FOUND_ROUTES   = "foundRoutes";
+    public static final String ATT_FOUND_ROUTES     = "foundRoutes";
 
-    public static final String VUE               = "/WEB-INF/findRouteForm.jsp";
-    public static final String VUE_INDEX         = "index";
+    public static final String VUE                  = "/WEB-INF/findRouteForm.jsp";
+    public static final String VUE_FOUND_ROUTE      = "found_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -27,7 +27,7 @@ public class FindRoute extends HttpServlet {
         List<FoundRoute> foundRoutes = findRouteForm.getFoundRoute(request);
         HttpSession session = request.getSession();
         session.setAttribute(ATT_FOUND_ROUTES , foundRoutes);
-        response.sendRedirect(VUE_INDEX);
+        response.sendRedirect(VUE_FOUND_ROUTE);
 
 
     }
