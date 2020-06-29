@@ -6,14 +6,7 @@
   Time: 14:20
   To change this template use File | Settings | File Templates.
 --%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>login</title>
 
-</head>
-<body>
 <%-- formulaire de connexion qui devra figurer en bandeau sur les pages d'accueil publiques --%>
 <form method="post" action="<c:url value="/login"/> ">
     <fieldset>
@@ -31,5 +24,3 @@
         <input type="submit" value="Se connecter">
     </fieldset>
 </form>
-</body>
-</html>

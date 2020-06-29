@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create_Route</title>
-    <link type="text/css" rel="stylesheet" href="/WEB-INF/inc/creation.css"/>
+
 </head>
 <body>
     <div id="newPlace">

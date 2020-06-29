@@ -65,6 +65,9 @@ public class IdentificationForm {
         }
     }
 
+
+
+
     /* on recupere le grimpeur si deja enregistré */
     public Climber createRegistredClimber (HttpServletRequest request) {
         String email = getFormValue(request , CHAMP_EMAIL);
@@ -79,15 +82,21 @@ public class IdentificationForm {
             setErrors(CHAMP_PASSWORD, e.getMessage());
         }
 
+        /* verif en base de données si grimpeur présent, si oui vérif mot de passe */
+        climber = climberDao.findByStringId(email);
+        if (climber != null) {
 
-        ConfigurablePasswordEncryptor passwordEncryptor =new ConfigurablePasswordEncryptor();
-        passwordEncryptor.setAlgorithm( ENCRYPTION_TYPE);
-        passwordEncryptor.setPlainDigest(false);
-        boolean decryptedPassword = passwordEncryptor.checkPassword(password, climberDao.findByStringId(email).getPassword());
+            ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
+            passwordEncryptor.setAlgorithm(ENCRYPTION_TYPE);
+            passwordEncryptor.setPlainDigest(false);
+            boolean decryptedPassword = passwordEncryptor.checkPassword(password, climberDao.findByStringId(email).getPassword());
 
-        if (decryptedPassword) {
+            if (decryptedPassword) {
                 climber = climberDao.findByStringId(email);
-        } else climber =null;
+            } else climber = null;
+        } else {
+            setErrors(CHAMP_EMAIL,"Email inconnu");
+        }
 
         return climber;
     }

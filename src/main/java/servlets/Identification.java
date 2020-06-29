@@ -17,7 +17,7 @@ public class Identification extends HttpServlet {
     public static final String ATT_REGISTRED_SESSION    ="sessionUtilisateur";
     public static final String ATT_FORM                 = "form";
     public static final String VUE                      = "/WEB-INF/login.jsp";
-    public static final String VUE2                     = "/WEB-INF/connected.jsp";
+    public static final String VUE2                     = "/WEB-INF/index.jsp";
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,16 +35,9 @@ public class Identification extends HttpServlet {
         request.setAttribute(ATT_FORM,form);
         request.setAttribute(ATT_CLIMBER,climber);
 
-        if (session.getAttribute(ATT_REGISTRED_SESSION) == null) {
-            this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
-        } else {
-            this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
-        }
+        this.getServletContext().getRequestDispatcher(VUE2).forward(request,response);
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 
-    }
 }
