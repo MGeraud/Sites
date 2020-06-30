@@ -17,6 +17,10 @@
                     <img src="inc/amis_escalade.png" width="70" height="40" alt="Site logo">
                     Les Amis de l'escalade
                 </a>
+                <%--Bouton dirigeant vers la création d'un compte --%>
+                <a class="card-text" href="<c:url value="/inscription"/>">
+                    <input class="btn btn-primary" type="button" value="Créer compte">
+                </a>
                 <%-- bouton pour menu burger quand largeur inférieure aux grands écrans --%>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +28,7 @@
                 <%--Contenu à placer dans le menu hamburger --%>
                 <div id="navbarContent" class="collapse navbar-collapse " >
                 <form class="form-inline ml-auto " method="post" action="<c:url value="/login"/> "> <%-- les champs formulaires sur une seule ligne --%>
-                    <legend class="text-primary">Connectez vous pour profiter de toutes les fonctionnalités</legend>
+                    <legend class="text-primary">Se connecter</legend>
 
                     <input class="form-control  " type="email" id="email" name="email" value="<c:out value="${climber.email}" />" minlength="4"
                             placeholder="Email" required/>

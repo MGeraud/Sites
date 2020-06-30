@@ -24,11 +24,48 @@
     </c:choose>
 
 
-<div class="container">
-
-
-
+<%-- Import du formulaire de recherche de voies--%>
+<div class="container-fluid bg-secondary">
+<c:import url="findRouteForm.jsp"/>
 </div>
+
+<%-- Utilisation d'une card pour mettre en avant les avantages de créer un compte --%>
+<%-- Affichage de cette carte uniquement si utilisateur non connecté--%>
+<c:if test="${empty sessionScope.sessionUtilisateur}">
+    <div class="container">
+        <div class="row ">
+            <div class="col">
+                <div class="card">
+                        <%--Affichage d'une image en ahut de la carte sur les écran de taille moyenne et +   --%>
+                    <img src="inc/RockMountains.JPG" class="card-img-top d-none d-md-block w-100" alt="Paysage"/>
+                    <div class="card-body">
+                        <h4 class="card-title">Créez votre compte et connectez vous pour profiter de tous les services
+                            !</h4>
+                            <%-- Bouton d'envoi vers la page d'inscription --%>
+                        <a class="card-text" href="<c:url value="/inscription"/>">
+                            <input class="btn btn-primary" type="button" value="Créer compte">
+                        </a>
+                        <br/>
+                        <p class="card-text">Vous pourrez ainsi :
+                            <br/>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">Créer votre liste de topo</li>
+                            <li class="list-group-item list-group-item-info">Rechercher des topos pour les emprunter
+                            </li>
+                            <li class="list-group-item list-group-item-info">Ajouter de nouveaux sites / secteurs /
+                                voies
+                            </li>
+                            <li class="list-group-item list-group-item-info">Laisser des commentaires sur les sites</li>
+                            <li class="list-group-item list-group-item-info">Créer votre liste de topo</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:if>
+
 <%-- jquery, popper et bootstrap4.js pour bootstrap --%>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
