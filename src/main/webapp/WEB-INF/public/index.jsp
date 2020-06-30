@@ -13,15 +13,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<c:choose>
-    <c:when test="${not empty sessionScope.sessionUtilisateur}">
-        <c:import url="navbar.jsp"/>
-    </c:when>
-    <c:otherwise>
-        <c:import url="login.jsp"/>
-    </c:otherwise>
-</c:choose>
+<%-- Navbar différente importée selon si utilisateur enregistré ou non --%>
+    <c:choose>
+        <c:when test="${not empty sessionScope.sessionUtilisateur}">
+            <c:import url="navbar.jsp"/>
+        </c:when>
+        <c:otherwise>
+            <c:import url="login.jsp"/>
+        </c:otherwise>
+    </c:choose>
 
+
+<div class="container">
+
+
+
+</div>
 <%-- jquery, popper et bootstrap4.js pour bootstrap --%>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

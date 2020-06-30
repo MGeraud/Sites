@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/placeDescription")
 public class PlaceDescription extends HttpServlet {
 
-    public static final String VUE                          ="/WEB-INF/place.jsp";
+    public static final String VUE                          ="/WEB-INF/public/place.jsp";
     public static final String VUE_WITH_PARAMETERS          ="placeDescription?placeID=";
     public static final String ATT_GET_PLACE_DESCRIPTION    = "create_place_form";
 

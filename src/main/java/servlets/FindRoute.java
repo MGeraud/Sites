@@ -18,7 +18,7 @@ public class FindRoute extends HttpServlet {
 
     public static final String ATT_FOUND_ROUTES     = "foundRoutes";
 
-    public static final String VUE                  = "/WEB-INF/findRouteForm.jsp";
+    public static final String VUE                  = "/WEB-INF/public/findRouteForm.jsp";
     public static final String VUE_FOUND_ROUTE      = "found_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

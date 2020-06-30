@@ -93,7 +93,10 @@ public class IdentificationForm {
 
             if (decryptedPassword) {
                 climber = climberDao.findByStringId(email);
-            } else climber = null;
+            } else {
+                climber = null;
+                setErrors(CHAMP_PASSWORD,"Mot de passe erronné");
+            }
         } else {
             setErrors(CHAMP_EMAIL,"Email inconnu");
         }

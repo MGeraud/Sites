@@ -13,7 +13,7 @@
 <div class="bg-light">
     <div class="container-fluid">
         <div class="row ">
-            <nav class="col navbar navbar-expand-lg navbar-light ">
+            <nav class="col navbar navbar-expand-md navbar-light ">
                 <a class="navbar-brand" href="<c:url value="/index"/> ">
                     <img src="inc/amis_escalade.png" width="70" height="40" alt="Site logo">
                     Les Amis de l'escalade
@@ -24,7 +24,7 @@
                 <div id="navbarContent" class="collapse navbar-collapse " >
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="<c:url value="index"/> ">Accueil</a>
+                            <a class="nav-link" href="<c:url value="/index"/> ">Accueil</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="<c:url value="registred/profil_topo"/> ">Profil</a>

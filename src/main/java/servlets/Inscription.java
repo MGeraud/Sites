@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Inscription extends HttpServlet {
     public static final String ATT_CLIMBER          = "climber";
     public static final String ATT_FORM          = "form";
-    public static final String VUE          = "/WEB-INF/inscription.jsp";
+    public static final String VUE          = "/WEB-INF/public/inscription.jsp";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         InscriptionForm form = new InscriptionForm();

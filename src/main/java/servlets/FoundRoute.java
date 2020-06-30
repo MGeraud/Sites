@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/found_route")
 public class FoundRoute extends HttpServlet {
-    private static final String VUE                     ="/WEB-INF/found_route.jsp";
+    private static final String VUE                     ="/WEB-INF/public/found_route.jsp";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -16,8 +16,8 @@ public class Identification extends HttpServlet {
     public static final String ATT_CLIMBER              = "climber";
     public static final String ATT_REGISTRED_SESSION    ="sessionUtilisateur";
     public static final String ATT_FORM                 = "form";
-    public static final String VUE                      = "/WEB-INF/login.jsp";
-    public static final String VUE2                     = "/WEB-INF/index.jsp";
+    public static final String VUE                      = "/WEB-INF/public/login.jsp";
+    public static final String VUE2                     = "/WEB-INF/public/index.jsp";
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
