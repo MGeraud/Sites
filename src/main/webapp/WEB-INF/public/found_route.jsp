@@ -12,49 +12,58 @@
     <title>Les Amis de l'escalade</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <style type="text/css">
-        tr.pair {
-            background-color: #d7d6d6;
-        }
-
-        tr.impair {
-            background-color: #ffffff;
-        }
-    </style>
 </head>
 <body>
-<h2>Bienvenue sur la recherche de sites des amis de l'escalade</h2>
- <%-- Formulaire recherche de voies multicritères --%>
-<c:import url="findRouteForm.jsp"/>
-<br/>
-
-<h2>Résultat de la recherche</h2>
+<%-- Navbar différente importée selon si utilisateur enregistré ou non --%>
 <c:choose>
-    <c:when test="${empty sessionScope.foundRoutes}">
-        <c:out value="Pas de résultat pour cette recherche"/>
+    <c:when test="${not empty sessionScope.sessionUtilisateur}">
+        <c:import url="navbar.jsp"/>
     </c:when>
     <c:otherwise>
-        <table>
-            <tr>
-                <th>Nom du site</th>
-                <th>Type de voie</th>
-                <th>Nom de la voie</th>
-                <th>Cotation</th>
+        <c:import url="login.jsp"/>
+    </c:otherwise>
+</c:choose>
 
+
+<%-- Import du formulaire de recherche de voies--%>
+<div class="container-fluid bg-secondary">
+    <c:import url="findRouteForm.jsp"/>
+</div>
+<div class="alert mx-2">
+<h2 class="alert-warning pl-5" ><strong>Résultat de la recherche</strong></h2>
+</div>
+<c:choose>
+    <c:when test="${empty sessionScope.foundRoutes}">
+        <div class="alert alert-secondary mx-auto"  role="alert">
+            <c:out value="Pas de résultat pour cette recherche"/>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <table class="table table-striped table-bordered table-hover mx-2">
+            <thead>
+            <tr>
+                <th scope="col">Nom du site</th>
+                <th scope="col">Type de voie</th>
+                <th scope="col">Nom de la voie</th>
+                <th scope="col">Cotation</th>
+                <th scope="col"></th>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${sessionScope.foundRoutes}" var="foundRoutes" varStatus="colorLoop">
-                <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
-                    <td><c:out value="${foundRoutes.foundPlaceName}"/></td>
+                <tr>
+                    <th scope="row"><c:out value="${foundRoutes.foundPlaceName}"/></th>
                     <td><c:out value="${foundRoutes.foundRouteType}"/></td>
                     <td><c:out value="${foundRoutes.foundRouteName}"/></td>
                     <td><c:out value="${foundRoutes.foundRouteGrade}"/></td>
                     <td>
                         <a href="<c:url value="/placeDescription"><c:param name="placeID" value="${foundRoutes.foundPlaceId}"/></c:url>">
-                        <input type="button" value="Voir les Détails du site">
+                        <input class="btn btn-secondary btn-sm" type="button" value="Voir les Détails du site">
                         </a>
                     </td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
     </c:otherwise>
 </c:choose>

@@ -56,7 +56,6 @@
                                 voies
                             </li>
                             <li class="list-group-item list-group-item-info">Laisser des commentaires sur les sites</li>
-                            <li class="list-group-item list-group-item-info">Créer votre liste de topo</li>
                         </ul>
                         </p>
                     </div>
