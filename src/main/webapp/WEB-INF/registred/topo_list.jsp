@@ -63,7 +63,7 @@
 <div class="container mt-5">
     <c:if test="${not empty requestScope.selected_topos}">
         <form method="post" action="<c:out value="book_topo"/>">
-            <table class="table table-striped">
+            <table class="table table-striped border">
                 <thead>
                 <tr>
                         <%--pour les smartphones affichage uniquement titre / personne a contacter / bouton réservation --%>

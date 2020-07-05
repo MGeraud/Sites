@@ -12,51 +12,66 @@
     <title>Les Amis de l'escalade</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <style type="text/css">
-        tr.pair{
-            background-color: #d7d6d6;
-        }
-        tr.impair{
-            background-color: #ffffff;
-        }
-    </style>
+
 </head>
 <body>
 <%--import de la navbar pour les pages réservées aux utilisateurs enregistrés --%>
 <c:import url="registred_navbar.jsp"/>
 
-<H2><c:out value="${sessionScope.sessionUtilisateur.nickname} : liste de vos Topos." /></H2>
-<br />
+<%-- Profil mis en avant avec image préchoisie (prévoir possibilité de charger une image personnalisée ? )
+     Prévoir formulaire de modif mot de passe ou mail ? --%>
+<div class="jumbotron ">
+    <div class="row ">
+        <div class="col-4 justify-content-center">
+            <img class="rounded" src="../inc/profil.png" width="100" alt="Image profil">
+        </div>
+        <div class="col justify-content-center">
+            <p class="lead ">
+                <strong class="text-primary">Pseudonyme </strong>: <c:out value="${sessionScope.sessionUtilisateur.nickname} " />
+                <br/>
+                <br/>
+                <strong class="text-primary">Email </strong>: <c:out value="${sessionScope.sessionUtilisateur.email}" />
+            </p>
+        </div>
+    </div>
+</div>
+
+<h2 class="alert-warning text-center" ><strong>Vos topos</strong></h2>
+
+<div class="container mt-5">
+<%-- Vérification si le grimpeur a des topos enregistrés , si non affichage "aucun topo enregistré " , si oui affichage liste--%>
 <c:choose>
     <c:when test="${  requestScope.topos.size() == 0}">
-        <c:out value="Vous n'avez aucun topo enregistré pour le moment."/>
+        <strong class="text-danger text-center"> <c:out value="Vous n'avez aucun topo enregistré pour le moment."/></strong>
     </c:when>
     <c:otherwise>
-        <c:forEach items="${requestScope.topos}" var="bookedTopo" varStatus="colorLoop" >
+        <c:forEach items="${requestScope.topos}" var="bookedTopo" >
+            <%-- Vérification si des topos sont en attente de réservation, si oui affichage alerte et bouton validation--%>
             <c:if test="${bookedTopo.booking}">
-                <c:out value="Une demande de réservation pour le topo ${bookedTopo.topoName} a été faite, le demandeur va vous contacter par email. "/>
+                <c:out value="Une demande de réservation pour le topo ${bookedTopo.topoName} a été faite, le demandeur va vous contacter, pensez à vérifier vos email. "/>
                 <a href="<c:url value="/registred/bookingAccepted"><c:param name="bookedTopo" value="${bookedTopo.id}"/></c:url>">
-                    <input type="button" value="Accepter la réservation"/>
+                    <input class="btn btn-primary" type="button" value="Accepter la réservation"/>
                 </a>
                 <br />
             </c:if>
         </c:forEach>
-
-
-            <table >
+            <%-- Tableau listant les topos , colonnes affichées selon la taille de l'écran--%>
+            <table class="table table-striped" >
+                <thead>
                 <tr>
-                    <th>Titre</th>
-                    <th>Lieu</th>
-                    <th>Edition</th>
-                    <th>Disponibilité</th>
-                    <th>Modifier disponibilité</th>
-                    <!--<th>Réservation en attente</th> -->
-                    <th>Description</th>
+                    <th scope="col">Titre</th>
+                    <th class="d-none d-md-block" scope="col">Lieu</th>
+                    <th scope="col">Edition</th>
+                    <th scope="col">Disponibilité</th>
+                    <th scope="col">Modifier disponibilité</th>
+                    <th class="d-none d-md-block" scope="col">Description</th>
                 </tr>
-                <c:forEach items="${requestScope.topos}" var="topos" varStatus="colorLoop" >
-                    <tr class="${colorLoop.index % 2 == 0 ? 'pair' : 'impair'}">
-                        <td><c:out value="${topos.topoName}"/></td>
-                        <td><c:out value="${topos.topoPlace}"/> </td>
+                </thead>
+                <c:forEach items="${requestScope.topos}" var="topos"  >
+                    <tbody>
+                    <tr>
+                        <th scope="row"><c:out value="${topos.topoName}"/></th>
+                        <td class="d-none d-md-block"><c:out value="${topos.topoPlace}"/> </td>
                         <td><c:out value="${topos.year}"/> </td>
                         <td><c:out value="${topos.topoAvailable ? 'Disponible' : 'Non disponible'}"/> </td>
                         <td>
@@ -64,54 +79,51 @@
                                 <input type="button" value="Modifier"/>
                             </a>
                         </td>
-                        <td><c:out value="${topos.topoDescription}"/> </td>
+                        <td class="d-none d-md-block"><c:out value="${topos.topoDescription}"/> </td>
                     </tr>
+                    </tbody>
                 </c:forEach>
             </table>
-
     </c:otherwise>
 </c:choose>
-<br/>
-<span class="error">${sessionScope.create_topo_form.errors['topoName']}</span>
-<br/>
-
-
-<div id="addTopo" style="display: none">
-<form method="post" action="<c:url value="/registred/addTopo"/> " name="addTopo"  >
-    <fieldset>
-        <legend>Merci de fournir les informations concernant le topo à ajouter</legend>
-        <label for="topoName">Titre du topo</label>
-        <input type="text" id="topoName" name="topoName"  size="40"  />
-
-
-        <label for="topoPlace">Lieu</label>
-        <input type="text" id="topoPlace" name="topoPlace"  size="40"  />
-
-        <label for="topoYear">Année d'édition</label>
-        <input type="number" id="topoYear" name="topoYear" value="2020" size="4" />
-
-        <label for="topoAvailable">Disponible ?</label>
-        <input type="checkbox" id="topoAvailable" name="topoAvailable" value="available"  >
-        <br />
-
-        <label for="topoDescription">Description</label>
-        <textarea id="topoDescription" cols="100" maxlength="300" name="topoDescription"  spellcheck="true" ></textarea>
-        <br/>
-        <input type="submit" value="Enregistrer">
-    </fieldset>
-</form>
 </div>
-<input type="button" name="Add" value="Ajouter" id="Add" onclick="display_add_form()">
-<script type="text/javascript">
-    function display_add_form() {
+<%--Bouton d'ajout de topo qui fait apparaitre le formulaire lorsque cliqué --%>
+<div class="container mt-3">
+    <button class="btn btn-primary" type="button" data-toggle="collapse"
+            data-target="#ajout-topo" aria-expanded="false" aria-controls="ajout-topo">Ajouter un topo
+    </button>
+    <div class="collapse" id="ajout-topo">
+        <form method="post" action="<c:url value="/registred/addTopo"/> " name="addTopo"  >
+            <fieldset class="mt-5">
+                <legend class="text-primary">Merci de fournir les informations concernant le topo à ajouter</legend>
+                <div class="form-group">
+                <label for="topoName">Titre du topo</label>
+                <input class="form-control" type="text" id="topoName" name="topoName"  size="40"  />
+                <span class="error">${sessionScope.create_topo_form.errors['topoName']}</span>
+                </div>
+                <div class="form-group">
+                <label for="topoPlace">Lieu</label>
+                <input class="form-control" type="text" id="topoPlace" name="topoPlace"  size="40"  />
+                </div>
+                <div class="form-group">
+                <label for="topoYear">Année d'édition</label>
+                <input class="form-control" type="number" id="topoYear" name="topoYear" value="2020" size="4" />
+                </div>
+                <div class="form-group ml-4">
+                <input class="form-check-input" type="checkbox" id="topoAvailable" name="topoAvailable" value="available"  >
+                    <label class="form-check-label" for="topoAvailable">Disponible ?</label>
+                </div>
+                <div class="form-group">
+                <label for="topoDescription">Description</label>
+                <textarea class="form-control" id="topoDescription" cols="100" maxlength="300" name="topoDescription"  spellcheck="true" ></textarea>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Enregistrer">
+            </fieldset>
+        </form>
+    </div>
+</div>
 
-        document.getElementById("addTopo").style.display="block";
-        document.getElementById("Add").style.display="none";
 
-    }
-
-
-</script>
 <%-- jquery, popper et bootstrap4.js pour bootstrap --%>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
