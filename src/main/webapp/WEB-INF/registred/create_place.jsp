@@ -14,7 +14,7 @@
     <div class="card-body">
         <p>
             Envie de Créer un nouveau site ?
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
+            <button class="btn btn-primary ml-md-4" type="button" data-toggle="collapse"
                     data-target="#ajout-site" aria-expanded="false" aria-controls="ajout-site">Afficher le formulaire
             </button>
         <div class="collapse" id="ajout-site">
