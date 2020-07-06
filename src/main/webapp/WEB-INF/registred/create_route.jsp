@@ -17,16 +17,18 @@
 <body>
     <%--import de la navbar pour les pages réservées aux utilisateurs enregistrés --%>
     <c:import url="registred_navbar.jsp"/>
-
+<div class="container">
     <%--Création d'un nouveau site : import du formulaire de création de site --%>
-    <div id="newPlace">
-
             <c:import url="create_place.jsp"/>
 
-    </div>
-
     <%--Création secteur : liste déroulante pour le choix du site avant création de secteur et import du formulaire de remplissage détail du secteur --%>
-    <div id="newSector">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-primary"><strong>Nouveau secteur</strong></h3>
+        </div>
+        <div class="card-body">
+            
+        </div>
         <form method="post" action="<c:url value="/registred/create_sector"/> ">
             <fieldset>
                 <legend>Créez un nouveau secteur</legend>
@@ -43,9 +45,7 @@
             </fieldset>
         </form>
     </div>
-    <div>
 
-</div>
 
     <%--Création d'une nouvelle voie : liste déroulante du choix du site sur lequel sera crée la voie, liste déroulante du type de voie, liste déroulante liste secteur du site choisi --%>
     <div>
@@ -85,7 +85,7 @@
         </fieldset>
 
     </div>
-
+</div>
 <%--javascript pour afficher le formulaire adéquat en fonction du type de voie choisi en menu déroulant --%>
 <script type="text/javascript">
     function chose_route_type() {
