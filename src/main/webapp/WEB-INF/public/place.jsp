@@ -12,16 +12,6 @@
     <title>Les Amis de l'escalade</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <style type="text/css">
-        tr.pair {
-            background-color: #d7d6d6;
-        }
-
-        tr.impair {
-            background-color: #ffffff;
-        }
-    </style>
 </head>
 <body>
 <%-- Récupération de la navbar selon si connecté ou non --%>
