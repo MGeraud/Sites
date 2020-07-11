@@ -20,8 +20,10 @@ public class CreatePlaceForm {
     private static final String CHAMP_PLACE_REGION            ="regions";
     private static final String CHAMP_PLACE_DESCRIPTION     ="placeDescription";
 
+    /*instanciation des différents Dao via la factory */
     private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
 
+    /*création d'une Map pour stocker les messages d'erreurs */
     private Map<String , String > errors = new HashMap<>();
     public Map<String, String> getErrors() {
         return errors;

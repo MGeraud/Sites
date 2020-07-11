@@ -20,9 +20,11 @@ public class CreateSectorForm {
     private static final String CHAMP_SECTOR_DESCRIPTION     ="sectorDescription";
     private static final String CHAMP_PLACE_ID               ="placeList";
 
+    /*instanciation des différents Dao via la factory */
     private final Dao<Sector> sectorDao = DaoFactory.getSectorDao();
     private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
 
+    /* création Map pour stockage des différents messages d'erreurs*/
     private Map<String , String > errors = new HashMap<>();
     public Map<String, String> getErrors() {
         return errors;

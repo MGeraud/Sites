@@ -33,11 +33,12 @@ public class GetPlaceDescription {
     public static final String ATTRIBUT_ADD_COMMENT             ="addComment";
     public static final String ATTRIBUT_MODIFIED_COMMENT        ="modifiedComment";
 
-
+    /*instanciation des différents Dao via la factory */
     private final Dao<Sector> dao = DaoFactory.getSectorDao();
     private final Dao<Place> placeDao = DaoFactory.getPlaceDao();
     private final Dao<Com> comDao = DaoFactory.getComDao();
 
+    /* création d'une Map pour stocker les messages d'erreur*/
     private Map<String , String > errors = new HashMap<>();
     public Map<String, String> getErrors() {
         return errors;
@@ -126,6 +127,9 @@ public class GetPlaceDescription {
         }
     }
 
+    /**
+     * méthode de suppression de commentaire par les membres de l'association
+     */
     public void deleteComment (HttpServletRequest request) {
 
         /* récupération de l'id du commentaire à effacer */
@@ -137,6 +141,9 @@ public class GetPlaceDescription {
         comDao.delete(comToDelete);
     }
 
+    /**
+     * méthode de modification de commentaire par les membres de l'association
+     */
     public void updateComment (HttpServletRequest request) {
 
         /* récupération du pseudo du membre de l'association modifiant le commentaire */
@@ -150,9 +157,11 @@ public class GetPlaceDescription {
 
         /* récupération du commentaire dans la bdd pour le modifier */
         Com modifiedCom = comDao.findById(comId);
+        /* stockage des modifications dns le bean ainsi que le pseudo du membre de l'association ayant modifié le commentaire*/
         modifiedCom.setComment(modifiedComment);
         modifiedCom.setModifiedBy(modifiedBy);
 
+        /* modification de la base de donnée*/
         comDao.update(modifiedCom);
     }
 }

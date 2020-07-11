@@ -9,22 +9,28 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Traitement du formulaire de login
+ */
 public class IdentificationForm {
 
-
+    /* nom des différents champs du formaulaire de la jsp*/
     private static final String CHAMP_EMAIL                = "email";
     private static final String CHAMP_PASSWORD             = "password";
+    /* algorythme d'encodage pour le mot de passe*/
     private static final String ENCRYPTION_TYPE     = "SHA-256";
 
+    /* création d'une Map pour stocker les messages d'erreur*/
     private String result;
     private Map<String,String> errors               = new HashMap<String, String>();
+    /*instanciation des différents Dao via la factory */
     private final Dao<Climber> climberDao = DaoFactory.getClimberDao();
 
     public Map<String, String> getErrors() {
         return errors;
     }
 
-    /* ajout message erreur personnalise a la Map d'erreurs */
+    /** ajout message erreur personnalise a la Map d'erreurs */
     private void setErrors (String champ , String message) {
         errors.put(champ, message);
     }
@@ -34,7 +40,7 @@ public class IdentificationForm {
     }
 
 
-    /* Methodes verifications format mail et password valides */
+    /** Methode verification format mail valides */
     private void validEmail (String email) throws FormValidationException {
         if (email != null) {
             if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
@@ -45,6 +51,7 @@ public class IdentificationForm {
         }
     }
 
+    /** Methode verification format password valide */
     private void validPassword (String password ) throws FormValidationException {
         if (password != null ) {
             if (password.length() < 4 ) {
@@ -55,7 +62,7 @@ public class IdentificationForm {
         }
     }
 
-    /*recupération des valeurs du formulaire */
+    /** méthode de recupération des valeurs du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {
         String value = request.getParameter(lineName);
         if (value == null || value.trim().length() == 0 ) {
@@ -68,7 +75,7 @@ public class IdentificationForm {
 
 
 
-    /* on recupere le grimpeur si deja enregistré */
+    /** méthode de récupération du grimpeur si deja enregistré */
     public Climber createRegistredClimber (HttpServletRequest request) {
         String email = getFormValue(request , CHAMP_EMAIL);
         String password = getFormValue(request , CHAMP_PASSWORD);

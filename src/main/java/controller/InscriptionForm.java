@@ -10,18 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Traitement du formulaire d'inscription de grimpeur
+ */
 public class InscriptionForm {
 
+    /* nom des différents champs du formulaire*/
     private static final String CHAMP_EMAIL                = "email";
     private static final String CHAMP_PASSWORD             = "password";
     private static final String CHAMP_CONFIRMATION         = "confirmation";
     private static final String CHAMP_NICKNAME             = "nickname";
     private static final String CHAMP_ASSOCIATION          = "association";
 
+    /* Choix de l'algorythme d'encodage du mot de passe*/
     private static final String ENCRYPTION_TYPE     = "SHA-256";
 
+    /* Création d'une Map de stockage des différents messages d'erreur*/
     private String result;
     private Map<String,String> errors               = new HashMap<String, String>();
+
+    /* instanciation de la dao via la do factory*/
     private Dao<Climber> climberDao = DaoFactory.getClimberDao();
 
 
@@ -29,7 +37,7 @@ public class InscriptionForm {
         return errors;
     }
 
-    /* ajout message erreur personnalise a la Map d'erreurs */
+    /** ajout message erreur personnalise a la Map d'erreurs */
     private void setErrors (String champ , String message) {
         errors.put(champ, message);
     }
@@ -38,9 +46,8 @@ public class InscriptionForm {
         return result;
     }
 
-    /*
 
-    /* récupération des valeurs du champ du formulaire */
+     /**récupération des valeurs du champ du formulaire */
     private static String getFormValue (HttpServletRequest request, String lineName) {
         String value = request.getParameter(lineName);
         if (value == null || value.trim().length() == 0 ) {
@@ -88,7 +95,7 @@ public class InscriptionForm {
         }
     }
 
-    /* Methodes de traitement des donnees pour les attribuer a l'entite climber */
+    /** Methodes de traitement des donnees pour les attribuer a l'entite climber si champs validés par les méthodes valid... */
 
     private void setClimberEmail (String email , Climber climber) {
         try {
@@ -125,15 +132,18 @@ public class InscriptionForm {
     }
 
 
-
-
+    /**
+     * création du grimpeur et enregistrement en base de données
+     */
     public Climber createClimber (HttpServletRequest request) {
+        /* récupération des donnés des différents champs des formulaires*/
         String email = getFormValue(request , CHAMP_EMAIL);
         String password = getFormValue(request , CHAMP_PASSWORD);
         String confirmation = getFormValue(request , CHAMP_CONFIRMATION);
         String nickname = getFormValue(request, CHAMP_NICKNAME);
         String association = getFormValue(request , CHAMP_ASSOCIATION);
         Climber climber = new Climber();
+        /*attribution des différentes valeurs au grimpeur si valides et enregistrement si pas d'erreurs*/
         if (association != null) {
             climber.setAssociation(true);
         } else climber.setAssociation(false);

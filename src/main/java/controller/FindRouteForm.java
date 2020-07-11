@@ -36,9 +36,13 @@ public class FindRouteForm {
      */
     public List<FoundRoute> getFoundRoute (HttpServletRequest request) {
 
+        /*récupération des différentes entrées du formulaire de recherche */
         String byRegion = getFormValue(request,CHAMP_BY_REGION);
         String byRouteType = getFormValue(request, CHAMP_BY_ROUTE_TYPE);
         if (byRouteType.equals("AllRouteType")){ byRouteType = null; }
+        /* pour by grade et coutain text, mise en forme pour recherche JPQL avec la fonctionnalité LIKE
+        * le but pour byGrade est de pouvoir faire des recherches autant par cotaion sèche que par plage de cotation
+        * ou sans inclure les "+" */
         String byGrade = getFormValue(request, CHAMP_BY_GRADE);
         if (byGrade == null ) {
             byGrade = "%";
