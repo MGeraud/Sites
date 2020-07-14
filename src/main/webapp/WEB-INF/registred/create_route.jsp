@@ -30,6 +30,7 @@
         <div class="card-body">
             <p>
                 Ajouter un secteur sur un site existant ?
+                <%-- bouton pour afficher le formuaire de création de secteur, par défaut formulaire non affiché pour prendre moins de place à l ''ecran--%>
                 <button class="btn btn-primary ml-md-4" type="button" data-toggle="collapse"
                         data-target="#add-sector" aria-expanded="false" aria-controls="add-sector">Par ici pour le
                     formulaire !
@@ -65,6 +66,7 @@
                 Ajouter une nouvelle voie sur un secteur existant ?
 
                 <br/>
+                <%-- Si pas de secteur en session, alors site n'a pas été choisi donc affichage liste déroulante choix de site--%>
             <c:if test="${empty requestScope.sectors}">
             <form method="post" action="<c:url value="/registred/create_route"/>">
 
@@ -77,11 +79,14 @@
                 </select>
             </form>
             </c:if>
+            <%-- bouton affichage des formulaires, par défaut ces formulaires ne sont pas affichés --%>
             <button class="btn btn-primary " type="button" data-toggle="collapse"
                     data-target="#add-route" aria-expanded="false" aria-controls="add-route">Par ici pour la
                 suite !
             </button>
             <div class="collapse" id="add-route">
+                <%--    test si site non selectionné avant de demander la suite de formulaire alors message alerte et non affichage formulaire
+                        si site péalablement choisi alors affichage des chhoix suivants--%>
                 <c:choose>
                     <c:when test="${not empty requestScope.sectors}">
                         <%-- liste déroulante afficahnt ensuite le formulaire adapté au type de voie via la fonction javascript chose_route_type --%>

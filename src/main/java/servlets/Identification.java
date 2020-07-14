@@ -21,9 +21,11 @@ public class Identification extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* traitement du formulaire d'identification d'utilisateur*/
         IdentificationForm form = new IdentificationForm();
         Climber climber = form.createRegistredClimber(request);
 
+        /* mise en session du grimpeur si reconnu via formulaire d'identification , sinon envoi de null en session*/
         HttpSession session = request.getSession();
 
         if (form.getErrors().isEmpty() && climber!= null) {
@@ -31,7 +33,7 @@ public class Identification extends HttpServlet {
         } else {
             session.setAttribute(ATT_REGISTRED_SESSION , null);
         }
-
+        /* mise en scope request form et climber pour pouvoir récupérer la map d'erreur et préremplir champs */
         request.setAttribute(ATT_FORM,form);
         request.setAttribute(ATT_CLIMBER,climber);
 

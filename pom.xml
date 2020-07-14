@@ -26,34 +26,38 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!-- import javaEE 8 -->
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
       <version>8.0.1</version>
       <scope>provided</scope>
     </dependency>
+    <!-- import pour utilisation jstl dans les jsp-->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <!-- import Hibernate comme implémentation de JPA -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.4.14.Final</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+    <!-- import hibernate validator pour utilisation de validation d'entités  -->
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>6.1.5.Final</version>
     </dependency>
+    <!-- import pour accès base de données postgrésql -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.2.12</version>
     </dependency>
+    <!-- import de jasypt , API pour encodage utilisé pour les mots de passe-->
     <dependency>
       <groupId>org.jasypt</groupId>
       <artifactId>jasypt</artifactId>
@@ -65,8 +69,9 @@
 
   <build>
     <finalName>sites</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
+        <!-- plugin pour serveur Tomcat avec configuration du port de sortie utilisé et le path de l'application -->
         <plugin>
           <groupId>org.apache.tomcat.maven</groupId>
           <artifactId>tomcat7-maven-plugin</artifactId>
@@ -75,13 +80,13 @@
             <port>8080</port>
             <path>/sites</path>
           </configuration>
-
         </plugin>
+
+        <!-- plugins de cycle de vie de maven -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.1.0</version>
@@ -105,13 +110,11 @@
           <artifactId>maven-install-plugin</artifactId>
           <version>3.0.0-M1</version>
         </plugin>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.9.0</version>
         </plugin>
-
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.0.0-M1</version>

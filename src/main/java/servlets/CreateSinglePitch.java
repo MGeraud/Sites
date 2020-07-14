@@ -14,6 +14,7 @@ public class CreateSinglePitch extends HttpServlet {
     public static final String VUE                = "create_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /* traitement de la requete */
         CreateSinglePitchForm createSinglePitchForm= new CreateSinglePitchForm();
         createSinglePitchForm.createMultiPitch(request);
         response.sendRedirect(VUE);

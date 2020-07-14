@@ -14,6 +14,7 @@ public class BookingAccepted extends HttpServlet {
     public static final String VUE                = "profil_topo";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /* traitement de la requete */
         UpdateTopoAvailabilityForm updateTopoAvailability = new UpdateTopoAvailabilityForm();
         updateTopoAvailability.acceptBooking(request);
 

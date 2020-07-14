@@ -20,7 +20,7 @@ public class CreateMultiPitch extends HttpServlet {
     public static final String VUE                = "create_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* traitement de la requete */
         CreateMultiPitchForm createMultiPitchForm= new CreateMultiPitchForm();
         createMultiPitchForm.createMultiPitch(request);
 

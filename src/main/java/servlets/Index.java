@@ -15,6 +15,7 @@ public class Index extends HttpServlet {
     private static final String VUE                     ="/WEB-INF/public/index.jsp";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* mise en session de la map d'Enum des régions pour l'afficher en liste déroulante dans la jsp*/
         HttpSession session = request.getSession();
         session.setAttribute("regions" , Region.getMapRegions());
         this.getServletContext().getRequestDispatcher(VUE).forward(request,response);

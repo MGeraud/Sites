@@ -19,9 +19,10 @@ public class PlaceDescription extends HttpServlet {
     public static final String ATT_GET_PLACE_DESCRIPTION    = "create_place_form";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* Récupération de l'id du site affiché pour rediriger vers sa page de description après l'ajout de commentaire */
         HttpSession session = request.getSession();
         Place place = (Place) session.getAttribute("place");
+        /* traitement du formulaire de demande d'ajout de commentaire */
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.addComment(request);
 
@@ -30,7 +31,7 @@ public class PlaceDescription extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        /* traitement des parametres URL pour diriger vers la description du site demandé */
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.getPlaceWithAllAttributes(request);
 

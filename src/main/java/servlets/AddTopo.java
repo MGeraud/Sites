@@ -16,9 +16,12 @@ public class AddTopo extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        /* traitement de la requete */
         CreateTopoForm createTopoForm= new CreateTopoForm();
         createTopoForm.createTopo(request);
+
         HttpSession session = request.getSession();
+        /* récupération en session de createTopoForm pour avoir accès à sa Maps d'erreurs depuis la jsp*/
         session.setAttribute("create_topo_form" ,createTopoForm);
         response.sendRedirect(VUE);
     }

@@ -7,6 +7,7 @@
   Time: 16:34
   To change this template use File | Settings | File Templates.
 --%>
+<%-- création d'une card pour afficher la création de nouveau site d'escalade--%>
 <div class="card">
     <div class="card-header">
         <h3 class="text-primary"><strong>Nouveau site</strong></h3>
@@ -14,10 +15,12 @@
     <div class="card-body">
         <p>
             Envie de Créer un nouveau site ?
+            <%-- bouton pour afficher le formulaire, si non cliqué le formulaire reste caché pour prendre moins de place à l 'ecran--%>
             <button class="btn btn-primary ml-md-4" type="button" data-toggle="collapse"
                     data-target="#ajout-site" aria-expanded="false" aria-controls="ajout-site">Afficher le formulaire
             </button>
         <div class="collapse" id="ajout-site">
+        <%-- formulaire de création d'un nouveau site d'escalade--%>
             <form method="post" action="<c:url value="/registred/create_place"/> ">
                 <div class="form-group">
                     <label for="regions">Choisissez une région</label>

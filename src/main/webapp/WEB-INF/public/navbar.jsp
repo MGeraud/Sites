@@ -8,7 +8,7 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%-- Creation de navbar responsive pour les utilisateurs enregistrés --%>
+<%-- Creation de navbar responsive pour les utilisateurs enregistrés avec liens d'accès vers les pages réservées --%>
 
 <div class="bg-light">
     <div class="container-fluid">

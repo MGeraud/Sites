@@ -18,10 +18,14 @@ public class DeleteComment extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         HttpSession session = request.getSession();
+        /*récupération de l'id du site pour pouvoir rediriger vers sa page une fois le commentaire effacé */
         Place place = (Place) session.getAttribute("place");
+
+        /* traitement de la requete */
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.deleteComment(request);
 
+        /* redirection dynamique en fonction de l'id du site récupéré*/
         response.sendRedirect(VUE + place.getPlaceId());
     }
 }

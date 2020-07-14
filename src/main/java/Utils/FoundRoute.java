@@ -1,5 +1,8 @@
 package Utils;
 
+/**
+ * Objet pour résultat de recherche SQL afin d'éviter de requêter/charger plusieurs entités
+ */
 public class FoundRoute {
 
     private Long foundPlaceId;

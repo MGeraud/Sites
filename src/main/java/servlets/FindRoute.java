@@ -22,9 +22,10 @@ public class FindRoute extends HttpServlet {
     public static final String VUE_FOUND_ROUTE      = "found_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* traitement de la requete */
         FindRouteForm findRouteForm = new FindRouteForm();
         List<FoundRoute> foundRoutes = findRouteForm.getFoundRoute(request);
+        /* mise en session des résultats et redirection vers la page de résultat de recherche*/
         HttpSession session = request.getSession();
         session.setAttribute(ATT_FOUND_ROUTES , foundRoutes);
         response.sendRedirect(VUE_FOUND_ROUTE);
@@ -34,7 +35,7 @@ public class FindRoute extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        /* mise en session de la map d'Enum des régions pour l'afficher en liste déroulante dans la jsp*/
         HttpSession session = request.getSession();
         session.setAttribute("regions" , Region.getMapRegions());
 

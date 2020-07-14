@@ -21,7 +21,7 @@ public class CreateBoulder extends HttpServlet {
     public static final String VUE                = "create_route";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* traitement de la requete */
         CreateBoulderForm  createBoulderForm= new CreateBoulderForm();
         createBoulderForm.createBoulder(request);
 

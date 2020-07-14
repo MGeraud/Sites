@@ -32,6 +32,7 @@
 <div class="alert mx-2">
 <h2 class="alert-warning pl-5" ><strong>Résultat de la recherche</strong></h2>
 </div>
+<%-- test si résultat recherche vide ou non pour affichage différent --%>
 <c:choose>
     <c:when test="${empty sessionScope.foundRoutes}">
         <div class="alert alert-secondary mx-auto"  role="alert">
@@ -50,13 +51,14 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${sessionScope.foundRoutes}" var="foundRoutes" varStatus="colorLoop">
+            <c:forEach items="${sessionScope.foundRoutes}" var="foundRoutes" >
                 <tr>
                     <th scope="row"><c:out value="${foundRoutes.foundPlaceName}"/></th>
                     <td><c:out value="${foundRoutes.foundRouteType}"/></td>
                     <td><c:out value="${foundRoutes.foundRouteName}"/></td>
                     <td><c:out value="${foundRoutes.foundRouteGrade}"/></td>
                     <td>
+                        <%-- bouton de redirection vers la page détaillant le site--%>
                         <a href="<c:url value="/placeDescription"><c:param name="placeID" value="${foundRoutes.foundPlaceId}"/></c:url>">
                         <input class="btn btn-secondary btn-sm" type="button" value="Voir détails">
                         </a>

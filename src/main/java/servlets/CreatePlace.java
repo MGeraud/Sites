@@ -20,12 +20,13 @@ public class CreatePlace extends HttpServlet {
     public static final String ATT_CREATE_PLACE_FORM        = "create_place_form";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* traitement de la requete */
         CreatePlaceForm createPlaceForm = new CreatePlaceForm();
         Place place = createPlaceForm.createPlace(request);
 
         request.setAttribute(ATT_PLACE , place);
 
+        /* mise en session createPlaceForm pour acces Map d'erreur*/
         HttpSession session = request.getSession();
         session.setAttribute(ATT_CREATE_PLACE_FORM , createPlaceForm);
 

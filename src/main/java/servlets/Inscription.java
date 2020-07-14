@@ -22,7 +22,7 @@ public class Inscription extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        /* traitement du formulaire d'inscription */
         InscriptionForm form = new InscriptionForm();
         Climber climber = form.createClimber(request);
         HttpSession session = request.getSession();

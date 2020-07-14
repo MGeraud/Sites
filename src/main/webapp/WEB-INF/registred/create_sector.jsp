@@ -7,6 +7,7 @@
 --%><%@ page pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%-- partie de formulaire spécifique à la création de secteur--%>
 <div class="form-group">
 <label for="sectorName">Nom du secteur : </label>
 <input class="form-control" type="text" id="sectorName" name="sectorName" value="<c:out value="${sector.sectorName}" />" size="10" maxlength="60" minlength="4" required/>

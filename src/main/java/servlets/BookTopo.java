@@ -15,6 +15,7 @@ public class BookTopo extends HttpServlet {
     public static final String VUE                = "topo_list";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /* traitement de la requete */
         UpdateTopoAvailabilityForm updateTopoAvailability = new UpdateTopoAvailabilityForm();
         updateTopoAvailability.bookTopo(request);
 

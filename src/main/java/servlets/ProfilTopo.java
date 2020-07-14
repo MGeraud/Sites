@@ -23,7 +23,7 @@ public class ProfilTopo extends HttpServlet {
     private final Dao<Topo> topoDao = DaoFactory.getTopoDao();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /**
+        /*
          * récupération et mise en session de la liste des topos de l'utilisateur connecté
          */
         HttpSession session = request.getSession();

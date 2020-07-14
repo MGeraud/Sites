@@ -16,13 +16,16 @@ public class UpdateComment extends HttpServlet {
     private static final String VUE             = "placeDescription?placeID=";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* mise en session du site en description sur la page pour réafficher dynamiquement sa page de description
+        * après modification du commentaire */
         HttpSession session = request.getSession();
         Place place = (Place) session.getAttribute("place");
 
+        /* traitement de la modification de commentaire */
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.updateComment(request);
 
+        /* redirection vers la description du site précédement affiché*/
         response.sendRedirect(VUE + place.getPlaceId());
     }
 }

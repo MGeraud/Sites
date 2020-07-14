@@ -23,7 +23,7 @@ public class TopoList extends HttpServlet {
     private final Dao<Topo> dao = DaoFactory.getTopoDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        /* traitement du formulaire de recherche de topos et mise en scope request du résultat*/
         FindTopos findTopos = new FindTopos();
         List<Topo> selectedTopos = findTopos.getSelectedTopos(request);
         request.setAttribute(ATT_SELECTED_TOPOS,selectedTopos);
@@ -32,7 +32,7 @@ public class TopoList extends HttpServlet {
 }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /**
+        /*
          * récupération et mise en session de la liste des topos pour y accèder en liste déroulante
          */
         List<Topo> topos = dao.findAll();

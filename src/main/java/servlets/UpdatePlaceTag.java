@@ -15,6 +15,7 @@ public class UpdatePlaceTag extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* traitement de la demande de modification du tag "site officiel les Amis de l'Escalade" (ajout ou retrait)*/
         GetPlaceDescription getPlaceDescription = new GetPlaceDescription();
         getPlaceDescription.updatePlaceTag(request);
 

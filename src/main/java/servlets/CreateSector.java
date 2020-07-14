@@ -19,12 +19,13 @@ public class CreateSector extends HttpServlet {
     public static final String ATT_CREATE_SECTOR_FORM        = "create_sector_form";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        /* traitement de la requete */
         CreateSectorForm createSectorForm = new CreateSectorForm();
         Sector sectors = createSectorForm.createSector(request);
 
         request.setAttribute(ATT_SECTOR , sectors);
 
+        /*Mise en session createSectorForm pour pouvoir récupérer Map erreurs*/
         HttpSession session = request.getSession();
         session.setAttribute(ATT_CREATE_SECTOR_FORM , createSectorForm);
 
