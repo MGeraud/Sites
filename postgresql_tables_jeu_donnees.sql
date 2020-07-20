@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.1
--- Dumped by pg_dump version 12.1
+-- Dumped from database version 12.3 (Ubuntu 12.3-1.pgdg20.04+1)
+-- Dumped by pg_dump version 12.3 (Ubuntu 12.3-1.pgdg20.04+1)
 
--- Started on 2020-07-20 13:59:09
+-- Started on 2020-07-20 16:58:59 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 202 (class 1259 OID 49492)
+-- TOC entry 202 (class 1259 OID 18802)
 -- Name: climber; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -38,7 +38,7 @@ CREATE TABLE public.climber (
 ALTER TABLE public.climber OWNER TO admin_escalade;
 
 --
--- TOC entry 203 (class 1259 OID 49500)
+-- TOC entry 203 (class 1259 OID 18808)
 -- Name: com; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -54,7 +54,7 @@ CREATE TABLE public.com (
 ALTER TABLE public.com OWNER TO admin_escalade;
 
 --
--- TOC entry 208 (class 1259 OID 49540)
+-- TOC entry 204 (class 1259 OID 18814)
 -- Name: hibernate_sequence; Type: SEQUENCE; Schema: public; Owner: admin_escalade
 --
 
@@ -69,7 +69,7 @@ CREATE SEQUENCE public.hibernate_sequence
 ALTER TABLE public.hibernate_sequence OWNER TO admin_escalade;
 
 --
--- TOC entry 204 (class 1259 OID 49508)
+-- TOC entry 205 (class 1259 OID 18816)
 -- Name: place; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -85,7 +85,7 @@ CREATE TABLE public.place (
 ALTER TABLE public.place OWNER TO admin_escalade;
 
 --
--- TOC entry 205 (class 1259 OID 49516)
+-- TOC entry 206 (class 1259 OID 18822)
 -- Name: route; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -107,7 +107,7 @@ CREATE TABLE public.route (
 ALTER TABLE public.route OWNER TO admin_escalade;
 
 --
--- TOC entry 206 (class 1259 OID 49524)
+-- TOC entry 207 (class 1259 OID 18828)
 -- Name: sector; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -122,7 +122,7 @@ CREATE TABLE public.sector (
 ALTER TABLE public.sector OWNER TO admin_escalade;
 
 --
--- TOC entry 207 (class 1259 OID 49532)
+-- TOC entry 208 (class 1259 OID 18834)
 -- Name: topo; Type: TABLE; Schema: public; Owner: admin_escalade
 --
 
@@ -141,7 +141,297 @@ CREATE TABLE public.topo (
 ALTER TABLE public.topo OWNER TO admin_escalade;
 
 --
--- TOC entry 2863 (class 2613 OID 49567)
+-- TOC entry 3005 (class 2613 OID 18877)
+-- Name: 18877; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18877');
+
+
+ALTER LARGE OBJECT 18877 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3006 (class 2613 OID 18878)
+-- Name: 18878; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18878');
+
+
+ALTER LARGE OBJECT 18878 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3007 (class 2613 OID 18879)
+-- Name: 18879; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18879');
+
+
+ALTER LARGE OBJECT 18879 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3008 (class 2613 OID 18880)
+-- Name: 18880; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18880');
+
+
+ALTER LARGE OBJECT 18880 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3009 (class 2613 OID 18881)
+-- Name: 18881; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18881');
+
+
+ALTER LARGE OBJECT 18881 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3010 (class 2613 OID 18882)
+-- Name: 18882; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18882');
+
+
+ALTER LARGE OBJECT 18882 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3011 (class 2613 OID 18883)
+-- Name: 18883; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18883');
+
+
+ALTER LARGE OBJECT 18883 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3012 (class 2613 OID 18884)
+-- Name: 18884; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18884');
+
+
+ALTER LARGE OBJECT 18884 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3013 (class 2613 OID 18885)
+-- Name: 18885; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18885');
+
+
+ALTER LARGE OBJECT 18885 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3014 (class 2613 OID 18886)
+-- Name: 18886; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18886');
+
+
+ALTER LARGE OBJECT 18886 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3015 (class 2613 OID 18887)
+-- Name: 18887; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18887');
+
+
+ALTER LARGE OBJECT 18887 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3016 (class 2613 OID 18888)
+-- Name: 18888; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18888');
+
+
+ALTER LARGE OBJECT 18888 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3017 (class 2613 OID 18889)
+-- Name: 18889; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18889');
+
+
+ALTER LARGE OBJECT 18889 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3018 (class 2613 OID 18890)
+-- Name: 18890; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18890');
+
+
+ALTER LARGE OBJECT 18890 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3019 (class 2613 OID 18891)
+-- Name: 18891; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18891');
+
+
+ALTER LARGE OBJECT 18891 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3020 (class 2613 OID 18892)
+-- Name: 18892; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18892');
+
+
+ALTER LARGE OBJECT 18892 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3021 (class 2613 OID 18893)
+-- Name: 18893; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18893');
+
+
+ALTER LARGE OBJECT 18893 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3022 (class 2613 OID 18894)
+-- Name: 18894; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18894');
+
+
+ALTER LARGE OBJECT 18894 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3023 (class 2613 OID 18895)
+-- Name: 18895; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18895');
+
+
+ALTER LARGE OBJECT 18895 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3024 (class 2613 OID 18896)
+-- Name: 18896; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18896');
+
+
+ALTER LARGE OBJECT 18896 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3025 (class 2613 OID 18897)
+-- Name: 18897; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18897');
+
+
+ALTER LARGE OBJECT 18897 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3026 (class 2613 OID 18898)
+-- Name: 18898; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18898');
+
+
+ALTER LARGE OBJECT 18898 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3027 (class 2613 OID 18899)
+-- Name: 18899; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18899');
+
+
+ALTER LARGE OBJECT 18899 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3028 (class 2613 OID 18900)
+-- Name: 18900; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18900');
+
+
+ALTER LARGE OBJECT 18900 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3029 (class 2613 OID 18901)
+-- Name: 18901; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18901');
+
+
+ALTER LARGE OBJECT 18901 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3030 (class 2613 OID 18903)
+-- Name: 18903; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18903');
+
+
+ALTER LARGE OBJECT 18903 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3031 (class 2613 OID 18904)
+-- Name: 18904; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18904');
+
+
+ALTER LARGE OBJECT 18904 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3032 (class 2613 OID 18905)
+-- Name: 18905; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18905');
+
+
+ALTER LARGE OBJECT 18905 OWNER TO admin_escalade;
+
+--
+-- TOC entry 3033 (class 2613 OID 18906)
+-- Name: 18906; Type: BLOB; Schema: -; Owner: admin_escalade
+--
+
+SELECT pg_catalog.lo_create('18906');
+
+
+ALTER LARGE OBJECT 18906 OWNER TO admin_escalade;
+
+--
+-- TOC entry 2979 (class 2613 OID 49567)
 -- Name: 49567; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -151,7 +441,7 @@ SELECT pg_catalog.lo_create('49567');
 ALTER LARGE OBJECT 49567 OWNER TO admin_escalade;
 
 --
--- TOC entry 2864 (class 2613 OID 49568)
+-- TOC entry 2980 (class 2613 OID 49568)
 -- Name: 49568; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -161,7 +451,7 @@ SELECT pg_catalog.lo_create('49568');
 ALTER LARGE OBJECT 49568 OWNER TO admin_escalade;
 
 --
--- TOC entry 2865 (class 2613 OID 49569)
+-- TOC entry 2981 (class 2613 OID 49569)
 -- Name: 49569; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -171,7 +461,7 @@ SELECT pg_catalog.lo_create('49569');
 ALTER LARGE OBJECT 49569 OWNER TO admin_escalade;
 
 --
--- TOC entry 2866 (class 2613 OID 49570)
+-- TOC entry 2982 (class 2613 OID 49570)
 -- Name: 49570; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -181,7 +471,7 @@ SELECT pg_catalog.lo_create('49570');
 ALTER LARGE OBJECT 49570 OWNER TO admin_escalade;
 
 --
--- TOC entry 2867 (class 2613 OID 49571)
+-- TOC entry 2983 (class 2613 OID 49571)
 -- Name: 49571; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -191,7 +481,7 @@ SELECT pg_catalog.lo_create('49571');
 ALTER LARGE OBJECT 49571 OWNER TO admin_escalade;
 
 --
--- TOC entry 2868 (class 2613 OID 49572)
+-- TOC entry 2984 (class 2613 OID 49572)
 -- Name: 49572; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -201,7 +491,7 @@ SELECT pg_catalog.lo_create('49572');
 ALTER LARGE OBJECT 49572 OWNER TO admin_escalade;
 
 --
--- TOC entry 2869 (class 2613 OID 49573)
+-- TOC entry 2985 (class 2613 OID 49573)
 -- Name: 49573; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -211,7 +501,7 @@ SELECT pg_catalog.lo_create('49573');
 ALTER LARGE OBJECT 49573 OWNER TO admin_escalade;
 
 --
--- TOC entry 2870 (class 2613 OID 49574)
+-- TOC entry 2986 (class 2613 OID 49574)
 -- Name: 49574; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -221,7 +511,7 @@ SELECT pg_catalog.lo_create('49574');
 ALTER LARGE OBJECT 49574 OWNER TO admin_escalade;
 
 --
--- TOC entry 2871 (class 2613 OID 49575)
+-- TOC entry 2987 (class 2613 OID 49575)
 -- Name: 49575; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -231,7 +521,7 @@ SELECT pg_catalog.lo_create('49575');
 ALTER LARGE OBJECT 49575 OWNER TO admin_escalade;
 
 --
--- TOC entry 2872 (class 2613 OID 49576)
+-- TOC entry 2988 (class 2613 OID 49576)
 -- Name: 49576; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -241,7 +531,7 @@ SELECT pg_catalog.lo_create('49576');
 ALTER LARGE OBJECT 49576 OWNER TO admin_escalade;
 
 --
--- TOC entry 2873 (class 2613 OID 49577)
+-- TOC entry 2989 (class 2613 OID 49577)
 -- Name: 49577; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -251,7 +541,7 @@ SELECT pg_catalog.lo_create('49577');
 ALTER LARGE OBJECT 49577 OWNER TO admin_escalade;
 
 --
--- TOC entry 2874 (class 2613 OID 49578)
+-- TOC entry 2990 (class 2613 OID 49578)
 -- Name: 49578; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -261,7 +551,7 @@ SELECT pg_catalog.lo_create('49578');
 ALTER LARGE OBJECT 49578 OWNER TO admin_escalade;
 
 --
--- TOC entry 2875 (class 2613 OID 49579)
+-- TOC entry 2991 (class 2613 OID 49579)
 -- Name: 49579; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -271,7 +561,7 @@ SELECT pg_catalog.lo_create('49579');
 ALTER LARGE OBJECT 49579 OWNER TO admin_escalade;
 
 --
--- TOC entry 2876 (class 2613 OID 49580)
+-- TOC entry 2992 (class 2613 OID 49580)
 -- Name: 49580; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -281,7 +571,7 @@ SELECT pg_catalog.lo_create('49580');
 ALTER LARGE OBJECT 49580 OWNER TO admin_escalade;
 
 --
--- TOC entry 2877 (class 2613 OID 49581)
+-- TOC entry 2993 (class 2613 OID 49581)
 -- Name: 49581; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -291,7 +581,7 @@ SELECT pg_catalog.lo_create('49581');
 ALTER LARGE OBJECT 49581 OWNER TO admin_escalade;
 
 --
--- TOC entry 2878 (class 2613 OID 49582)
+-- TOC entry 2994 (class 2613 OID 49582)
 -- Name: 49582; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -301,7 +591,7 @@ SELECT pg_catalog.lo_create('49582');
 ALTER LARGE OBJECT 49582 OWNER TO admin_escalade;
 
 --
--- TOC entry 2879 (class 2613 OID 49583)
+-- TOC entry 2995 (class 2613 OID 49583)
 -- Name: 49583; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -311,7 +601,7 @@ SELECT pg_catalog.lo_create('49583');
 ALTER LARGE OBJECT 49583 OWNER TO admin_escalade;
 
 --
--- TOC entry 2880 (class 2613 OID 49584)
+-- TOC entry 2996 (class 2613 OID 49584)
 -- Name: 49584; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -321,7 +611,7 @@ SELECT pg_catalog.lo_create('49584');
 ALTER LARGE OBJECT 49584 OWNER TO admin_escalade;
 
 --
--- TOC entry 2881 (class 2613 OID 49585)
+-- TOC entry 2997 (class 2613 OID 49585)
 -- Name: 49585; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -331,7 +621,7 @@ SELECT pg_catalog.lo_create('49585');
 ALTER LARGE OBJECT 49585 OWNER TO admin_escalade;
 
 --
--- TOC entry 2882 (class 2613 OID 49586)
+-- TOC entry 2998 (class 2613 OID 49586)
 -- Name: 49586; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -341,7 +631,7 @@ SELECT pg_catalog.lo_create('49586');
 ALTER LARGE OBJECT 49586 OWNER TO admin_escalade;
 
 --
--- TOC entry 2883 (class 2613 OID 49587)
+-- TOC entry 2999 (class 2613 OID 49587)
 -- Name: 49587; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -351,7 +641,7 @@ SELECT pg_catalog.lo_create('49587');
 ALTER LARGE OBJECT 49587 OWNER TO admin_escalade;
 
 --
--- TOC entry 2884 (class 2613 OID 49588)
+-- TOC entry 3000 (class 2613 OID 49588)
 -- Name: 49588; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -361,7 +651,7 @@ SELECT pg_catalog.lo_create('49588');
 ALTER LARGE OBJECT 49588 OWNER TO admin_escalade;
 
 --
--- TOC entry 2885 (class 2613 OID 49589)
+-- TOC entry 3001 (class 2613 OID 49589)
 -- Name: 49589; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -371,7 +661,7 @@ SELECT pg_catalog.lo_create('49589');
 ALTER LARGE OBJECT 49589 OWNER TO admin_escalade;
 
 --
--- TOC entry 2886 (class 2613 OID 49590)
+-- TOC entry 3002 (class 2613 OID 49590)
 -- Name: 49590; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -381,7 +671,7 @@ SELECT pg_catalog.lo_create('49590');
 ALTER LARGE OBJECT 49590 OWNER TO admin_escalade;
 
 --
--- TOC entry 2887 (class 2613 OID 49591)
+-- TOC entry 3003 (class 2613 OID 49591)
 -- Name: 49591; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -391,7 +681,7 @@ SELECT pg_catalog.lo_create('49591');
 ALTER LARGE OBJECT 49591 OWNER TO admin_escalade;
 
 --
--- TOC entry 2888 (class 2613 OID 49592)
+-- TOC entry 3004 (class 2613 OID 49592)
 -- Name: 49592; Type: BLOB; Schema: -; Owner: admin_escalade
 --
 
@@ -401,98 +691,256 @@ SELECT pg_catalog.lo_create('49592');
 ALTER LARGE OBJECT 49592 OWNER TO admin_escalade;
 
 --
--- TOC entry 2856 (class 0 OID 49492)
+-- TOC entry 2972 (class 0 OID 18802)
 -- Dependencies: 202
 -- Data for Name: climber; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
-INSERT INTO public.climber (email, association, nickname, password) VALUES ('climber1@gmail.com', true, 'climber1', 'NFUJohn+RdAMNMWp6jhJUCq9PaKxkL3pEAOAauD/jmt3Z1tvrfttLw==');
-INSERT INTO public.climber (email, association, nickname, password) VALUES ('climber2@gmail.com', false, 'climber2', 'S1Udgj2scGKTvRRxvl1M2lMhkiSWSnxwCF/5sSJmOB0/HdvIOrxchw==');
+COPY public.climber (email, association, nickname, password) FROM stdin;
+climber1@gmail.com	t	climber1	NFUJohn+RdAMNMWp6jhJUCq9PaKxkL3pEAOAauD/jmt3Z1tvrfttLw==
+climber2@gmail.com	f	climber2	S1Udgj2scGKTvRRxvl1M2lMhkiSWSnxwCF/5sSJmOB0/HdvIOrxchw==
+\.
 
 
 --
--- TOC entry 2857 (class 0 OID 49500)
+-- TOC entry 2973 (class 0 OID 18808)
 -- Dependencies: 203
 -- Data for Name: com; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
+COPY public.com (id, comment, modified_by, climber_email, place_place_id) FROM stdin;
+53	18900	\N	climber1@gmail.com	29
+54	18901	\N	climber1@gmail.com	29
+55	18903	\N	climber1@gmail.com	7
+56	18904	\N	climber2@gmail.com	19
+57	18905	\N	climber2@gmail.com	29
+58	18906	\N	climber2@gmail.com	44
+\.
 
 
 --
--- TOC entry 2858 (class 0 OID 49508)
--- Dependencies: 204
+-- TOC entry 2975 (class 0 OID 18816)
+-- Dependencies: 205
 -- Data for Name: place; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
-INSERT INTO public.place (place_id, placedescription, place_name, region, tag) VALUES (7, '49573', 'Les Salces', 'Occitanie', false);
-INSERT INTO public.place (place_id, placedescription, place_name, region, tag) VALUES (19, '49583', 'Roc du Gorb', 'Occitanie', false);
+COPY public.place (place_id, placedescription, place_name, region, tag) FROM stdin;
+19	49583	Roc du Gorb	Occitanie	f
+7	18877	Les Salces	Occitanie	t
+44	18891	Orlu	Occitanie	f
+29	18899	MontRoc	Occitanie	t
+\.
 
 
 --
--- TOC entry 2859 (class 0 OID 49516)
--- Dependencies: 205
+-- TOC entry 2976 (class 0 OID 18822)
+-- Dependencies: 206
 -- Data for Name: route; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 11, '6a', '49577', 'Le dé de 6', 'Bloc', true, NULL, NULL, NULL, 8);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 12, '5c+', '49578', 'L''angle terre', 'Bloc', false, NULL, NULL, NULL, 8);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 13, '4+', NULL, 'La dalle a Juju', 'Bloc', false, NULL, NULL, NULL, 8);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 14, '8a', '49579', 'Le toit des fous', 'Bloc', true, NULL, NULL, NULL, 9);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 15, '5b+', '49580', 'Le gruyere', 'Bloc', true, NULL, NULL, NULL, 9);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('Boulder', 16, '6b', '49581', 'Dent Tales', 'Bloc', false, NULL, NULL, NULL, 10);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 17, '4', '49582', 'Skoll Air', 'Voie Sportive', NULL, NULL, 9, 5, 10);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 18, '5a', NULL, 'Arabesque', 'Voie Sportive', NULL, NULL, 12, 6, 10);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 23, '7b', '49587', 'Pas de claquettes!', 'Voie Sportive', NULL, NULL, 7, 4, 20);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 24, '4a', '49588', 'Schtroumpfette', 'Voie Sportive', NULL, NULL, 14, 8, 21);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 25, '3c', '49589', 'Gargamel', 'Voie Sportive', NULL, NULL, 12, 6, 21);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('SinglePitch', 26, '5c+', '49590', 'Le grand schtroumpf', 'Voie Sportive', NULL, NULL, 17, 8, 21);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('MultiPitch', 27, '6a', '49591', 'La face interne', 'Grande Voie', NULL, 2, NULL, NULL, 22);
-INSERT INTO public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) VALUES ('MultiPitch', 28, '6b', '49592', 'La face externe', 'Grande Voie', NULL, 2, NULL, NULL, 22);
+COPY public.route (dtype, id, grade, routedescription, route_name, route_type, sit_start, number_of_pitch, route_length, spit, sector_id) FROM stdin;
+Boulder	11	6a	49577	Le dé de 6	Bloc	t	\N	\N	\N	8
+Boulder	12	5c+	49578	L'angle terre	Bloc	f	\N	\N	\N	8
+Boulder	13	4+	\N	La dalle a Juju	Bloc	f	\N	\N	\N	8
+Boulder	14	8a	49579	Le toit des fous	Bloc	t	\N	\N	\N	9
+Boulder	15	5b+	49580	Le gruyere	Bloc	t	\N	\N	\N	9
+Boulder	16	6b	49581	Dent Tales	Bloc	f	\N	\N	\N	10
+SinglePitch	17	4	49582	Skoll Air	Voie Sportive	\N	\N	9	5	10
+SinglePitch	18	5a	\N	Arabesque	Voie Sportive	\N	\N	12	6	10
+SinglePitch	23	7b	49587	Pas de claquettes!	Voie Sportive	\N	\N	7	4	20
+SinglePitch	24	4a	49588	Schtroumpfette	Voie Sportive	\N	\N	14	8	21
+SinglePitch	25	3c	49589	Gargamel	Voie Sportive	\N	\N	12	6	21
+SinglePitch	26	5c+	49590	Le grand schtroumpf	Voie Sportive	\N	\N	17	8	21
+MultiPitch	27	6a	49591	La face interne	Grande Voie	\N	2	\N	\N	22
+MultiPitch	28	6b	49592	La face externe	Grande Voie	\N	2	\N	\N	22
+SinglePitch	33	5b+	18882	Gribouille	Voie Sportive	\N	\N	15	7	30
+SinglePitch	34	4b	\N	Laisse tomber, ca rebondit ...	Voie Sportive	\N	\N	7	4	30
+SinglePitch	35	5a	18883	Dévers pépère	Voie Sportive	\N	\N	7	4	30
+SinglePitch	36	7a	18884	mutant aquatique	Voie Sportive	\N	\N	15	9	30
+SinglePitch	37	6c+	18885	lucille et les libellules	Voie Sportive	\N	\N	15	8	30
+SinglePitch	38	7a+	18886	Bras de fer	Voie Sportive	\N	\N	7	12	31
+SinglePitch	39	7b	18887	Evacuation précoce	Voie Sportive	\N	\N	7	12	31
+SinglePitch	40	6a	18888	Les arts matures	Voie Sportive	\N	\N	7	10	31
+SinglePitch	41	5a	18889	Start in bloc	Voie Sportive	\N	\N	7	10	32
+Boulder	42	6b	18890	Le pas rade	Bloc	f	\N	\N	\N	32
+Boulder	43	4c	\N	le pas pas	Bloc	f	\N	\N	\N	32
+Boulder	47	6c	18894	Carnaval	Bloc	t	\N	\N	\N	45
+Boulder	48	7c	\N	Protocole	Bloc	f	\N	\N	\N	45
+Boulder	49	7a	18895	Vestiges du temps	Bloc	f	\N	\N	\N	45
+MultiPitch	50	6a+	18896	Canne de Serin	Grande Voie	\N	4	\N	\N	46
+MultiPitch	51	6a	18897	L'ours en peluche	Grande Voie	\N	12	\N	\N	46
+MultiPitch	52	5b+	18898	A bisto de nas	Grande Voie	\N	10	\N	\N	46
+\.
 
 
 --
--- TOC entry 2860 (class 0 OID 49524)
--- Dependencies: 206
+-- TOC entry 2977 (class 0 OID 18828)
+-- Dependencies: 207
 -- Data for Name: sector; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (8, '49574', 'Rocher des Fées', 7);
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (9, '49575', 'Le Mi-haut', 7);
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (10, '49576', 'Les hauteurs', 7);
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (20, '49584', 'La plage', 19);
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (21, '49585', 'L''ile aux enfants', 19);
-INSERT INTO public.sector (id, sectordescription, sector_name, place_place_id) VALUES (22, '49586', 'La face ouest', 19);
+COPY public.sector (id, sectordescription, sector_name, place_place_id) FROM stdin;
+8	49574	Rocher des Fées	7
+9	49575	Le Mi-haut	7
+10	49576	Les hauteurs	7
+20	49584	La plage	19
+21	49585	L'ile aux enfants	19
+22	49586	La face ouest	19
+30	18879	secteur 1	29
+31	18880	secteur 2	29
+32	18881	secteur 3	29
+45	18892	La cour des miracles	44
+46	18893	La dent d'Orlu	44
+\.
 
 
 --
--- TOC entry 2861 (class 0 OID 49532)
--- Dependencies: 207
+-- TOC entry 2978 (class 0 OID 18834)
+-- Dependencies: 208
 -- Data for Name: topo; Type: TABLE DATA; Schema: public; Owner: admin_escalade
 --
 
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (1, false, true, '49567', 'Votre premier 7a à vue', 'France', 2002, 'climber1@gmail.com');
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (2, false, true, '49568', 'Escalade les Calanques', 'Les Calanques', 2016, 'climber1@gmail.com');
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (3, false, true, '49569', 'Escalade au naturel dans les Hautes Pyrénées', 'Hautes Pyrénées', 2014, 'climber1@gmail.com');
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (4, false, true, '49570', 'Escalade à Fontainebleau : Les plus beaux sites', 'Fontainebleau', 2012, 'climber2@gmail.com');
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (5, false, true, '49571', 'Boulder en España', 'Espagne', 2019, 'climber2@gmail.com');
-INSERT INTO public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) VALUES (6, false, true, '49572', 'Topo des blocs Ailefroide', 'Ailefroide', 2018, 'climber2@gmail.com');
+COPY public.topo (id, booking, topo_available, topodescription, topo_name, topo_place, year, climber_email) FROM stdin;
+1	f	t	49567	Votre premier 7a à vue	France	2002	climber1@gmail.com
+2	f	t	49568	Escalade les Calanques	Les Calanques	2016	climber1@gmail.com
+3	f	t	49569	Escalade au naturel dans les Hautes Pyrénées	Hautes Pyrénées	2014	climber1@gmail.com
+4	f	t	49570	Escalade à Fontainebleau : Les plus beaux sites	Fontainebleau	2012	climber2@gmail.com
+5	f	t	49571	Boulder en España	Espagne	2019	climber2@gmail.com
+6	f	t	49572	Topo des blocs Ailefroide	Ailefroide	2018	climber2@gmail.com
+\.
 
 
 --
--- TOC entry 2895 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 3040 (class 0 OID 0)
+-- Dependencies: 204
 -- Name: hibernate_sequence; Type: SEQUENCE SET; Schema: public; Owner: admin_escalade
 --
 
-SELECT pg_catalog.setval('public.hibernate_sequence', 28, true);
+SELECT pg_catalog.setval('public.hibernate_sequence', 58, true);
 
 
 --
--- TOC entry 2889 (class 0 OID 0)
+-- TOC entry 3034 (class 0 OID 0)
 -- Data for Name: BLOBS; Type: BLOBS; Schema: -; Owner: -
 --
 
 BEGIN;
+
+SELECT pg_catalog.lo_open('18877', 131072);
+SELECT pg_catalog.lowrite(0, '\x5369746520646520626c6f6320657420646520766f6965732073706f72746976652073697475c3a92064616e73206c2748c3a97261756c742e20446570756973204c6f64c3a87665207072656e647265206c6120646972656374696f6e206465205361696e74205072697661742c207075697320636f6e74696e756572206a757371752761752076696c6c616765206465204c65732053616c6365732e2041206c27656e7472c3a9652064752076696c6c616765207072656e64726520c3a020676175636865206c65206368656d696e20696e64697175c3a92022526f63686572206465732046c3a9657322202e20417072c3a873206c652063696d657469c3a8726520617474656e64726520642761766f69722070617373c3a9206c6573206465726e69c3a87265732068616269746174696f6e7320706f7572207365206761726572206c65206c6f6e67206475206368656d696e2e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18878', 131072);
+SELECT pg_catalog.lowrite(0, '\x5365756c207369746520636f6e76656e74696f6e6ec3a92046464d45206475205461726e2e0d0a506f7572207327792072656e6472652c207269656e20646520706c75732073696d706c65203a20616c6c657a2061752076696c6c616765206465204d6f6e74526f6320657420676172657a20766f757320737572206c65207061726b696e67206465206c61206d61697269652028c3a020646973706f736974696f6e203a206561752c205743206574202e2e2e206f6d627265202120292c20656e73756974652073756976657a206c65732070616e6e6561757820696e64697175616e74206c27616363c3a87320617520736974652e0d0a44c3a970617274732064657320766f69657320c3a0206c276f6d627265206d61697320617474656e74696f6e20706f7572206c652072657374652c206c65207369746520657374206578706f73c3a920535544');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18879', 131072);
+SELECT pg_catalog.lowrite(0, '\x5072656d69c3a872652062617272652073757220766f7472652067617563686520656e206172726976616e7420706172206c65206368656d696e206f6666696369656c2e20417520626f7574206475207365637465757220766f75732074726f75766572657a20756e2070616e6e65617520696e64697175616e74206c6573203220617574726573207365637465757273206574206fc3b92074726f75766572206c6520746f706f20737572206c65206e657420286d65726369206c6520636c756220646520477261756c686574292e200d0a496369206c657320766f69657320666f6e742031356d206d6178696d756d2c206a7573746520736f7573206c612063726f69782028696e74657264696374696f6e20646520736f7274697220706172206c65206861757420212029206574206c657320636f746174696f6e7320736f6e74207072696e636970616c656d656e742064616e73206c652034206574206c652035');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18880', 131072);
+SELECT pg_catalog.lowrite(0, '\x4327657374206c6120626172726520726f6368657573652073697475c3a965206a7573746520617520646573736f7573206475206368656d696e206475207365637465757220312e20566f75732074726f75766572657a20756e2073656e7469657220706f757220792064657363656e6472652064652063686171756520636f74c3a9206475207365637465757220312e0d0a4c612068617574657572206d617820696369206573742061757373692064652031326d2070617320706c75732c2070617220636f6e74726520766f757320792074726f75766572657a2064657320636f746174696f6e7320706c75732064757265732c20647520352061752037622028636f746174696f6e206c6120706c757320c3a96c6576c3a96520c3a0204d6f6e74526f6329');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18881', 131072);
+SELECT pg_catalog.lowrite(0, '\x4c61206261727265206c6120706c757320656e2062617320647520736974652e0d0a566f69657320616c6c616e74206465203520c3a02031306d206d6178202e204c652070617261646973206465732064c3a9627574616e7473203a20706f696e74732072617070726f6368c3a965732c20636f746174696f6e7320666163696c65732028342065742035292e2e2e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18882', 131072);
+SELECT pg_catalog.lowrite(0, '\x62656c6c65206172c3aa746520656e206d61696e20676175636865');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18883', 131072);
+SELECT pg_catalog.lowrite(0, '\x4c652064c3a9766572732065737420737572746f75742064616e73206c65206e6f6d');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18884', 131072);
+SELECT pg_catalog.lowrite(0, '\x6e65207061732070617274697220c3a020676175636865202c20632765737420464249203562');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18885', 131072);
+SELECT pg_catalog.lowrite(0, '\x4fc3b920736f6e74206c6573207069656473203f');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18886', 131072);
+SELECT pg_catalog.lowrite(0, '\x4c652070617320636cc3a92065737420756e2067726f73206d6f7576206427c3a97061756c65');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18887', 131072);
+SELECT pg_catalog.lowrite(0, '\x4c6120766f6965206c6120706c75732064757265206465204d6f6e74526f63');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18888', 131072);
+SELECT pg_catalog.lowrite(0, '\x6a6f6c692070736575646f20746f697420c3a020706173736572');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18889', 131072);
+SELECT pg_catalog.lowrite(0, '\x636c696e2064276f65696c20617578204361737472616973');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18890', 131072);
+SELECT pg_catalog.lowrite(0, '\x496c2076617574206d6965757820756e2070617265757220');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18891', 131072);
+SELECT pg_catalog.lowrite(0, '\x41752066696e20666f6e64206465206c27617269c3a867652c2070617373657a204178206c657320546865726d6573206574206469726967657a20766f75732076657273204f726c752e0d0a4c657320626c6f63732073652074726f7576656e7420c3a0206c6120736f727469652064752076696c6c6167652064274f726c7520737572206c612064726f69746520287061726b696e6720696e64697175c3a92920616c6f727320717565206c6573206772616e64657320766f6965732073652074726f7576656e74206175746f7572206465204c612064656e742064274f726c752e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18892', 131072);
+SELECT pg_catalog.lowrite(0, '\x44c3a8732071756520766f757320736f727465782064752076696c6c6167652064274f726c7520766f75732074726f75766572657a2073757220766f7472652064726f69746520756e207061726b696e6720696e64697175c3a9207369746520646520626c6f63732e0d0a476172657a20766f75732069636920707569732073756976657a206c612072697669c3a8726520706f7572206172726976722061757820626c6f63732e20546f706f20656e2076656e746520c3a0206c61206d6169736f6e206465206c612072c3a973657276652e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18893', 131072);
+SELECT pg_catalog.lowrite(0, '\x556e2073697465206e61747572656c2072656d6172717561626c652c20736f6e20736f6d6d65742063756c6d696e6520c3a02032323232206dc3a8747265732e0d0a556e652063696e7175616e7461696e65206465206772616e646520766f6965732e20546f706f20656e2076656e746520c3a0206c61204d6169736f6e206465206c612052c3a973657276652e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18894', 131072);
+SELECT pg_catalog.lowrite(0, '\x6a6f6c69652070726f7565');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18895', 131072);
+SELECT pg_catalog.lowrite(0, '\x417474656e74696f6e20366d206465206861757421');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18896', 131072);
+SELECT pg_catalog.lowrite(0, '\x3230306d');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18897', 131072);
+SELECT pg_catalog.lowrite(0, '\x52617070656c2039306d20');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18898', 131072);
+SELECT pg_catalog.lowrite(0, '\x3468206427657363616c616465');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18899', 131072);
+SELECT pg_catalog.lowrite(0, '\x5365756c207369746520636f6e76656e74696f6e6ec3a92046464d45206475205461726e2e0d0a506f7572207327792072656e6472652c207269656e20646520706c75732073696d706c65203a20616c6c657a2061752076696c6c616765206465204d6f6e74526f6320657420676172657a20766f757320737572206c65207061726b696e67206465206c61206d61697269652028c3a020646973706f736974696f6e203a206561752c205743206574202e2e2e206f6d627265202120292c20656e73756974652073756976657a206c65732070616e6e6561757820696e64697175616e74206c27616363c3a87320617520736974652e0d0a44c3a970617274732064657320766f69657320c3a0206c276f6d627265206d61697320617474656e74696f6e20706f7572206c652072657374652c206c65207369746520657374206578706f73c3a920535544');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18900', 131072);
+SELECT pg_catalog.lowrite(0, '\x4d65726369206465206e652070617320766f7573206761726572206c65206c6f6e67206465206c6120726f75746520736f7573207065696e6520646520726973717565206465206665726d65747475726520647520736974652e205061726b696e6720c3a0203330306d21');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18901', 131072);
+SELECT pg_catalog.lowrite(0, '\x46616c6169736520c3a9636f6c6520636f6e76656e74696f6e6ec3a9652046464d45');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18903', 131072);
+SELECT pg_catalog.lowrite(0, '\x4d6572636920646520726573706563746572206c27696e74657264696374696f6e206465206772696d706572206c6520726f63686572206465732066c3a965732c20766f7573206176657a206465732063656e7461696e657320646520626c6f6373206175746f757220706f7572206772696d7065722021');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18904', 131072);
+SELECT pg_catalog.lowrite(0, '\x417474656e74696f6e2061757820706173736167657320737572206c61207669612066657272617461206175206465737375732064752073656374657572204c6120706c616765203a20706172666f697320646573206361696c6c6f757320746f6d62656e7421');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18905', 131072);
+SELECT pg_catalog.lowrite(0, '\x4e6964696669636174696f6e206465204772616e64204475632070726f636865206475207365637465757220332c20c3a9766974657220642779206772696d7065722061637475656c6c656d656e742c206d657263692e');
+SELECT pg_catalog.lo_close(0);
+
+SELECT pg_catalog.lo_open('18906', 131072);
+SELECT pg_catalog.lowrite(0, '\x4e276f75626c69657a207061732071752769636920766f757320c3aa74657320656e2073656374657572206d6f6e7461676e652021');
+SELECT pg_catalog.lo_close(0);
 
 SELECT pg_catalog.lo_open('49567', 131072);
 SELECT pg_catalog.lowrite(0, '\x556e652073c3a96c656374696f6e2064652037612c2064616e73206c65732064696666c3a972656e7465732072c3a967696f6e73206465204672616e63652c206164617074c3a9732061752022c3a020767565222e204963692070617320646520706173207370c3a963696669717565206e69206465206d6f7576656d656e7420646520626c6f632c207175652064657320766f6965732072c3a973692064616e73206c65206e697665617520376120706f757220666169726520766f747265207072656d69c3a872652063726f697820c3a0207675652064616e7320636574746520636f746174696f6e2e0d0a4c697672657420646973706f6e69626c652070617220636f72726573706f6e64616e63652061757072c3a873206465204d6172632056696c6c616c6f72612e');
@@ -601,7 +1049,7 @@ SELECT pg_catalog.lo_close(0);
 COMMIT;
 
 --
--- TOC entry 2714 (class 2606 OID 49499)
+-- TOC entry 2830 (class 2606 OID 18841)
 -- Name: climber climber_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -610,7 +1058,7 @@ ALTER TABLE ONLY public.climber
 
 
 --
--- TOC entry 2716 (class 2606 OID 49507)
+-- TOC entry 2832 (class 2606 OID 18843)
 -- Name: com com_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -619,7 +1067,7 @@ ALTER TABLE ONLY public.com
 
 
 --
--- TOC entry 2718 (class 2606 OID 49515)
+-- TOC entry 2834 (class 2606 OID 18845)
 -- Name: place place_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -628,7 +1076,7 @@ ALTER TABLE ONLY public.place
 
 
 --
--- TOC entry 2720 (class 2606 OID 49523)
+-- TOC entry 2836 (class 2606 OID 18847)
 -- Name: route route_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -637,7 +1085,7 @@ ALTER TABLE ONLY public.route
 
 
 --
--- TOC entry 2722 (class 2606 OID 49531)
+-- TOC entry 2838 (class 2606 OID 18849)
 -- Name: sector sector_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -646,7 +1094,7 @@ ALTER TABLE ONLY public.sector
 
 
 --
--- TOC entry 2724 (class 2606 OID 49539)
+-- TOC entry 2840 (class 2606 OID 18851)
 -- Name: topo topo_pkey; Type: CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -655,7 +1103,7 @@ ALTER TABLE ONLY public.topo
 
 
 --
--- TOC entry 2725 (class 2606 OID 49542)
+-- TOC entry 2841 (class 2606 OID 18852)
 -- Name: com fk74w6qduhhxlyfcmg617uqb7np; Type: FK CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -664,7 +1112,7 @@ ALTER TABLE ONLY public.com
 
 
 --
--- TOC entry 2726 (class 2606 OID 49547)
+-- TOC entry 2842 (class 2606 OID 18857)
 -- Name: com fkah9ns1xjigii7u9me2p3l3uas; Type: FK CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -673,7 +1121,7 @@ ALTER TABLE ONLY public.com
 
 
 --
--- TOC entry 2727 (class 2606 OID 49552)
+-- TOC entry 2843 (class 2606 OID 18862)
 -- Name: route fkcqd7iydihtx8iv1gi2dg0455y; Type: FK CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -682,7 +1130,7 @@ ALTER TABLE ONLY public.route
 
 
 --
--- TOC entry 2728 (class 2606 OID 49557)
+-- TOC entry 2844 (class 2606 OID 18867)
 -- Name: sector fkhyxgjgwbhma4oe37pbl2r7cjw; Type: FK CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -691,7 +1139,7 @@ ALTER TABLE ONLY public.sector
 
 
 --
--- TOC entry 2729 (class 2606 OID 49562)
+-- TOC entry 2845 (class 2606 OID 18872)
 -- Name: topo fkmupc8pvli3ssox7d85dmi2uhc; Type: FK CONSTRAINT; Schema: public; Owner: admin_escalade
 --
 
@@ -699,7 +1147,7 @@ ALTER TABLE ONLY public.topo
     ADD CONSTRAINT fkmupc8pvli3ssox7d85dmi2uhc FOREIGN KEY (climber_email) REFERENCES public.climber(email);
 
 
--- Completed on 2020-07-20 13:59:09
+-- Completed on 2020-07-20 16:58:59 CEST
 
 --
 -- PostgreSQL database dump complete
