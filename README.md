@@ -71,10 +71,12 @@ Après avoir créé une base de données et son propriétaire, veuillez modifier
 #
 
 
-Pour profiter des 2 scripts sql ( creation base de données et jeu de données de démonstration ) avec la configuration pré-rempli dans le code, veuillez :
+Pour profiter des 2 scripts sql ( creation base de données et jeu de données de démonstration(sites et voies en occitanie uniquement) ) avec la configuration pré-rempli dans le code, veuillez :
 
 * créer un rôle nommé admin_escalade en lui donnant les droits de création et gestion de la base de données.
 * lui attribuer AdamOndra comme mot de passe
+* utiliser les scripts dans postgreSQL
+#
 
 ###### Packaging en vue du déploiement
 
