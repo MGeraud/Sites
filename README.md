@@ -1,6 +1,6 @@
 # Sites
 
-####Application web développée dans le cadre du projet 6 du parcours développeur d'application JAVA d'OpenClassRooms.
+#### Application web développée dans le cadre du projet 6 du parcours développeur d'application JAVA d'OpenClassRooms.
 
 
 ###### Fonctionnalités
