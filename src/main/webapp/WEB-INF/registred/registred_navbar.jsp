@@ -35,6 +35,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="<c:url value="/registred/create_route"/> ">Ajout de voies</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<c:url value="/registred/logout"/> "><input type="button" class="btn btn-primary" value="Déconnexion"></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
