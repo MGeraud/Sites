@@ -6,7 +6,7 @@
 
   <groupId>org.geraud</groupId>
   <artifactId>sitesEscalade</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>war</packaging>
 
   <name>sitesEscalade</name>
@@ -20,6 +20,7 @@
   </properties>
 
   <dependencies>
+    <!-- import junit pour test unitaire en scope test pour ne pas apparaitre en production -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
